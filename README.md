@@ -1,21 +1,24 @@
-# SoulFunk
+# README
 
-A band website for the "Soul Funk Collective"
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-## MVP
+Things you may want to cover:
 
-1. Shows have a time, location, and cost
+* Ruby version
 
-2. Upcoming shows page contains all upcoming shows
+* System dependencies
 
-3. Members have a photo, name, and bio
+* Configuration
 
-4. Members are contained on "The Band" page
+* Database creation
 
-5. Contact page allows users to email the band email
+* Database initialization
 
-6. Store page contains band stickers
+* How to run the test suite
 
-7. Users can add items to cart
+* Services (job queues, cache servers, search engines, etc.)
 
-8. Users can order items by providing email, shipping info, and payment info
+* Deployment instructions
+
+* ...
