@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_07_150454) do
+ActiveRecord::Schema.define(version: 2020_03_08_043346) do
+
+  create_table "administrators", force: :cascade do |t|
+    t.string "username", null: false
+    t.string "password", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["username"], name: "index_administrators_on_username"
+  end
 
   create_table "members", force: :cascade do |t|
     t.string "name", null: false
