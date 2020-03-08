@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_08_043346) do
+ActiveRecord::Schema.define(version: 2020_03_08_043913) do
 
   create_table "administrators", force: :cascade do |t|
     t.string "username", null: false
@@ -25,6 +25,12 @@ ActiveRecord::Schema.define(version: 2020_03_08_043346) do
     t.text "bio", null: false
     t.string "image", null: false
     t.index ["name"], name: "index_members_on_name"
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.string "photo_url", null: false
+    t.text "description"
+    t.index ["photo_url"], name: "index_photos_on_photo_url"
   end
 
   create_table "shows", force: :cascade do |t|
