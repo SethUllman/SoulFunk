@@ -21,3 +21,7 @@ A band website for the "Soul Funk Collective"
 7. Users can add items to cart
 
 8. Users can order items by providing email, shipping info, and payment info
+
+9. Administrators can log in 
+
+10. Logged in administrators can add/delete shows, update/add/delete members, upload/delete photos from gallery
