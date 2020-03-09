@@ -1,15 +1,16 @@
 class Api::MembersController < ApplicationController
   
-  def index
+  def index #works
     @members = Member.all 
     render json: @members
   end
 
-  def new
+  def new #works
     @member = Member.new
   end
 
-  def create
+  def create #works
+    @members = Member.all
     @member = Member.new(member_params)
     if @member.save
       render :index
