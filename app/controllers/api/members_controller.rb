@@ -1,32 +1,37 @@
 class Api::MembersController < ApplicationController
   
-  def index #works
+  def index
     @members = Member.all 
-    render json: @members
+    debugger
+    render :index
   end
 
-  def new #works
+  def show
+    @member = Member.find(params[:id])
+  end
+
+  def new
     @member = Member.new
   end
 
-  def create #works
+  def create
     @members = Member.all
     @member = Member.new(member_params)
     if @member.save
-      render :index
+      render :show
     else
       render json: @member.errors.full_messages, status: 422
     end
   end
 
-  def edit 
+  def edit
     @member = Member.find(params[:id])
   end
 
-  def update
+  def update 
     @member = Member.find(params[:id])
     if @member.update(member_params)
-      render :index
+      render :show
     else
       flash.now[:errors] = @member.errors.full_messages
       render :edit
@@ -34,6 +39,7 @@ class Api::MembersController < ApplicationController
   end
 
   def destroy
+    @members = Member.all
     @member = Member.find(params[:id])
     @member.delete
     render :index

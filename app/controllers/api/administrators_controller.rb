@@ -1,6 +1,7 @@
 class Api::AdministratorsController < ApplicationController
   def create
     @user = Administrator.new(user_params)
+    debugger
     if @user.save
       login(@user)
       render json: @user

@@ -1,5 +1,6 @@
-@members.each do |member|
-  json.set! :name, member.name
-  json.set! :bio, member.bio
-  json.set! :image, member.image
+json.array! @members do |member|
+  json.id member.id
+  json.name member.name
+  json.bio member.bio
+  json.image member.image
 end
