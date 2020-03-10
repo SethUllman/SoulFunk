@@ -2,7 +2,6 @@ class Api::MembersController < ApplicationController
   
   def index
     @members = Member.all 
-    debugger
     render :index
   end
 
@@ -15,7 +14,6 @@ class Api::MembersController < ApplicationController
   end
 
   def create
-    @members = Member.all
     @member = Member.new(member_params)
     if @member.save
       render :show
