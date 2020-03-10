@@ -2,7 +2,7 @@ export const postAdmin = admin => {
   return $.ajax({
     url: '/api/administrators',
     method: 'POST',
-    data: { user }
+    data: { admin }
   })
 }
 
