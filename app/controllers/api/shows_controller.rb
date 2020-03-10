@@ -4,7 +4,11 @@ class Api::ShowsController < ApplicationController
     @show = Show.new
   end
 
-  def create
+  def index
+    @shows = Show.all
+  end
+
+  def create #works
     @show = Show.new(show_params)
     if @show.save
       render :show
