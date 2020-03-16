@@ -133,6 +133,28 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./frontend/reducers/root.js":
+/*!***********************************!*\
+  !*** ./frontend/reducers/root.js ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+!(function webpackMissingModule() { var e = new Error("Cannot find module './session'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+!(function webpackMissingModule() { var e = new Error("Cannot find module './errors_reducer'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
+  session: !(function webpackMissingModule() { var e = new Error("Cannot find module './session'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  errors: !(function webpackMissingModule() { var e = new Error("Cannot find module './errors_reducer'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())
+}));
+
+/***/ }),
+
 /***/ "./frontend/soulfunk.jsx":
 /*!*******************************!*\
   !*** ./frontend/soulfunk.jsx ***!
@@ -184,7 +206,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var redux_logger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux-logger */ "./node_modules/redux-logger/dist/redux-logger.js");
 /* harmony import */ var redux_logger__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(redux_logger__WEBPACK_IMPORTED_MODULE_1__);
-!(function webpackMissingModule() { var e = new Error("Cannot find module '../reducers/root'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _reducers_root__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../reducers/root */ "./frontend/reducers/root.js");
 !(function webpackMissingModule() { var e = new Error("Cannot find module '../thunk/thunk'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 
 
@@ -193,7 +215,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var configureStore = function configureStore() {
   var preloadedState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(!(function webpackMissingModule() { var e = new Error("Cannot find module '../reducers/root'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), preloadedState, Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(!(function webpackMissingModule() { var e = new Error("Cannot find module '../thunk/thunk'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), redux_logger__WEBPACK_IMPORTED_MODULE_1___default.a));
+  return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducers_root__WEBPACK_IMPORTED_MODULE_3__["default"], preloadedState, Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(!(function webpackMissingModule() { var e = new Error("Cannot find module '../thunk/thunk'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), redux_logger__WEBPACK_IMPORTED_MODULE_1___default.a));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (configureStore);
