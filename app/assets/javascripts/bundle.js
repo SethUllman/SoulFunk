@@ -86,6 +86,65 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./frontend/actions/session_actions.js":
+/*!*********************************************!*\
+  !*** ./frontend/actions/session_actions.js ***!
+  \*********************************************/
+/*! exports provided: RECEIVE_CURRENT_ADMIN, LOGOUT_CURRENT_ADMIN, RECEIVE_SESSION_ERRORS, login, logout */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_CURRENT_ADMIN", function() { return RECEIVE_CURRENT_ADMIN; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOGOUT_CURRENT_ADMIN", function() { return LOGOUT_CURRENT_ADMIN; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_SESSION_ERRORS", function() { return RECEIVE_SESSION_ERRORS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "login", function() { return login; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logout", function() { return logout; });
+/* harmony import */ var _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/session_api_util */ "./frontend/util/session_api_util.js");
+
+var RECEIVE_CURRENT_ADMIN = 'RECEIVE_CURRENT_ADMIN';
+var LOGOUT_CURRENT_ADMIN = 'LOGOUT_CURRENT_ADMIN';
+var RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
+
+var receiveCurrentAdmin = function receiveCurrentAdmin(admin) {
+  return {
+    type: RECEIVE_CURRENT_ADMIN,
+    admin: admin
+  };
+};
+
+var logoutCurrentAdmin = function logoutCurrentAdmin() {
+  return {
+    type: LOGOUT_CURRENT_ADMIN
+  };
+};
+
+var receiveSessionErrors = function receiveSessionErrors(errors) {
+  return {
+    type: RECEIVE_SESSION_ERRORS,
+    errors: errors
+  };
+};
+
+var login = function login(admin) {
+  return function (dispatch) {
+    return Object(_util_session_api_util__WEBPACK_IMPORTED_MODULE_0__["postSession"])(admin).then(function (admin) {
+      return dispatch(receiveCurrentAdmin(admin));
+    }, function (err) {
+      return dispatch(receiveSessionErrors(err.responseJSON));
+    });
+  };
+};
+var logout = function logout() {
+  return function (dispatch) {
+    return Object(_util_session_api_util__WEBPACK_IMPORTED_MODULE_0__["deleteSession"])().then(function () {
+      return dispatch(logoutCurrentAdmin());
+    });
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/components/app.jsx":
 /*!*************************************!*\
   !*** ./frontend/components/app.jsx ***!
@@ -143,15 +202,77 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
-!(function webpackMissingModule() { var e = new Error("Cannot find module './session'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-!(function webpackMissingModule() { var e = new Error("Cannot find module './errors_reducer'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _sessions_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sessions_reducer */ "./frontend/reducers/sessions_reducer.js");
+/* harmony import */ var _session_errors_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./session_errors_reducer */ "./frontend/reducers/session_errors_reducer.js");
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  session: !(function webpackMissingModule() { var e = new Error("Cannot find module './session'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
-  errors: !(function webpackMissingModule() { var e = new Error("Cannot find module './errors_reducer'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())
+  session: _sessions_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
+  errors: _session_errors_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
 }));
+
+/***/ }),
+
+/***/ "./frontend/reducers/session_errors_reducer.js":
+/*!*****************************************************!*\
+  !*** ./frontend/reducers/session_errors_reducer.js ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/session_actions */ "./frontend/actions/session_actions.js");
+
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+
+  switch (action.type) {
+    case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_SESSION_ERRORS"]:
+      return action.errors;
+
+    default:
+      return state;
+  }
+});
+
+/***/ }),
+
+/***/ "./frontend/reducers/sessions_reducer.js":
+/*!***********************************************!*\
+  !*** ./frontend/reducers/sessions_reducer.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/session_actions */ "./frontend/actions/session_actions.js");
+
+var _nullSession = {
+  currentAdmin: null
+};
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _nullSession;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+
+  switch (action.type) {
+    case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_ADMIN"]:
+      return Object.assign({}, {
+        currentAdmin: action.user.admin
+      });
+
+    case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["LOGOUT_CURRENT_ADMIN"]:
+      return state;
+
+    default:
+      return state;
+  }
+});
 
 /***/ }),
 
@@ -207,7 +328,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux_logger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux-logger */ "./node_modules/redux-logger/dist/redux-logger.js");
 /* harmony import */ var redux_logger__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(redux_logger__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _reducers_root__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../reducers/root */ "./frontend/reducers/root.js");
-!(function webpackMissingModule() { var e = new Error("Cannot find module '../thunk/thunk'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _thunk_thunk__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../thunk/thunk */ "./frontend/thunk/thunk.js");
 
 
 
@@ -215,10 +336,76 @@ __webpack_require__.r(__webpack_exports__);
 
 var configureStore = function configureStore() {
   var preloadedState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducers_root__WEBPACK_IMPORTED_MODULE_3__["default"], preloadedState, Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(!(function webpackMissingModule() { var e = new Error("Cannot find module '../thunk/thunk'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), redux_logger__WEBPACK_IMPORTED_MODULE_1___default.a));
+  return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducers_root__WEBPACK_IMPORTED_MODULE_3__["default"], preloadedState, Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(_thunk_thunk__WEBPACK_IMPORTED_MODULE_4__["default"], redux_logger__WEBPACK_IMPORTED_MODULE_1___default.a));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (configureStore);
+
+/***/ }),
+
+/***/ "./frontend/thunk/thunk.js":
+/*!*********************************!*\
+  !*** ./frontend/thunk/thunk.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var thunk = function thunk(_ref) {
+  var dispatch = _ref.dispatch,
+      getState = _ref.getState;
+  return function (next) {
+    return function (action) {
+      if (typeof action === 'function') {
+        return action(dispatch, getState);
+      }
+
+      return next(action);
+    };
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (thunk);
+
+/***/ }),
+
+/***/ "./frontend/util/session_api_util.js":
+/*!*******************************************!*\
+  !*** ./frontend/util/session_api_util.js ***!
+  \*******************************************/
+/*! exports provided: postAdmin, postSession, deleteSession */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "postAdmin", function() { return postAdmin; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "postSession", function() { return postSession; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteSession", function() { return deleteSession; });
+var postAdmin = function postAdmin(admin) {
+  return $.ajax({
+    url: '/api/administrators',
+    method: 'POST',
+    data: {
+      admin: admin
+    }
+  });
+};
+var postSession = function postSession(user) {
+  return $.ajax({
+    url: '/api/session',
+    method: 'POST',
+    data: {
+      user: user
+    }
+  });
+};
+var deleteSession = function deleteSession() {
+  return $.ajax({
+    url: '/api/session',
+    method: 'DELETE'
+  });
+};
 
 /***/ }),
 
