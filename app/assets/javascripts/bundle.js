@@ -434,7 +434,7 @@ var mapStateToProps = function mapStateToProps(state) {
 };
 
 var Auth = function Auth(_ref) {
-  var Compnent = _ref.component,
+  var Component = _ref.component,
       path = _ref.path,
       loggedIn = _ref.loggedIn;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {

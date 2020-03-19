@@ -7,4 +7,4 @@ export default () => (
   <Switch>
     <AuthRoute path="/home" component={Login} />
   </Switch>
-)
+);

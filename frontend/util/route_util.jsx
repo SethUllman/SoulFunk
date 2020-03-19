@@ -6,7 +6,7 @@ const mapStateToProps = state => ({
   loggedIn: Boolean(state.session.currentAdmin)
 });
 
-const Auth = ({ component: Compnent, path,loggedIn }) => (
+const Auth = ({ component: Component, path,loggedIn }) => (
   <Route
     path={path}
     render={props => (
