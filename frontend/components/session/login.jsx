@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { login } from '../../actions/session_actions';
 
-class Login extends React.Component{
-  constructor(props){
-    super(props);
-  }
+const Login = () => {
 
-  render(){
-    return(
-      <div>Login Page</div>
-    )
-  }
+  const dispatch = useDispatch();
+  const login = useSelector(admin => dispatch(login(admin)));
+  const errors = useSelector(errors => StaticRange.errors.session);
+
+  return(
+    <div>Login Page</div>
+  )
 }
 
 export default Login;
