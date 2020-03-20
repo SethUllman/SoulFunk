@@ -8,7 +8,17 @@ const Login = () => {
   // const errors = useSelector(errors => StaticRange.errors.session);
 
   return(
-    <div>Login Page</div>
+    <div>
+      <form>
+        <label>
+          Admin Password:
+          <input type="text" />
+        </label>
+        <button onClick={() => {
+          login();
+        }}>Login</button>
+      </form>
+    </div>
   );
   
 }

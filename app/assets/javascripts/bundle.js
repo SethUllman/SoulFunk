@@ -308,7 +308,13 @@ __webpack_require__.r(__webpack_exports__);
 var Login = function Login() {
   // const dispatch = useDispatch();
   // const errors = useSelector(errors => StaticRange.errors.session);
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Login Page");
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Admin Password:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "text"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: function onClick() {
+      Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["login"])();
+    }
+  }, "Login")));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Login);
