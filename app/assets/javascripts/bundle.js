@@ -246,9 +246,7 @@ __webpack_require__.r(__webpack_exports__);
 var Nav = function Nav() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "#/home"
-  }, "Home")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Shows"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Gallery"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "The Band"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Contact"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: "#/login"
-  }, "login"))));
+  }, "Home")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Shows"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Gallery"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "The Band"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Contact")));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Nav);

@@ -11,7 +11,6 @@ const Nav = () => {
         <li>Gallery</li>
         <li>The Band</li>
         <li>Contact</li>
-        <li><a href="#/login">login</a></li>
       </ul>
     </div>
   );
