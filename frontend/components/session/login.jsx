@@ -6,12 +6,12 @@ const Login = () => {
   
   const dispatch = useDispatch();
 
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
     e.preentDefault();
-    const user = Object.assign({}, {email: email, password: password});
+    const user = Object.assign({}, {username: username, password: password});
     dispatch(login(user));
   }
 
@@ -19,8 +19,8 @@ const Login = () => {
     <div>
       <form>
         <label>
-          Admin Email:
-          <input type="text" value={email} onChange={ (e) => setEmail(e.target.value) }/>
+          Admin Username:
+          <input type="text" value={username} onChange={ (e) => setUsername(e.target.value) }/>
         </label>
         <label>
           Admin Password:

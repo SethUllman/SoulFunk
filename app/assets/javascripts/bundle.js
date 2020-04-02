@@ -316,10 +316,10 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var Login = function Login() {
   var dispatch = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useDispatch"])();
 
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(""),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
       _useState2 = _slicedToArray(_useState, 2),
-      email = _useState2[0],
-      setEmail = _useState2[1];
+      username = _useState2[0],
+      setUsername = _useState2[1];
 
   var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(""),
       _useState4 = _slicedToArray(_useState3, 2),
@@ -329,17 +329,17 @@ var Login = function Login() {
   var handleSubmit = function handleSubmit(e) {
     e.preentDefault();
     var user = Object.assign({}, {
-      email: email,
+      username: username,
       password: password
     });
     dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["login"])(user));
   };
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Admin Email:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Admin Username:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     type: "text",
-    value: email,
+    value: username,
     onChange: function onChange(e) {
-      return setEmail(e.target.value);
+      return setUsername(e.target.value);
     }
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Admin Password:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     type: "text",
