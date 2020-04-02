@@ -327,12 +327,12 @@ var Login = function Login() {
       setPassword = _useState4[1];
 
   var handleSubmit = function handleSubmit(e) {
-    e.preentDefault();
-    var user = Object.assign({}, {
+    // e.preventDefault();
+    var admin = Object.assign({}, {
       username: username,
       password: password
     });
-    dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["login"])(user));
+    dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["login"])(admin));
   };
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Admin Username:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -590,12 +590,12 @@ var postAdmin = function postAdmin(admin) {
     }
   });
 };
-var postSession = function postSession(user) {
+var postSession = function postSession(administrator) {
   return $.ajax({
     url: '/api/session',
     method: 'POST',
     data: {
-      user: user
+      administrator: administrator
     }
   });
 };

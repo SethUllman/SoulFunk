@@ -6,11 +6,11 @@ export const postAdmin = admin => {
   })
 }
 
-export const postSession = user => {
+export const postSession = administrator => {
   return $.ajax({
     url: '/api/session',
     method: 'POST',
-    data: { user }
+    data: { administrator }
   })
 }
 
