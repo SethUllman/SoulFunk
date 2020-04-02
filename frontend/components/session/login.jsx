@@ -7,9 +7,15 @@ const Login = () => {
   // const dispatch = useDispatch();
   // const errors = useSelector(errors => StaticRange.errors.session);
 
+  const [email, password] = useState(0);
+
   return(
     <div>
       <form>
+        <label>
+          Admin Email:
+          <input type="text" />
+        </label>
         <label>
           Admin Password:
           <input type="text" />
