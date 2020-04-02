@@ -4,11 +4,16 @@ import { login } from '../../actions/session_actions';
 
 const Login = () => {
   
-  // const dispatch = useDispatch();
-  // const errors = useSelector(errors => StaticRange.errors.session);
+  const dispatch = useDispatch();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  handleSubmit = (e) => {
+    e.preentDefault();
+    const user = Object.assign({}, {email: email, password: password});
+    dispatch(login(user));
+  }
 
   return(
     <div>
@@ -22,7 +27,7 @@ const Login = () => {
           <input type="text" value={password} onChange={ (e) => setPassword(e.target.value)} />
         </label>
         <button onClick={() => {
-          login();
+          handleSubmit();
         }}>Login</button>
       </form>
     </div>
