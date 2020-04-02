@@ -9,7 +9,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preentDefault();
     const user = Object.assign({}, {email: email, password: password});
     dispatch(login(user));

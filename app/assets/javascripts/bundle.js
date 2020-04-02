@@ -326,7 +326,7 @@ var Login = function Login() {
       password = _useState4[0],
       setPassword = _useState4[1];
 
-  handleSubmit = function handleSubmit(e) {
+  var handleSubmit = function handleSubmit(e) {
     e.preentDefault();
     var user = Object.assign({}, {
       email: email,
