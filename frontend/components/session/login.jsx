@@ -15,7 +15,7 @@ const Login = () => {
       <form>
         <label>
           Admin Email:
-          <input type="text" value={email}/>
+          <input type="text" value={email} onChange={ (e) => setEmail(e.target.value) }/>
         </label>
         <label>
           Admin Password:

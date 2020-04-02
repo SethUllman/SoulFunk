@@ -328,7 +328,10 @@ var Login = function Login() {
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Admin Email:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     type: "text",
-    value: email
+    value: email,
+    onChange: function onChange(e) {
+      return setEmail(e.target.value);
+    }
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Admin Password:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     type: "text",
     value: password,
