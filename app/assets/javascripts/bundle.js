@@ -316,15 +316,25 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var Login = function Login() {
   // const dispatch = useDispatch();
   // const errors = useSelector(errors => StaticRange.errors.session);
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(0),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(""),
       _useState2 = _slicedToArray(_useState, 2),
       email = _useState2[0],
-      password = _useState2[1];
+      setEmail = _useState2[1];
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(""),
+      _useState4 = _slicedToArray(_useState3, 2),
+      password = _useState4[0],
+      setPassword = _useState4[1];
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Admin Email:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "text"
+    type: "text",
+    value: email
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Admin Password:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "text"
+    type: "text",
+    value: password,
+    onChange: function onChange(e) {
+      return setPassword(e.target.value);
+    }
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     onClick: function onClick() {
       Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["login"])();

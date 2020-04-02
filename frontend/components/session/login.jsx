@@ -7,18 +7,19 @@ const Login = () => {
   // const dispatch = useDispatch();
   // const errors = useSelector(errors => StaticRange.errors.session);
 
-  const [email, password] = useState(0);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   return(
     <div>
       <form>
         <label>
           Admin Email:
-          <input type="text" />
+          <input type="text" value={email}/>
         </label>
         <label>
           Admin Password:
-          <input type="text" />
+          <input type="text" value={password} onChange={ (e) => setPassword(e.target.value)} />
         </label>
         <button onClick={() => {
           login();
