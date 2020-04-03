@@ -1,34 +1,44 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { login } from '../../actions/session_actions';
 
 const Login = () => {
   
   const dispatch = useDispatch();
-
+  const history = useHistory();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState("");
+  const currentAdmin = useSelector(state => state.currentAdmin);
 
   const handleSubmit = (e) => {
-    // e.preventDefault();
+    
     const admin = Object.assign({}, {username: username, password: password});
     dispatch(login(admin));
+    history.push('/shows')
   }
 
   return(
     <div>
-      <form>
+      <form onSubmit={handleSubmit}>
+        
         <label>
           Admin Username:
-          <input type="text" value={username} onChange={ (e) => setUsername(e.target.value) }/>
+          <input 
+            type="text" 
+            value={username} 
+            onChange={ (e) => setUsername(e.target.value) }
+          />
         </label>
         <label>
           Admin Password:
-          <input type="text" value={password} onChange={ (e) => setPassword(e.target.value)} />
+          <input 
+            type="text" 
+            value={password} 
+            onChange={ (e) => setPassword(e.target.value)} 
+          />
         </label>
-        <button onClick={() => {
-          handleSubmit();
-        }}>Login</button>
+        <input type='submit' value='login' />
       </form>
     </div>
   );
