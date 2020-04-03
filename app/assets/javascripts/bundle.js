@@ -425,11 +425,12 @@ var _nullSession = {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _nullSession;
   var action = arguments.length > 1 ? arguments[1] : undefined;
   Object.freeze(state);
+  debugger;
 
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_ADMIN"]:
       return Object.assign({}, {
-        currentAdmin: action.user.admin
+        currentAdmin: action.admin.currentAdmin
       });
 
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["LOGOUT_CURRENT_ADMIN"]:

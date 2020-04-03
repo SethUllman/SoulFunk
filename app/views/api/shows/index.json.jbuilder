@@ -4,3 +4,4 @@ json.array! @shows do |show|
   json.time show.time
   json.charge show.charge
 end
+
