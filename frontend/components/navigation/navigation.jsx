@@ -1,13 +1,23 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { logout } from '../../actions/session_actions';
 
 const Nav = () => {
+
+  const dispatch = useDispatch();
 
   const loggedIn = () => {
     const currentAdmin = useSelector(state => state.session.currentAdmin);
     if (currentAdmin){
-      return <h3>{`Welcome ${currentAdmin.username}!`}</h3>
+      return (
+        <div>
+          <h3>{`Welcome ${currentAdmin.username}!`}</h3>
+          <button onClick={() => {
+            dispatch(logout);
+          }}>Logout</button>
+        </div>
+      )
     }
   }
 

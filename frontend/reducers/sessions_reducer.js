@@ -10,6 +10,7 @@ export default (state = _nullSession, action) => {
     case RECEIVE_CURRENT_ADMIN:
       return Object.assign({}, { currentAdmin: action.admin.currentAdmin});
     case LOGOUT_CURRENT_ADMIN:
+      debugger;
       return state;
     default:
       return state;
