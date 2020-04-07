@@ -15,6 +15,7 @@ export const postSession = administrator => {
 }
 
 export const deleteSession = () => {
+  debugger;
   return $.ajax({
     url: '/api/session',
     method: 'DELETE'

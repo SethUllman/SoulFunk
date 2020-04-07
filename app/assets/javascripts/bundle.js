@@ -212,7 +212,7 @@ var footer = function footer() {
     if (currentAdmin) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: function onClick() {
-          dispatch(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["logout"]);
+          dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["logout"])());
         }
       }, "Logout"));
     } else {
@@ -646,6 +646,7 @@ var postSession = function postSession(administrator) {
   });
 };
 var deleteSession = function deleteSession() {
+  debugger;
   return $.ajax({
     url: '/api/session',
     method: 'DELETE'

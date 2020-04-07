@@ -12,7 +12,7 @@ const footer = () => {
       return (
         <div>
           <button onClick={() => {
-            dispatch(logout);
+            dispatch(logout());
           }}>Logout</button>
         </div>
       )
