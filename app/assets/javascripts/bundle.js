@@ -210,7 +210,7 @@ var footer = function footer() {
     });
 
     if (currentAdmin) {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Welcome ".concat(currentAdmin.username, "!")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: function onClick() {
           dispatch(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["logout"]);
         }

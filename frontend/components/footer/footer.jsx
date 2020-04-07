@@ -11,7 +11,6 @@ const footer = () => {
     if (currentAdmin) {
       return (
         <div>
-          <h3>{`Welcome ${currentAdmin.username}!`}</h3>
           <button onClick={() => {
             dispatch(logout);
           }}>Logout</button>
