@@ -646,7 +646,6 @@ var postSession = function postSession(administrator) {
   });
 };
 var deleteSession = function deleteSession() {
-  debugger;
   return $.ajax({
     url: '/api/session',
     method: 'DELETE'
