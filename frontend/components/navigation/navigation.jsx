@@ -7,15 +7,12 @@ const Nav = () => {
 
   const dispatch = useDispatch();
 
-  const loggedIn = () => {
+  const welcomeMessage = () => {
     const currentAdmin = useSelector(state => state.session.currentAdmin);
     if (currentAdmin){
       return (
         <div>
           <h3>{`Welcome ${currentAdmin.username}!`}</h3>
-          <button onClick={() => {
-            dispatch(logout);
-          }}>Logout</button>
         </div>
       )
     }
@@ -23,7 +20,7 @@ const Nav = () => {
 
   return(
     <div>
-      <div>{loggedIn()}</div>
+      <div>{welcomeMessage()}</div>
       <ul>
         <li><a href="#/home">Home</a></li>
         <li><a href="#/shows">Shows</a></li>
