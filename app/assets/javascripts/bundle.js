@@ -479,7 +479,7 @@ var _nullSession = {
       });
 
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["LOGOUT_CURRENT_ADMIN"]:
-      return state;
+      return _nullSession;
 
     default:
       return state;
