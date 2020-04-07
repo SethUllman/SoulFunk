@@ -29,5 +29,5 @@ export const login = admin => dispatch => (postSession(admin)
     dispatch(receiveSessionErrors(err.responseJSON))
   )));
 
-export const logout = () => dispatch => deleteSession()
-    .then( () => dispatch(logoutCurrentAdmin()));
+export const logout = () => dispatch => (deleteSession()
+    .then( () => dispatch(logoutCurrentAdmin())));
