@@ -508,9 +508,23 @@ __webpack_require__.r(__webpack_exports__);
 
 
 document.addEventListener("DOMContentLoaded", function () {
-  var preloadedState = undefined;
+  var store;
+
+  if (window.currentAdmin) {
+    var _window = window,
+        currentAdmin = _window.currentAdmin;
+    var preloadedState = {
+      session: {
+        currentAdmin: currentAdmin
+      }
+    };
+    store = Object(_store_store__WEBPACK_IMPORTED_MODULE_3__["default"])(preloadedState);
+    delete window.currentAdmin;
+  } else {
+    store = Object(_store_store__WEBPACK_IMPORTED_MODULE_3__["default"])();
+  }
+
   var root = document.getElementById('root');
-  var store = Object(_store_store__WEBPACK_IMPORTED_MODULE_3__["default"])(preloadedState);
   _node_modules_react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(_node_modules_react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_2__["default"], {
     store: store
   }), root);

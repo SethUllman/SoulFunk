@@ -5,9 +5,21 @@ import configureStore from './store/store';
 
 
 document.addEventListener("DOMContentLoaded", () => {
-  let preloadedState = undefined;
+  let store;
+  if (window.currentAdmin) {
+    const { currentAdmin } = window;
+    const preloadedState = {
+      session: {
+        currentAdmin: currentAdmin
+      }
+    };
+    store = configureStore(preloadedState);
+    delete window.currentAdmin;
+
+  } else {
+    store = configureStore();
+  }
   
   const root = document.getElementById('root');
-  const store = configureStore(preloadedState);
   ReactDOM.render(<Root store={store}/>, root);
-})
+});

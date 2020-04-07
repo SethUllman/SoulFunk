@@ -7,10 +7,12 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <% if logged_in? %>
-      <script type="text/javascript">
-          window.currentAdmin =
-            <%= render("api/admins/show.json.jbuilder", currentAdmin: current_user).html_safe %>
+    <% if current_user %>
+      <script>
+        debugger
+        window.currentAdmin = {
+          username: "<%= current_user.username %>"
+        }
       </script>
     <% end %>
   </head>
