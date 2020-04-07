@@ -377,7 +377,7 @@ var Login = function Login() {
       password: password
     });
     dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_3__["login"])(admin));
-    history.push('/shows');
+    history.push('/home');
   };
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
