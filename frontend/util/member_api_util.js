@@ -5,3 +5,10 @@ export const postMember = member => {
     data: { member }
   })
 }
+
+export const removeMember = memberId => {
+  return $.ajax({
+    url: `/api/members/${memberId}`,
+    method: 'DELETE'
+  })
+}
