@@ -12,3 +12,11 @@ export const removeMember = memberId => {
     method: 'DELETE'
   })
 }
+
+export const updateMember = member => {
+  return $.ajax({
+    url: `/api/members/${member.id}`,
+    method: 'PATCH',
+    data: member
+  })
+}
