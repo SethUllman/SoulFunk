@@ -1,12 +1,20 @@
-import {postMember, removeMember, updateMember} from '../util/member_api_util';
+import * as APIUtil from '../util/member_api_util';
 
 export const RECEIVE_MEMBERS = 'RECEIVE_MEMBERS';
+export const CREATE_MEMBER = 'CREATE_MEMBER';
 export const REMOVE_MEMBER = 'REMOVE_MEMBER';
 export const UPDATE_MEMBER = 'UPDATE_MEMBER';
 
-const receiveMember = member => {
+const receiveMembers = members => {
   return {
-    type: RECEIVE_MEMBER,
+    type: RECEIVE_MEMBERS,
+    members
+  }
+}
+
+const createMember = member => {
+  return {
+    type: CREATE_MEMBER,
     member
   }
 }
@@ -24,4 +32,6 @@ const updateMember = member => {
     member
   }
 }
+
+
 
