@@ -1,4 +1,5 @@
 import * as APIUtil from '../util/member_api_util';
+import { create } from 'domain';
 
 export const RECEIVE_MEMBERS = 'RECEIVE_MEMBERS';
 export const CREATE_MEMBER = 'CREATE_MEMBER';
@@ -33,5 +34,23 @@ const updateMember = member => {
   }
 }
 
+export const fetchMembers = () => dispatch => {
+  return APIUtile.fetchMembers()
+    .then((members) => dispatch(receiveMembers(members)));
+}
 
+export const addMember = (member) => dispatch => {
+  return APIUtil.createMember(member)
+    .then(member => dispatch(createMember(member)));
+}
+
+export const deleteMember = (memberId) => dispatch => {
+  return APIUtil.removeMember(memberId)
+    .then(memberId => dispatch(removeMember(memberId)));
+}
+
+export const patchMember = (member) => dispatch => {
+  return APIUtil.updateMember(member)
+    .then(member => dispatch(updateMember(member)));
+}
 
