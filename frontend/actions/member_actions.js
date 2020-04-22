@@ -4,3 +4,23 @@ export const RECEIVE_MEMBER = 'RECEIVE_MEMBER';
 export const REMOVE_MEMBER = 'REMOVE_MEMBER';
 export const UPDATE_MEMBER = 'UPDATE_MEMBER';
 
+const receiveMember = member => {
+  return {
+    type: RECEIVE_MEMBER,
+    member
+  }
+}
+
+const removeMember = memberId => {
+  return {
+    type: REMOVE_MEMBER,
+    memberId
+  }
+}
+
+const updateMember = member => {
+  return {
+    type: UPDATE_MEMBER,
+    member
+  }
+}
