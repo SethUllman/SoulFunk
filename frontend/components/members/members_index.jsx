@@ -21,3 +21,5 @@ const membersIndex = () => {
     </div>
   );
 }
+
+export default membersIndex;
