@@ -25,7 +25,7 @@ const Nav = () => {
         <li><a href="#/home">Home</a></li>
         <li><a href="#/shows">Shows</a></li>
         <li><a href="#/gallery">Gallery</a></li>
-        <li><a href="#/band">The Band</a></li>
+        <li><a href="#/members">The Band</a></li>
         <li><a href="#/contact">Contact</a></li>
       </ul>
     </div>
