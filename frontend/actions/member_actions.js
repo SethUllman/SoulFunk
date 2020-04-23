@@ -35,12 +35,12 @@ const updateMember = member => {
 }
 
 export const fetchMembers = () => dispatch => {
-  return APIUtile.fetchMembers()
+  return APIUtil.fetchMembers()
     .then((members) => dispatch(receiveMembers(members)));
 }
 
 export const addMember = (member) => dispatch => {
-  return APIUtil.createMember(member)
+  return APIUtil.postMember(member)
     .then(member => dispatch(createMember(member)));
 }
 
