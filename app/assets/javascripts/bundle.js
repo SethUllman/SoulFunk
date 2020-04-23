@@ -530,6 +530,44 @@ var Login = function Login() {
 
 /***/ }),
 
+/***/ "./frontend/reducers/members_reducer.js":
+/*!**********************************************!*\
+  !*** ./frontend/reducers/members_reducer.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_member_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/member_actions */ "./frontend/actions/member_actions.js");
+
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+
+  switch (action.type) {
+    case _actions_member_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_MEMBERS"]:
+      return Object.assign({}, {
+        members: action.members
+      });
+
+    case _actions_member_actions__WEBPACK_IMPORTED_MODULE_0__["CREATE_MEMBER"]:
+      return state;
+
+    case _actions_member_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_MEMBER"]:
+      return state;
+
+    case _actions_member_actions__WEBPACK_IMPORTED_MODULE_0__["UPDATE_MEMBER"]:
+      return state;
+
+    default:
+      return state;
+  }
+});
+
+/***/ }),
+
 /***/ "./frontend/reducers/root.js":
 /*!***********************************!*\
   !*** ./frontend/reducers/root.js ***!
@@ -542,10 +580,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _sessions_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sessions_reducer */ "./frontend/reducers/sessions_reducer.js");
 /* harmony import */ var _session_errors_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./session_errors_reducer */ "./frontend/reducers/session_errors_reducer.js");
+/* harmony import */ var _members_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./members_reducer */ "./frontend/reducers/members_reducer.js");
+
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
+  members: _members_reducer__WEBPACK_IMPORTED_MODULE_3__["default"],
   session: _sessions_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
   errors: _session_errors_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
 }));
