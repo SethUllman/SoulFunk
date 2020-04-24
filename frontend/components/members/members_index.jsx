@@ -11,7 +11,6 @@ const membersIndex = () => {
 
   const findMembers = () => {
     if (members == null){
-      debugger;
       dispatch(fetchMembers());
       
     }

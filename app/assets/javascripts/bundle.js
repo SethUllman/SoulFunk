@@ -143,7 +143,6 @@ var updateMember = function updateMember(member) {
 
 var fetchMembers = function fetchMembers() {
   return function (dispatch) {
-    debugger;
     return _util_member_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchMembers"]().then(function (members) {
       return dispatch(receiveMembers(members));
     });
@@ -372,7 +371,6 @@ var membersIndex = function membersIndex() {
 
   var findMembers = function findMembers() {
     if (members == null) {
-      debugger;
       dispatch(Object(_actions_member_actions__WEBPACK_IMPORTED_MODULE_3__["fetchMembers"])());
     }
   };
@@ -778,7 +776,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeMember", function() { return removeMember; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateMember", function() { return updateMember; });
 var fetchMembers = function fetchMembers() {
-  debugger;
   return $.ajax({
     url: '/api/members',
     method: 'GET'
