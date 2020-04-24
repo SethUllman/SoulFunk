@@ -377,9 +377,7 @@ var membersIndex = function membersIndex() {
 
   var membersList = function membersList() {
     if (members != null) {
-      for (var key in members) {
-        console.log(key);
-      }
+      for (var key in members) {}
     }
   };
 

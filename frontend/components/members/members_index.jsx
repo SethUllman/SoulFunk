@@ -19,7 +19,7 @@ const membersIndex = () => {
   const membersList = () => {
     if (members != null) {
       for (let key in members){
-        console.log(key);
+        
       }
     }
   }
