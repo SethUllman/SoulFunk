@@ -375,11 +375,17 @@ var membersIndex = function membersIndex() {
     }
   };
 
+  var membersList = function membersList() {};
+
   findMembers();
   members = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useSelector"])(function (state) {
     return state.members;
   });
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Members of our band!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, console.log(members)));
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Members of our band!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, function () {
+    if (members != null) {
+      console.log(members);
+    }
+  }));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (membersIndex);

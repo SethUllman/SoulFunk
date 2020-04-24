@@ -15,6 +15,10 @@ const membersIndex = () => {
       
     }
   }
+
+  const membersList = () => {
+    
+  }
   findMembers();
   members = useSelector(state => state.members);
   return(
@@ -23,7 +27,11 @@ const membersIndex = () => {
         Members of our band!
       </div>
       <div>
-        {console.log(members)}
+        {() => {
+          if (members != null){
+            console.log(members)
+          }
+        }}
       </div>
     </div>
   );
