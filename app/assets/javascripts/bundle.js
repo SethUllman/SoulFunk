@@ -143,6 +143,7 @@ var updateMember = function updateMember(member) {
 
 var fetchMembers = function fetchMembers() {
   return function (dispatch) {
+    debugger;
     return _util_member_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchMembers"]().then(function (members) {
       return dispatch(receiveMembers(members));
     });
@@ -365,11 +366,22 @@ var membersIndex = function membersIndex() {
   var currentAdmin = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useSelector"])(function (state) {
     return state.currentAdmin;
   });
-  dispatch(Object(_actions_member_actions__WEBPACK_IMPORTED_MODULE_3__["fetchMembers"])());
   var members = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useSelector"])(function (state) {
     return state.members;
   });
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Members of our band!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, members));
+
+  var findMembers = function findMembers() {
+    if (members == null) {
+      debugger;
+      dispatch(Object(_actions_member_actions__WEBPACK_IMPORTED_MODULE_3__["fetchMembers"])());
+    }
+  };
+
+  findMembers();
+  members = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useSelector"])(function (state) {
+    return state.members;
+  });
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Members of our band!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, console.log(members)));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (membersIndex);
@@ -548,9 +560,7 @@ __webpack_require__.r(__webpack_exports__);
 
   switch (action.type) {
     case _actions_member_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_MEMBERS"]:
-      return Object.assign({}, {
-        members: action.members
-      });
+      return Object.assign({}, action.members);
 
     case _actions_member_actions__WEBPACK_IMPORTED_MODULE_0__["CREATE_MEMBER"]:
       return state;
@@ -768,6 +778,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeMember", function() { return removeMember; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateMember", function() { return updateMember; });
 var fetchMembers = function fetchMembers() {
+  debugger;
   return $.ajax({
     url: '/api/members',
     method: 'GET'

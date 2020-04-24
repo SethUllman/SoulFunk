@@ -4,7 +4,7 @@ export default (state = null, action) => {
   Object.freeze(state);
   switch(action.type){
     case RECEIVE_MEMBERS:
-      return Object.assign({}, { members: action.members});
+      return Object.assign({}, action.members);
     case CREATE_MEMBER:
       return state;
     case REMOVE_MEMBER:

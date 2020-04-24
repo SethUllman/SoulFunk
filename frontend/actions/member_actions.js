@@ -35,6 +35,7 @@ const updateMember = member => {
 }
 
 export const fetchMembers = () => dispatch => {
+  debugger;
   return APIUtil.fetchMembers()
     .then((members) => dispatch(receiveMembers(members)));
 }

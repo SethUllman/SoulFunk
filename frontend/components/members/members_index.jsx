@@ -7,16 +7,24 @@ const membersIndex = () => {
   
   const dispatch = useDispatch();
   const currentAdmin = useSelector(state => state.currentAdmin);
-  dispatch(fetchMembers());
-  const members = useSelector(state => state.members);
+  let members = useSelector(state => state.members);
 
+  const findMembers = () => {
+    if (members == null){
+      debugger;
+      dispatch(fetchMembers());
+      
+    }
+  }
+  findMembers();
+  members = useSelector(state => state.members);
   return(
-    <div>
+    <div> 
       <div>
         Members of our band!
       </div>
       <div>
-        {members}
+        {console.log(members)}
       </div>
     </div>
   );
