@@ -16,24 +16,13 @@ const membersIndex = () => {
     }
   }
 
-  const membersList = () => {
-    if (members != null) {
-      <ul>
-      {() => {for (let key in members){
-        
-      }}}
-      </ul>
-    }
-  }
   findMembers();
   members = useSelector(state => state.members);
+  
   return(
     <div> 
       <div>
         Members of our band!
-      </div>
-      <div>
-        {membersList()}
       </div>
     </div>
   );
