@@ -341,6 +341,27 @@ var Home = function Home() {
 
 /***/ }),
 
+/***/ "./frontend/components/members/member_item.jsx":
+/*!*****************************************************!*\
+  !*** ./frontend/components/members/member_item.jsx ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var memberItem = function memberItem(member) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Name:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, member.name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Bio:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, member.bio)));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (memberItem);
+
+/***/ }),
+
 /***/ "./frontend/components/members/members_index.jsx":
 /*!*******************************************************!*\
   !*** ./frontend/components/members/members_index.jsx ***!
@@ -355,6 +376,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _actions_member_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/member_actions */ "./frontend/actions/member_actions.js");
+/* harmony import */ var _member_item__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./member_item */ "./frontend/components/members/member_item.jsx");
+
 
 
 
@@ -373,6 +396,14 @@ var membersIndex = function membersIndex() {
     if (members == null) {
       dispatch(Object(_actions_member_actions__WEBPACK_IMPORTED_MODULE_3__["fetchMembers"])());
     }
+  };
+
+  var membersList = function membersList() {
+    members.map(function (member) {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("memberItem", {
+        member: member
+      });
+    });
   };
 
   findMembers();
