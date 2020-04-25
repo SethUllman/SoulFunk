@@ -555,10 +555,11 @@ __webpack_require__.r(__webpack_exports__);
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
   var action = arguments.length > 1 ? arguments[1] : undefined;
   Object.freeze(state);
+  console.log(Object.assign({}, action.members));
 
   switch (action.type) {
     case _actions_member_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_MEMBERS"]:
-      return Object.assign({}, action.members);
+      return action.members;
 
     case _actions_member_actions__WEBPACK_IMPORTED_MODULE_0__["CREATE_MEMBER"]:
       return state;
