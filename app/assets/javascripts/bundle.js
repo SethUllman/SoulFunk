@@ -377,9 +377,9 @@ var membersIndex = function membersIndex() {
 
   var membersList = function membersList() {
     if (members != null) {
-      for (var key in members) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, members[key].name);
-      }
+      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, function () {
+        for (var key in members) {}
+      });
     }
   };
 
