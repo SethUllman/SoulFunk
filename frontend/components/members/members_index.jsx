@@ -17,14 +17,6 @@ const membersIndex = () => {
     }
   }
 
-  const membersList = () => {
-    if (members != null){
-      members.map(member => {
-        return (<MemberItem member={member} />);
-      });
-    }
-  }
-
   findMembers();
   members = useSelector(state => state.members);
 

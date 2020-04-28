@@ -400,16 +400,6 @@ var membersIndex = function membersIndex() {
     }
   };
 
-  var membersList = function membersList() {
-    if (members != null) {
-      members.map(function (member) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_member_item__WEBPACK_IMPORTED_MODULE_4__["default"], {
-          member: member
-        });
-      });
-    }
-  };
-
   findMembers();
   members = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useSelector"])(function (state) {
     return state.members;
