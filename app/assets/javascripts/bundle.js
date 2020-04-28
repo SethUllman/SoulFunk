@@ -385,18 +385,33 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var membersIndex = function membersIndex() {
   var dispatch = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useDispatch"])();
   var currentAdmin = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useSelector"])(function (state) {
     return state.currentAdmin;
   });
+  var history = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["useHistory"])();
   var members = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useSelector"])(function (state) {
     return state.members;
+  });
+  var admin = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useSelector"])(function (state) {
+    return state.session.currentAdmin;
   });
 
   var findMembers = function findMembers() {
     if (members == null) {
       dispatch(Object(_actions_member_actions__WEBPACK_IMPORTED_MODULE_3__["fetchMembers"])());
+    }
+  };
+
+  var addMember = function addMember() {
+    if (admin != null) {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: function onClick() {
+          history.push('/new-member');
+        }
+      }, "Add Member"));
     }
   };
 
@@ -411,7 +426,7 @@ var membersIndex = function membersIndex() {
         key: member.id,
         member: member
       });
-    })));
+    })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, addMember()));
   } else {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Loading...");
   }
