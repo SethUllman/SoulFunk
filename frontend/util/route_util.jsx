@@ -1,18 +1,18 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import {useSelector} from 'react-redux';
 import { Redirect, Route, withRouter } from 'react-router-dom';
 
-const mapStateToProps = state => ({
-  loggedIn: Boolean(state.session.currentAdmin)
-});
 
-const Auth = ({ component: Component, path,loggedIn }) => (
-  <Route
+
+const AuthRoute = ({path, component: Component}) => {
+  const admin = useSelector(state => state.session.currentAdmin);
+  return <Route
     path={path}
-    render={props => (
-      loggedIn? <Redirect to="/home" /> : <Component {...props} />
+    render={(props) => (
+      admin ? <Component {...props}/> : <Redirect to="/home" />
     )}
   />
-);
 
-export const AuthRoute = withRouter(connect(mapStateToProps)(Auth));
+};
+
+export default AuthRoute;
