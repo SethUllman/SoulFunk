@@ -24,7 +24,9 @@ const membersIndex = () => {
     if (admin != null){
       return(
         <div>
-          <button onClick={() => {history.push('/new-member')}}>Add Member</button>
+          <button 
+            onClick={() => {history.push('/new-member')}}
+          >Add Member</button>
         </div>
       );
     }
