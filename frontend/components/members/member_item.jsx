@@ -2,7 +2,7 @@ import React from 'react';
 
 const memberItem = (member) => {
   return (
-    <li>
+    <li key={member.member.id}>
       <div>Name:
         <div>{member.member.name}</div>
       </div>

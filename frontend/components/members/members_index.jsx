@@ -19,25 +19,31 @@ const membersIndex = () => {
 
   const membersList = () => {
     if (members != null){
-      console.log(members[0]);
-      return <MemberItem member={members[0]} />
+      members.map(member => {
+        return (<MemberItem member={member} />);
+      });
     }
   }
 
   findMembers();
   members = useSelector(state => state.members);
 
-
-  return(
-    <div> 
-      <div>
-        Members of our band!
+  if (members != null){
+    return(
+      <div> 
+        <div>
+          Members of our band!
+        </div>
+        <ul>
+          {members.map(member => {
+            return <MemberItem member={member} />;
+          })}
+        </ul>
       </div>
-      <ul>
-        {membersList()}
-      </ul>
-    </div>
-  );
+    );
+  } else {
+    return (<div></div>);
+  }
 }
 
 export default membersIndex;

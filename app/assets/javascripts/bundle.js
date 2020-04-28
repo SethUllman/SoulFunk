@@ -355,7 +355,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var memberItem = function memberItem(member) {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Name:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, member.member.name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Bio:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, member.member.bio)));
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    key: member.member.id
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Name:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, member.member.name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Bio:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, member.member.bio)));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (memberItem);
@@ -400,9 +402,10 @@ var membersIndex = function membersIndex() {
 
   var membersList = function membersList() {
     if (members != null) {
-      console.log(members[0]);
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_member_item__WEBPACK_IMPORTED_MODULE_4__["default"], {
-        member: members[0]
+      members.map(function (member) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_member_item__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          member: member
+        });
       });
     }
   };
@@ -411,7 +414,16 @@ var membersIndex = function membersIndex() {
   members = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useSelector"])(function (state) {
     return state.members;
   });
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Members of our band!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, membersList()));
+
+  if (members != null) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Members of our band!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, members.map(function (member) {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_member_item__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        member: member
+      });
+    })));
+  } else {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
+  }
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (membersIndex);
