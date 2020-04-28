@@ -408,11 +408,12 @@ var membersIndex = function membersIndex() {
   if (members != null) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Members of our band!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, members.map(function (member) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_member_item__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        key: member.id,
         member: member
       });
     })));
   } else {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Loading...");
   }
 };
 

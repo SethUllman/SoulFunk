@@ -28,13 +28,13 @@ const membersIndex = () => {
         </div>
         <ul>
           {members.map(member => {
-            return <MemberItem member={member} />;
+            return <MemberItem key={member.id} member={member} />;
           })}
         </ul>
       </div>
     );
   } else {
-    return (<div></div>);
+    return (<div>Loading...</div>);
   }
 }
 
