@@ -4,10 +4,10 @@ const memberItem = (member) => {
   return (
     <li>
       <div>Name:
-        <div>{member.name}</div>
+        <div>{member.member.name}</div>
       </div>
       <div>Bio:
-        <div>{member.bio}</div>
+        <div>{member.member.bio}</div>
       </div>
     </li>
   );

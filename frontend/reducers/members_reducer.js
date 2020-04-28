@@ -2,7 +2,6 @@ import { RECEIVE_MEMBERS, CREATE_MEMBER, REMOVE_MEMBER, UPDATE_MEMBER } from '..
 
 export default (state = null, action) => {
   Object.freeze(state);
-  console.log(Object.assign({}, action.members));
   switch(action.type){
     case RECEIVE_MEMBERS:
       return action.members;

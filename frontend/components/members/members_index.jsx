@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { fetchMembers, addMember, deleteMember, patchMember } from '../../actions/member_actions';
-import memberItem from './member_item';
+import MemberItem from './member_item';
 
 const membersIndex = () => {
   
@@ -18,9 +18,10 @@ const membersIndex = () => {
   }
 
   const membersList = () => {
-    members.map(member => (
-      <memberItem member={member}/>
-    ))
+    if (members != null){
+      console.log(members[0]);
+      return <MemberItem member={members[0]} />
+    }
   }
 
   findMembers();
@@ -32,6 +33,9 @@ const membersIndex = () => {
       <div>
         Members of our band!
       </div>
+      <ul>
+        {membersList()}
+      </ul>
     </div>
   );
 }
