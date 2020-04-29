@@ -13,15 +13,33 @@ const memberForm = () => {
       <form>
         <label>
           Member Name:
-          <input type="text" />
+          <input 
+            type="text" 
+            value={name}
+            onChange={(e) => {
+              setName(e.target.value);
+            }}/>
         </label>
         <label>
           Member Bio:
-          <textarea />
+          <textarea 
+            value={bio}  
+            onChange={(e) => {
+              setBio(e.target.value);
+            }}
+          />
         </label>
         <label>
           Member Image:
-          <input type="file" name="filename" accept="image/gif, image/jpeg, image/png" />
+          <input 
+            type="file" 
+            name="filename" 
+            accept="image/gif, image/jpeg, image/png"
+            value={image}
+            onChange={ (e) => {
+              setImage(e.target.value);
+            }} 
+          />
         </label>
         <button type="submit">Create Member</button>
       </form>

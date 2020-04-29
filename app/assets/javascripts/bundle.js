@@ -389,11 +389,24 @@ var memberForm = function memberForm() {
 
   10;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Member Name:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "text"
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Member Bio:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Member Image:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "text",
+    value: name,
+    onChange: function onChange(e) {
+      setName(e.target.value);
+    }
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Member Bio:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+    value: bio,
+    onChange: function onChange(e) {
+      setBio(e.target.value);
+    }
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Member Image:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     type: "file",
     name: "filename",
-    accept: "image/gif, image/jpeg, image/png"
+    accept: "image/gif, image/jpeg, image/png",
+    value: image,
+    onChange: function onChange(e) {
+      setImage(e.target.value);
+    }
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     type: "submit"
   }, "Create Member")));
