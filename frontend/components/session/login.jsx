@@ -33,7 +33,7 @@ const Login = () => {
         <label>
           Admin Password:
           <input 
-            type="text" 
+            type="password" 
             value={password} 
             onChange={ (e) => setPassword(e.target.value)} 
           />

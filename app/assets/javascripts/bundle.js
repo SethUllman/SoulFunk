@@ -637,7 +637,7 @@ var Login = function Login() {
       return setUsername(e.target.value);
     }
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Admin Password:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "text",
+    type: "password",
     value: password,
     onChange: function onChange(e) {
       return setPassword(e.target.value);
