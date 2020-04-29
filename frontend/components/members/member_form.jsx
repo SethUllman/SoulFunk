@@ -1,7 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 
 const memberForm = () => {
+
+  const dispatch = useDispatch();
+  const [name, setName] = useState('');
+  const [bio, setBio] = useState('');
+  const [image, setImage] = useState('');10
+
   return (
     <div>
       <form>
