@@ -11,7 +11,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const currentAdmin = useSelector(state => state.currentAdmin);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = () => {
     
     const admin = Object.assign({}, {username: username, password: password});
     dispatch(login(admin));

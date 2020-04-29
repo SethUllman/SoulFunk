@@ -1,16 +1,25 @@
 import React, {useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
+import {useHistory} from 'react-router-dom';
+import {createMember} from '../../actions/member_actions';
 
 const memberForm = () => {
 
+  const history = useHistory();
   const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [bio, setBio] = useState('');
   const [image, setImage] = useState('');10
 
+  const handleSubmit = () => {
+    const member = Object.assign({}, {name: name, bio: bio, image: image});
+    dispatch(createMember(member));
+    history.push('/members');
+  }
+
   return (
     <div>
-      <form>
+      <form onSubmit={handleSubmit()}>
         <label>
           Member Name:
           <input 
