@@ -9,7 +9,23 @@ const memberForm = () => {
   const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [bio, setBio] = useState('');
-  const [image, setImage] = useState('');10
+  const [image, setImage] = useState('');
+
+  const readURL = (input) => {
+    debugger;
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        $('#blah')
+          .attr('src', e.target.result)
+          .width(150)
+          .height(200);
+      };
+
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
 
   const handleSubmit = () => {
     const member = Object.assign({}, {name: name, bio: bio, image: image});
@@ -19,7 +35,7 @@ const memberForm = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit()}>
+      <form onSubmit={handleSubmit}>
         <label>
           Member Name:
           <input 
@@ -42,13 +58,15 @@ const memberForm = () => {
           Member Image:
           <input 
             type="file" 
-            name="filename" 
             accept="image/gif, image/jpeg, image/png"
             value={image}
             onChange={ (e) => {
+              debugger;
               setImage(e.target.value);
+              readURL(this);
             }} 
           />
+          <img id="new-member" src="#" />
         </label>
         <button type="submit">Create Member</button>
       </form>

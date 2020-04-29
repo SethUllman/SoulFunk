@@ -360,6 +360,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _actions_member_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/member_actions */ "./frontend/actions/member_actions.js");
+var _this = undefined;
+
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
@@ -392,7 +394,19 @@ var memberForm = function memberForm() {
       image = _useState6[0],
       setImage = _useState6[1];
 
-  10;
+  var readURL = function readURL(input) {
+    debugger;
+
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        $('#blah').attr('src', e.target.result).width(150).height(200);
+      };
+
+      reader.readAsDataURL(input.files[0]);
+    }
+  };
 
   var handleSubmit = function handleSubmit() {
     var member = Object.assign({}, {
@@ -405,7 +419,7 @@ var memberForm = function memberForm() {
   };
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-    onSubmit: handleSubmit()
+    onSubmit: handleSubmit
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Member Name:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     type: "text",
     value: name,
@@ -419,12 +433,16 @@ var memberForm = function memberForm() {
     }
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Member Image:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     type: "file",
-    name: "filename",
     accept: "image/gif, image/jpeg, image/png",
     value: image,
     onChange: function onChange(e) {
+      debugger;
       setImage(e.target.value);
+      readURL(_this);
     }
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    id: "new-member",
+    src: "#"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     type: "submit"
   }, "Create Member")));
