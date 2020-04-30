@@ -1,3 +1,5 @@
 class Member < ApplicationRecord
-  validates :name, :bio, :image, presence: true, uniqueness: true
+  validates :name, :bio, presence: true, uniqueness: true
+
+  has_one_attached: photo
 end
