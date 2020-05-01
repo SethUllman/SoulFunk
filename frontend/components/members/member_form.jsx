@@ -9,14 +9,14 @@ const memberForm = () => {
   const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [bio, setBio] = useState('');
-  const [image, setImage] = useState('');
+  const [memberImage, setMemberImage] = useState('');
 
   const fileSelectedHandler = event => {
-    setImage(URL.createObjectURL(event.target.files[0]));
+    setMemberImage(URL.createObjectURL(event.target.files[0]));
   }
 
   const handleSubmit = () => {
-    const member = Object.assign({}, {name: name, bio: bio, image: image});
+    const member = Object.assign({}, {name: name, bio: bio, memberImage: memberImage});
     dispatch(createMember(member));
     history.push('/members');
   }
@@ -49,7 +49,7 @@ const memberForm = () => {
             accept="image/gif, image/jpeg, image/png"
             onChange={fileSelectedHandler} 
           />
-          <img id="new-member" src={image} />
+          <img id="new-member" src={memberImage} />
         </label>
         <button type="submit">Create Member</button>
       </form>
