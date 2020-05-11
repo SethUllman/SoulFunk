@@ -6,7 +6,7 @@ export default (state = null, action) => {
     case RECEIVE_MEMBERS:
       return action.members;
     case CREATE_MEMBER:
-      return state;
+      return Object.assign([], state, {[action.member.id]: action.member});
     case REMOVE_MEMBER:
       return action.memberId;
     case UPDATE_MEMBER:

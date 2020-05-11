@@ -710,6 +710,8 @@ var Login = function Login() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_member_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/member_actions */ "./frontend/actions/member_actions.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 /* harmony default export */ __webpack_exports__["default"] = (function () {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
@@ -721,7 +723,7 @@ __webpack_require__.r(__webpack_exports__);
       return action.members;
 
     case _actions_member_actions__WEBPACK_IMPORTED_MODULE_0__["CREATE_MEMBER"]:
-      return state;
+      return Object.assign([], state, _defineProperty({}, action.member.id, action.member));
 
     case _actions_member_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_MEMBER"]:
       return action.memberId;
