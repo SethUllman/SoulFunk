@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {useHistory} from 'react-router-dom';
-import {createMember} from '../../actions/member_actions';
+import {addMember} from '../../actions/member_actions';
 
 const memberForm = () => {
 
@@ -17,7 +17,7 @@ const memberForm = () => {
 
   const handleSubmit = () => {
     const member = Object.assign({}, {name: name, bio: bio, memberImage: memberImage});
-    dispatch(createMember(member));
+    dispatch(addMember(member));
     history.push('/members');
   }
 

@@ -389,20 +389,20 @@ var memberForm = function memberForm() {
 
   var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
       _useState6 = _slicedToArray(_useState5, 2),
-      image = _useState6[0],
-      setImage = _useState6[1];
+      memberImage = _useState6[0],
+      setMemberImage = _useState6[1];
 
   var fileSelectedHandler = function fileSelectedHandler(event) {
-    setImage(URL.createObjectURL(event.target.files[0]));
+    setMemberImage(URL.createObjectURL(event.target.files[0]));
   };
 
   var handleSubmit = function handleSubmit() {
     var member = Object.assign({}, {
       name: name,
       bio: bio,
-      image: image
+      memberImage: memberImage
     });
-    dispatch(Object(_actions_member_actions__WEBPACK_IMPORTED_MODULE_3__["createMember"])(member));
+    dispatch(Object(_actions_member_actions__WEBPACK_IMPORTED_MODULE_3__["addMember"])(member));
     history.push('/members');
   };
 
@@ -425,7 +425,7 @@ var memberForm = function memberForm() {
     onChange: fileSelectedHandler
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     id: "new-member",
-    src: image
+    src: memberImage
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     type: "submit"
   }, "Create Member")));
@@ -449,9 +449,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var memberItem = function memberItem(member) {
+  console.log(member);
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     key: member.member.id
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Name:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, member.member.name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Bio:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, member.member.bio)));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Name:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, member.member.name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Bio:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, member.member.bio)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (memberItem);
