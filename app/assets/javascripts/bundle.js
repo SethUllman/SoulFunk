@@ -446,13 +446,28 @@ var memberForm = function memberForm() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _actions_member_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/member_actions */ "./frontend/actions/member_actions.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
+
+
 
 
 var memberItem = function memberItem(member) {
-  console.log(member);
+  var history = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["useHistory"])();
+  var dispatch = Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["useDispatch"])();
+
+  var handleDelete = function handleDelete() {
+    dispatch(Object(_actions_member_actions__WEBPACK_IMPORTED_MODULE_1__["deleteMember"])(member.member.id));
+    history.push('/members');
+  };
+
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     key: member.member.id
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Name:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, member.member.name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Bio:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, member.member.bio)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Name:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, member.member.name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Bio:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, member.member.bio)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: handleDelete
+  }, "Delete Member")));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (memberItem);
@@ -709,7 +724,7 @@ __webpack_require__.r(__webpack_exports__);
       return state;
 
     case _actions_member_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_MEMBER"]:
-      return state;
+      return action.memberId;
 
     case _actions_member_actions__WEBPACK_IMPORTED_MODULE_0__["UPDATE_MEMBER"]:
       return state;

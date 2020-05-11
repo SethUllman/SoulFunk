@@ -8,7 +8,7 @@ export default (state = null, action) => {
     case CREATE_MEMBER:
       return state;
     case REMOVE_MEMBER:
-      return state;
+      return action.memberId;
     case UPDATE_MEMBER:
       return state;
     default:
