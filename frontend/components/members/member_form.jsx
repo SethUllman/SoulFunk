@@ -10,10 +10,23 @@ const memberForm = () => {
   const [name, setName] = useState('');
   const [bio, setBio] = useState('');
   const [photoFile, setPhotoFile] = useState(null);
+  const [photoUrl, setPhotoUrl] = useState(null);
 
   const handleFile = (e) => {
-    setPhotoFile(e.currentTarget.files[0]);
+
+    const file = e.currentTarget.files[0];
+    const fileReader = new FileReader();
+    fileReader.onloadend = () => {
+      setPhotoFile(file);
+      setPhotoUrl(fileReader.result);
+    };
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
+
   }
+
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -57,7 +70,7 @@ const memberForm = () => {
             accept="image/gif, image/jpeg, image/png"
             onChange={handleFile} 
           />
-          <img id="new-member" src={photoFile} />
+          {photoUrl ? <img src={photoUrl} /> : null}
         </label>
         <button type="submit">Create Member</button>
       </form>

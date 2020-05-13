@@ -392,8 +392,23 @@ var memberForm = function memberForm() {
       photoFile = _useState6[0],
       setPhotoFile = _useState6[1];
 
+  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
+      _useState8 = _slicedToArray(_useState7, 2),
+      photoUrl = _useState8[0],
+      setPhotoUrl = _useState8[1];
+
   var handleFile = function handleFile(e) {
-    setPhotoFile(e.currentTarget.files[0]);
+    var file = e.currentTarget.files[0];
+    var fileReader = new FileReader();
+
+    fileReader.onloadend = function () {
+      setPhotoFile(file);
+      setPhotoUrl(fileReader.result);
+    };
+
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
   };
 
   var handleSubmit = function handleSubmit(e) {
@@ -427,10 +442,9 @@ var memberForm = function memberForm() {
     type: "file",
     accept: "image/gif, image/jpeg, image/png",
     onChange: handleFile
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    id: "new-member",
-    src: photoFile
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  }), photoUrl ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: photoUrl
+  }) : null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     type: "submit"
   }, "Create Member")));
 };
