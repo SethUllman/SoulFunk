@@ -9,15 +9,23 @@ const memberForm = () => {
   const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [bio, setBio] = useState('');
-  const [memberImage, setMemberImage] = useState('');
+  const [photoFile, setPhotoFile] = useState(null);
 
-  const fileSelectedHandler = event => {
-    setMemberImage(URL.createObjectURL(event.target.files[0]));
+  const handleFile = (e) => {
+    setPhotoFile(e.currentTarget.files[0]);
   }
 
-  const handleSubmit = () => {
-    const member = Object.assign({}, {name: name, bio: bio, memberImage: memberImage});
-    dispatch(addMember(member));
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let formData = new FormData();
+    formData.append("member[name]", name);
+    formData.append("member[bio]", bio);
+
+    if (photoFile){
+      formData.append('member[member_photo]', photoFile);
+    }
+
+    dispatch(addMember(formData));
     history.push('/members');
   }
 
@@ -47,9 +55,9 @@ const memberForm = () => {
           <input 
             type="file" 
             accept="image/gif, image/jpeg, image/png"
-            onChange={fileSelectedHandler} 
+            onChange={handleFile} 
           />
-          <img id="new-member" src={memberImage} />
+          <img id="new-member" src={photoFile} />
         </label>
         <button type="submit">Create Member</button>
       </form>

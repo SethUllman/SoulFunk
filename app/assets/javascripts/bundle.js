@@ -387,22 +387,26 @@ var memberForm = function memberForm() {
       bio = _useState4[0],
       setBio = _useState4[1];
 
-  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
       _useState6 = _slicedToArray(_useState5, 2),
-      memberImage = _useState6[0],
-      setMemberImage = _useState6[1];
+      photoFile = _useState6[0],
+      setPhotoFile = _useState6[1];
 
-  var fileSelectedHandler = function fileSelectedHandler(event) {
-    setMemberImage(URL.createObjectURL(event.target.files[0]));
+  var handleFile = function handleFile(e) {
+    setPhotoFile(e.currentTarget.files[0]);
   };
 
-  var handleSubmit = function handleSubmit() {
-    var member = Object.assign({}, {
-      name: name,
-      bio: bio,
-      memberImage: memberImage
-    });
-    dispatch(Object(_actions_member_actions__WEBPACK_IMPORTED_MODULE_3__["addMember"])(member));
+  var handleSubmit = function handleSubmit(e) {
+    e.preventDefault();
+    var formData = new FormData();
+    formData.append("member[name]", name);
+    formData.append("member[bio]", bio);
+
+    if (photoFile) {
+      formData.append('member[member_photo]', photoFile);
+    }
+
+    dispatch(Object(_actions_member_actions__WEBPACK_IMPORTED_MODULE_3__["addMember"])(formData));
     history.push('/members');
   };
 
@@ -422,10 +426,10 @@ var memberForm = function memberForm() {
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Member Image:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     type: "file",
     accept: "image/gif, image/jpeg, image/png",
-    onChange: fileSelectedHandler
+    onChange: handleFile
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     id: "new-member",
-    src: memberImage
+    src: photoFile
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     type: "submit"
   }, "Create Member")));
@@ -958,9 +962,9 @@ var postMember = function postMember(member) {
   return $.ajax({
     url: '/api/members',
     method: 'POST',
-    data: {
-      member: member
-    }
+    data: member,
+    contentType: false,
+    processData: false
   });
 };
 var removeMember = function removeMember(memberId) {
