@@ -457,17 +457,28 @@ __webpack_require__.r(__webpack_exports__);
 var memberItem = function memberItem(member) {
   var history = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["useHistory"])();
   var dispatch = Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["useDispatch"])();
+  var currentAdmin = Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["useSelector"])(function (state) {
+    return state.session.currentAdmin;
+  });
 
   var handleDelete = function handleDelete() {
     dispatch(Object(_actions_member_actions__WEBPACK_IMPORTED_MODULE_1__["deleteMember"])(member.member.id));
     history.push('/members');
   };
 
+  var renderDelete = function renderDelete() {
+    if (currentAdmin != null) {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: handleDelete
+      }, "Delete Member");
+    } else {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
+    }
+  };
+
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     key: member.member.id
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Name:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, member.member.name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Bio:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, member.member.bio)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    onClick: handleDelete
-  }, "Delete Member")));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Name:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, member.member.name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Bio:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, member.member.bio)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, renderDelete()));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (memberItem);
