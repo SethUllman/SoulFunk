@@ -14,9 +14,10 @@ class Api::MembersController < ApplicationController
   end
 
   def create
+    debugger
     @member = Member.new(member_params)
     if @member.save
-      render :show
+      render :index
     else
       render json: @member.errors.full_messages, status: 422
     end
@@ -46,7 +47,7 @@ class Api::MembersController < ApplicationController
   private
 
   def member_params
-    params.require(:member).permit(:name, :bio, :member_photo)
+    params.require(:member).permit(:name, :bio, :photo)
   end
 
 end

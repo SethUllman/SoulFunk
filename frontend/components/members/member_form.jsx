@@ -35,11 +35,10 @@ const memberForm = () => {
     formData.append("member[bio]", bio);
 
     if (photoFile){
-      formData.append('member[member_photo]', photoFile);
+      formData.append('member[photo]', photoFile);
     }
 
     dispatch(addMember(formData));
-    history.push('/members');
   }
 
   return (

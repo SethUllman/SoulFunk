@@ -418,11 +418,10 @@ var memberForm = function memberForm() {
     formData.append("member[bio]", bio);
 
     if (photoFile) {
-      formData.append('member[member_photo]', photoFile);
+      formData.append('member[photo]', photoFile);
     }
 
     dispatch(Object(_actions_member_actions__WEBPACK_IMPORTED_MODULE_3__["addMember"])(formData));
-    history.push('/members');
   };
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
