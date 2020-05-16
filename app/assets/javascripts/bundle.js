@@ -495,7 +495,9 @@ var memberItem = function memberItem(member) {
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     key: member.member.id
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Name:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, member.member.name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Bio:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, member.member.bio)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, renderDelete()));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Name:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, member.member.name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Bio:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, member.member.bio)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, renderDelete()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: member.member.photoUrl
+  }));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (memberItem);

@@ -9,7 +9,7 @@ const memberItem = (member) => {
   const history = useHistory();
   const dispatch = useDispatch();
   const currentAdmin = useSelector(state => state.session.currentAdmin);
-
+  
   const handleDelete = () => {
     dispatch(deleteMember(member.member.id));
     history.push('/members');
@@ -36,6 +36,7 @@ const memberItem = (member) => {
       <div>
         {renderDelete()}
       </div>
+      <img src={member.member.photoUrl}/>
     </li>
   );
 }
