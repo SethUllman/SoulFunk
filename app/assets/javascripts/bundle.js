@@ -505,6 +505,7 @@ var memberForm = function memberForm() {
     }
 
     dispatch(Object(_actions_member_actions__WEBPACK_IMPORTED_MODULE_3__["addMember"])(formData));
+    history.push('/api/members');
   };
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {

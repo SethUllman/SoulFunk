@@ -39,6 +39,7 @@ const memberForm = () => {
     }
 
     dispatch(addMember(formData));
+    history.push('/api/members');
   }
 
   return (
