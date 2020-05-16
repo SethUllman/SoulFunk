@@ -231,6 +231,89 @@ var logout = function logout() {
 
 /***/ }),
 
+/***/ "./frontend/actions/show_actions.js":
+/*!******************************************!*\
+  !*** ./frontend/actions/show_actions.js ***!
+  \******************************************/
+/*! exports provided: RECEIVE_SHOWS, CREATE_SHOW, REMOVE_SHOW, UPDATE_SHOW, fetchShows, addShow, deleteShow, patchShow */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_SHOWS", function() { return RECEIVE_SHOWS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CREATE_SHOW", function() { return CREATE_SHOW; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_SHOW", function() { return REMOVE_SHOW; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UPDATE_SHOW", function() { return UPDATE_SHOW; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchShows", function() { return fetchShows; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addShow", function() { return addShow; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteShow", function() { return deleteShow; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "patchShow", function() { return patchShow; });
+/* harmony import */ var _util_show_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/show_api_util */ "./frontend/util/show_api_util.js");
+
+var RECEIVE_SHOWS = 'RECEIVE_SHOWS';
+var CREATE_SHOW = 'CREATE_SHOW';
+var REMOVE_SHOW = 'REMOVE_SHOW';
+var UPDATE_SHOW = 'UPDATE_SHOW';
+
+var receiveShows = function receiveShows(shows) {
+  return {
+    type: RECEIVE_SHOWS,
+    shows: shows
+  };
+};
+
+var createShow = function createShow(show) {
+  return {
+    type: CREATE_SHOW,
+    show: show
+  };
+};
+
+var removeShow = function removeShow(showId) {
+  return {
+    type: REMOVE_SHOW,
+    showId: showId
+  };
+};
+
+var updateShow = function updateShow(show) {
+  return {
+    type: UPDATE_SHOW,
+    show: show
+  };
+};
+
+var fetchShows = function fetchShows() {
+  return function (dispatch) {
+    return _util_show_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchShows"]().then(function (shows) {
+      return dispatch(receiveShows(shows));
+    });
+  };
+};
+var addShow = function addShow(show) {
+  return function (dispatch) {
+    return _util_show_api_util__WEBPACK_IMPORTED_MODULE_0__["postShow"](show).then(function (show) {
+      return dispatch(createShow(show));
+    });
+  };
+};
+var deleteShow = function deleteShow(showId) {
+  return function (dispatch) {
+    return _util_show_api_util__WEBPACK_IMPORTED_MODULE_0__["removeShow"](showId).then(function (showId) {
+      return dispatch(removeShow(showId));
+    });
+  };
+};
+var patchShow = function patchShow(show) {
+  return function (dispatch) {
+    return _util_show_api_util__WEBPACK_IMPORTED_MODULE_0__["updateShow"](show).then(function (show) {
+      return dispatch(updateShow(show));
+    });
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/components/app.jsx":
 /*!*************************************!*\
   !*** ./frontend/components/app.jsx ***!
@@ -781,11 +864,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sessions_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sessions_reducer */ "./frontend/reducers/sessions_reducer.js");
 /* harmony import */ var _session_errors_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./session_errors_reducer */ "./frontend/reducers/session_errors_reducer.js");
 /* harmony import */ var _members_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./members_reducer */ "./frontend/reducers/members_reducer.js");
+/* harmony import */ var _shows_reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./shows_reducer */ "./frontend/reducers/shows_reducer.js");
+
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
+  shows: _shows_reducer__WEBPACK_IMPORTED_MODULE_4__["default"],
   members: _members_reducer__WEBPACK_IMPORTED_MODULE_3__["default"],
   session: _sessions_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
   errors: _session_errors_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
@@ -847,6 +933,44 @@ var _nullSession = {
 
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["LOGOUT_CURRENT_ADMIN"]:
       return _nullSession;
+
+    default:
+      return state;
+  }
+});
+
+/***/ }),
+
+/***/ "./frontend/reducers/shows_reducer.js":
+/*!********************************************!*\
+  !*** ./frontend/reducers/shows_reducer.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_show_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/show_actions */ "./frontend/actions/show_actions.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+
+  switch (action.type) {
+    case _actions_show_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_SHOWS"]:
+      return action.shows;
+
+    case _actions_show_actions__WEBPACK_IMPORTED_MODULE_0__["CREATE_SHOW"]:
+      return Object.assign([], state, _defineProperty({}, action.show.id, action.show));
+
+    case _actions_show_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_SHOW"]:
+      return state;
+
+    case _actions_show_actions__WEBPACK_IMPORTED_MODULE_0__["UPDATE_SHOW"]:
+      return state;
 
     default:
       return state;
@@ -1069,6 +1193,48 @@ var deleteSession = function deleteSession() {
   return $.ajax({
     url: '/api/session',
     method: 'DELETE'
+  });
+};
+
+/***/ }),
+
+/***/ "./frontend/util/show_api_util.js":
+/*!****************************************!*\
+  !*** ./frontend/util/show_api_util.js ***!
+  \****************************************/
+/*! exports provided: fetchShows, postShow, removeShow, updateShow */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchShows", function() { return fetchShows; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "postShow", function() { return postShow; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeShow", function() { return removeShow; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateShow", function() { return updateShow; });
+var fetchShows = function fetchShows() {
+  return $CombinedState.ajax({
+    url: '/api/shows',
+    method: 'GET'
+  });
+};
+var postShow = function postShow(show) {
+  return $.ajax({
+    url: '/api/shows',
+    method: 'POST',
+    data: show
+  });
+};
+var removeShow = function removeShow(showId) {
+  return $.ajax({
+    url: "/api/shows/".concat(showId),
+    method: 'DELETE'
+  });
+};
+var updateShow = function updateShow(show) {
+  return $.ajax({
+    url: "/api/shows/".concat(show.id),
+    method: 'PATCH',
+    data: show
   });
 };
 
