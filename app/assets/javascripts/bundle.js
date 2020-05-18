@@ -349,7 +349,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _navigation_navigation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./navigation/navigation */ "./frontend/components/navigation/navigation.jsx");
 /* harmony import */ var _members_members_index__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./members/members_index */ "./frontend/components/members/members_index.jsx");
 /* harmony import */ var _members_member_form__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./members/member_form */ "./frontend/components/members/member_form.jsx");
-/* harmony import */ var _footer_footer__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./footer/footer */ "./frontend/components/footer/footer.jsx");
+/* harmony import */ var _members_member_update_form__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./members/member_update_form */ "./frontend/components/members/member_update_form.jsx");
+/* harmony import */ var _footer_footer__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./footer/footer */ "./frontend/components/footer/footer.jsx");
+
 
 
 
@@ -368,12 +370,16 @@ var App = function App() {
     path: "/login",
     component: _session_login__WEBPACK_IMPORTED_MODULE_3__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    exact: true,
     path: "/members",
     component: _members_members_index__WEBPACK_IMPORTED_MODULE_6__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    path: "/members/:memberId",
+    component: _members_member_update_form__WEBPACK_IMPORTED_MODULE_8__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_2__["default"], {
     path: "/new-member",
     component: _members_member_form__WEBPACK_IMPORTED_MODULE_7__["default"]
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_footer_footer__WEBPACK_IMPORTED_MODULE_8__["default"], null));
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_footer_footer__WEBPACK_IMPORTED_MODULE_9__["default"], null));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
@@ -585,8 +591,9 @@ var memberItem = function memberItem(member) {
     history.push('/members');
   };
 
-  var handleUdate = function handleUdate() {
-    dispatch();
+  var handleUpdate = function handleUpdate() {
+    dispatch(Object(_actions_member_actions__WEBPACK_IMPORTED_MODULE_1__["fetchMember"])(member.member.id));
+    history.push("/members/".concat(member.member.id));
   };
 
   var renderDelete = function renderDelete() {
@@ -617,6 +624,27 @@ var memberItem = function memberItem(member) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (memberItem);
+
+/***/ }),
+
+/***/ "./frontend/components/members/member_update_form.jsx":
+/*!************************************************************!*\
+  !*** ./frontend/components/members/member_update_form.jsx ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var memberUpdateForm = function memberUpdateForm() {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (memberUpdateForm);
 
 /***/ }),
 
@@ -867,6 +895,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   switch (action.type) {
     case _actions_member_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_MEMBERS"]:
       return action.members;
+
+    case _actions_member_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_MEMBER"]:
+      debugger;
+      return action.member;
 
     case _actions_member_actions__WEBPACK_IMPORTED_MODULE_0__["CREATE_MEMBER"]:
       return Object.assign([], state, _defineProperty({}, action.member.id, action.member));

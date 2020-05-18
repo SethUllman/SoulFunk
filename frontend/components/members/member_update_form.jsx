@@ -1,9 +1,11 @@
 import React from 'react';
 
-const memberUpdateForm = (member) => {
+const memberUpdateForm = () => {
 
   return (
-    <form></form>
+    <form>
+      
+    </form>
   )
 }
 

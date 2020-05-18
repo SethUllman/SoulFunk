@@ -1,3 +1,2 @@
-json.set! :id, @member.id
-json.set! :name, @member.name
-json.set! :bio, @member.bio
+json.extract! @member, :id, :name, :bio
+json.photoUrl url_for(@member.photo)

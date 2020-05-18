@@ -1,5 +1,5 @@
 import React from 'react';
-import {deleteMember} from '../../actions/member_actions';
+import {deleteMember, fetchMember} from '../../actions/member_actions';
 import {useHistory} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 
@@ -15,8 +15,9 @@ const memberItem = (member) => {
     history.push('/members');
   }
 
-  const handleUdate = () => {
-    dispatch()
+  const handleUpdate = () => {
+    dispatch(fetchMember(member.member.id));
+    history.push(`/members/${member.member.id}`);
   }
 
   const renderDelete = () => {
@@ -33,7 +34,7 @@ const memberItem = (member) => {
     if(currentAdmin != null) {
       return(
         <button onClick={handleUpdate}>Update Member</button>
-      )
+      );
     } else {
       return null;
     }
