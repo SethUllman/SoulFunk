@@ -5,6 +5,13 @@ export const fetchMembers = () => {
   })
 }
 
+export const fetchMember = memberId => {
+  return $.ajax({
+    url: `/api/members/${memberId}`,
+    method: 'GET'
+  })
+}
+
 export const postMember = member => {
   return $.ajax({
     url: '/api/members',

@@ -90,16 +90,18 @@
 /*!********************************************!*\
   !*** ./frontend/actions/member_actions.js ***!
   \********************************************/
-/*! exports provided: RECEIVE_MEMBERS, CREATE_MEMBER, REMOVE_MEMBER, UPDATE_MEMBER, fetchMembers, addMember, deleteMember, patchMember */
+/*! exports provided: RECEIVE_MEMBERS, RECEIVE_MEMBER, CREATE_MEMBER, REMOVE_MEMBER, UPDATE_MEMBER, fetchMembers, fetchMember, addMember, deleteMember, patchMember */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_MEMBERS", function() { return RECEIVE_MEMBERS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_MEMBER", function() { return RECEIVE_MEMBER; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CREATE_MEMBER", function() { return CREATE_MEMBER; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_MEMBER", function() { return REMOVE_MEMBER; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UPDATE_MEMBER", function() { return UPDATE_MEMBER; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchMembers", function() { return fetchMembers; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchMember", function() { return fetchMember; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addMember", function() { return addMember; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteMember", function() { return deleteMember; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "patchMember", function() { return patchMember; });
@@ -109,6 +111,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var RECEIVE_MEMBERS = 'RECEIVE_MEMBERS';
+var RECEIVE_MEMBER = 'RECEIVE_MEMBER';
 var CREATE_MEMBER = 'CREATE_MEMBER';
 var REMOVE_MEMBER = 'REMOVE_MEMBER';
 var UPDATE_MEMBER = 'UPDATE_MEMBER';
@@ -117,6 +120,13 @@ var receiveMembers = function receiveMembers(members) {
   return {
     type: RECEIVE_MEMBERS,
     members: members
+  };
+};
+
+var receiveMember = function receiveMember(member) {
+  return {
+    type: RECEIVE_MEMBER,
+    member: member
   };
 };
 
@@ -145,6 +155,13 @@ var fetchMembers = function fetchMembers() {
   return function (dispatch) {
     return _util_member_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchMembers"]().then(function (members) {
       return dispatch(receiveMembers(members));
+    });
+  };
+};
+var fetchMember = function fetchMember(memberId) {
+  return function (dispatch) {
+    return _util_member_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchMember"](memberId).then(function (memberId) {
+      return dispatch(receiveMember(memberId));
     });
   };
 };
@@ -504,8 +521,9 @@ var memberForm = function memberForm() {
       formData.append('member[photo]', photoFile);
     }
 
-    dispatch(Object(_actions_member_actions__WEBPACK_IMPORTED_MODULE_3__["addMember"])(formData));
-    history.push('/api/members');
+    dispatch(Object(_actions_member_actions__WEBPACK_IMPORTED_MODULE_3__["addMember"])(formData)).then(function () {
+      history.push('/members');
+    });
   };
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
@@ -567,19 +585,33 @@ var memberItem = function memberItem(member) {
     history.push('/members');
   };
 
+  var handleUdate = function handleUdate() {
+    dispatch();
+  };
+
   var renderDelete = function renderDelete() {
     if (currentAdmin != null) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: handleDelete
       }, "Delete Member");
     } else {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
+      return null;
+    }
+  };
+
+  var renderUpdate = function renderUpdate() {
+    if (currentAdmin != null) {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: handleUpdate
+      }, "Update Member");
+    } else {
+      return null;
     }
   };
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     key: member.member.id
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Name:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, member.member.name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Bio:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, member.member.bio)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, renderDelete()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Name:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, member.member.name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Bio:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, member.member.bio)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, renderDelete(), renderUpdate()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: member.member.photoUrl
   }));
 };
@@ -1083,18 +1115,25 @@ var thunk = function thunk(_ref) {
 /*!******************************************!*\
   !*** ./frontend/util/member_api_util.js ***!
   \******************************************/
-/*! exports provided: fetchMembers, postMember, removeMember, updateMember */
+/*! exports provided: fetchMembers, fetchMember, postMember, removeMember, updateMember */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchMembers", function() { return fetchMembers; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchMember", function() { return fetchMember; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "postMember", function() { return postMember; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeMember", function() { return removeMember; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateMember", function() { return updateMember; });
 var fetchMembers = function fetchMembers() {
   return $.ajax({
     url: '/api/members',
+    method: 'GET'
+  });
+};
+var fetchMember = function fetchMember(memberId) {
+  return $.ajax({
+    url: "/api/members/".concat(memberId),
     method: 'GET'
   });
 };

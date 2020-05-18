@@ -15,13 +15,27 @@ const memberItem = (member) => {
     history.push('/members');
   }
 
+  const handleUdate = () => {
+    dispatch()
+  }
+
   const renderDelete = () => {
     if(currentAdmin != null){
       return(
         <button onClick={handleDelete}>Delete Member</button>
       );
     } else {
-      return(<div></div>);
+      return null;
+    }
+  }
+
+  const renderUpdate = () => {
+    if(currentAdmin != null) {
+      return(
+        <button onClick={handleUpdate}>Update Member</button>
+      )
+    } else {
+      return null;
     }
   }
 
@@ -35,6 +49,7 @@ const memberItem = (member) => {
       </div>
       <div>
         {renderDelete()}
+        {renderUpdate()}
       </div>
       <img src={member.member.photoUrl}/>
     </li>

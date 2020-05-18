@@ -38,8 +38,10 @@ const memberForm = () => {
       formData.append('member[photo]', photoFile);
     }
 
-    dispatch(addMember(formData));
-    history.push('/api/members');
+    dispatch(addMember(formData))
+      .then(() => {
+        history.push('/members');
+      })
   }
 
   return (
