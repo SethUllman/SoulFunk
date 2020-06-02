@@ -957,7 +957,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _actions_show_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/show_actions */ "./frontend/actions/show_actions.js");
 /* harmony import */ var _show_item__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./show_item */ "./frontend/components/shows/show_item.jsx");
-/* harmony import */ var _show_item__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_show_item__WEBPACK_IMPORTED_MODULE_4__);
 
 
 
@@ -997,7 +996,7 @@ var showIndex = function showIndex() {
 
   if (shows != null) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Upcoming Shows"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, shows.map(function (show) {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_show_item__WEBPACK_IMPORTED_MODULE_4___default.a, {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_show_item__WEBPACK_IMPORTED_MODULE_4__["default"], {
         key: show.id,
         show: show
       });
@@ -1015,10 +1014,35 @@ var showIndex = function showIndex() {
 /*!*************************************************!*\
   !*** ./frontend/components/shows/show_item.jsx ***!
   \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _actions_show_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/show_actions */ "./frontend/actions/show_actions.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 
 
+
+
+
+var showItem = function showItem(show) {
+  var history = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["useHistory"])();
+  var dispatch = Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["useDispatch"])();
+  var currentAdmin = Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["useSelector"])(function (state) {
+    return state.session.currentAdmin;
+  });
+
+  var handleDelete = function handleDelete() {
+    dispatch(Object(_actions_show_actions__WEBPACK_IMPORTED_MODULE_1__["deleteShow"])(show.id));
+    history.push('/shows');
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (showItem);
 
 /***/ }),
 
