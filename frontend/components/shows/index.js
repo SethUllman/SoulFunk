@@ -1,10 +1,26 @@
 import React, {useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {useHistory} from 'react-router-dom';
-import {reaceiveShows} from '../../actions/show_actions';
+import {fetchShows} from '../../actions/show_actions';
 
 const showIndex = () => {
-  return null;
+
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const currentAdmin = useSelector(state => state.session.currentAdmin);
+  let shows = useSelector(state => state.shows);
+
+  const findShows = () => {
+    if (shows == null){
+      dispatch(fetchShows());
+    }
+  }
+
+  return(
+    <div>
+      
+    </div>
+  )
 }
 
 export default showIndex;
