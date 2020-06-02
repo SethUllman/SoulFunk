@@ -5,13 +5,17 @@ import {createShow} from '../../actions/show_actions';
 
 const showForm = () => {
 
+  const history = useHistory();
+  const dispatch = useDispatch();
+
   const [location, setLocation] = useState('');
   const [time, setTime] = useState('');
   const [charge, setCharge] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const show = {}
+    const show = {location: location, time: time, charge: charge};
+    dispatch(createShow(show));
   }
 
   return (
