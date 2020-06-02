@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {useHistory} from 'react-router-dom';
 import {fetchShows} from '../../actions/show_actions';
+import ShowItem from './show_item';
 
 const showIndex = () => {
 

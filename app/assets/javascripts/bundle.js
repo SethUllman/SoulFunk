@@ -350,7 +350,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _members_members_index__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./members/members_index */ "./frontend/components/members/members_index.jsx");
 /* harmony import */ var _members_member_form__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./members/member_form */ "./frontend/components/members/member_form.jsx");
 /* harmony import */ var _members_member_update_form__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./members/member_update_form */ "./frontend/components/members/member_update_form.jsx");
-/* harmony import */ var _footer_footer__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./footer/footer */ "./frontend/components/footer/footer.jsx");
+/* harmony import */ var _shows_show_index__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./shows/show_index */ "./frontend/components/shows/show_index.jsx");
+/* harmony import */ var _footer_footer__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./footer/footer */ "./frontend/components/footer/footer.jsx");
+
 
 
 
@@ -370,6 +372,9 @@ var App = function App() {
     path: "/login",
     component: _session_login__WEBPACK_IMPORTED_MODULE_3__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    path: "/shows",
+    component: _shows_show_index__WEBPACK_IMPORTED_MODULE_9__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
     path: "/members",
     component: _members_members_index__WEBPACK_IMPORTED_MODULE_6__["default"]
@@ -379,7 +384,7 @@ var App = function App() {
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_2__["default"], {
     path: "/new-member",
     component: _members_member_form__WEBPACK_IMPORTED_MODULE_7__["default"]
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_footer_footer__WEBPACK_IMPORTED_MODULE_9__["default"], null));
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_footer_footer__WEBPACK_IMPORTED_MODULE_10__["default"], null));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
@@ -934,6 +939,86 @@ var Login = function Login() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Login);
+
+/***/ }),
+
+/***/ "./frontend/components/shows/show_index.jsx":
+/*!**************************************************!*\
+  !*** ./frontend/components/shows/show_index.jsx ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _actions_show_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/show_actions */ "./frontend/actions/show_actions.js");
+/* harmony import */ var _show_item__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./show_item */ "./frontend/components/shows/show_item.jsx");
+/* harmony import */ var _show_item__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_show_item__WEBPACK_IMPORTED_MODULE_4__);
+
+
+
+
+
+
+var showIndex = function showIndex() {
+  var history = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["useHistory"])();
+  var dispatch = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useDispatch"])();
+  var currentAdmin = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useSelector"])(function (state) {
+    return state.session.currentAdmin;
+  });
+  var shows = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useSelector"])(function (state) {
+    return state.shows;
+  });
+
+  var findShows = function findShows() {
+    if (shows == null) {
+      dispatch(Object(_actions_show_actions__WEBPACK_IMPORTED_MODULE_3__["fetchShows"])());
+    }
+  };
+
+  var addShow = function addShow() {
+    if (currentAdmin != null) {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: function onClick() {
+          history.push('/new-show');
+        }
+      }, "Add Show"));
+    }
+  };
+
+  findShows();
+  shows = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useSelector"])(function (state) {
+    return state.shows;
+  });
+
+  if (shows != null) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Upcoming Shows"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, shows.map(function (show) {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_show_item__WEBPACK_IMPORTED_MODULE_4___default.a, {
+        key: show.id,
+        show: show
+      });
+    })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, addShow()));
+  } else {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Loading...");
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (showIndex);
+
+/***/ }),
+
+/***/ "./frontend/components/shows/show_item.jsx":
+/*!*************************************************!*\
+  !*** ./frontend/components/shows/show_item.jsx ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
 
 /***/ }),
 
