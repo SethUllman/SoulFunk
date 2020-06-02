@@ -9,7 +9,9 @@ export const postShow = show => {
   return $.ajax({
     url: '/api/shows',
     method: 'POST',
-    data: show
+    data: show,
+    contentType: false,
+    processData: false
   })
 }
 

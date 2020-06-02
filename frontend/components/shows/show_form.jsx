@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
-import {createShow} from '../../actions/show_actions';
+import {addShow} from '../../actions/show_actions';
 
 const showForm = () => {
 
@@ -14,8 +14,16 @@ const showForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const show = {location: location, time: time, charge: charge};
-    dispatch(createShow(show));
+    let formData = new FormData();
+
+    formData.append("show[location]", location);
+    formData.append("show[time]", time);
+    formData.append("show[charge]", charge);
+
+    dispatch(addShow(formData))
+      .then(() => {
+        history.push('/shows');
+      })
   }
 
   return (
@@ -26,24 +34,26 @@ const showForm = () => {
           <input 
             type='text'
             value={location}
-            onChange={() => {setLocation(e.target.value)}}>
+            onChange={(e) => {setLocation(e.target.value)}}>
           </input>
         </label>
         <label>
           Time:
           <input 
-            type='date-time'
+            type='datetime-local'
             value={time}
-            onChange={() => {setTime(e.target.value)}}>
+            onChange={(e) => {setTime(e.target.value)}}>
 
           </input>
         </label>
         <label>
           Charge:
           <input 
-            type='text'
+            type='number'
+            min='0'
+            step='any'
             value={charge}
-            onChange={() => {setCharge(e.target.value)}}>
+            onChange={(e) => {setCharge(e.target.value)}}>
 
           </input>
         </label>

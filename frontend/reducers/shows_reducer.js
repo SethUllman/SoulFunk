@@ -4,7 +4,6 @@ export default (state = null, action) => {
   Object.freeze(state);
   switch(action.type){
     case RECEIVE_SHOWS:
-      debugger;
       return action.shows;
     case CREATE_SHOW:
       return Object.assign([], state, {[action.show.id]: action.show});

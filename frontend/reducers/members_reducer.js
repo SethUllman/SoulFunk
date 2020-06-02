@@ -6,7 +6,6 @@ export default (state = null, action) => {
     case RECEIVE_MEMBERS:
       return action.members;
     case RECEIVE_MEMBER:
-      debugger;
       return action.member
     case CREATE_MEMBER:
       return Object.assign([], state, {[action.member.id]: action.member});

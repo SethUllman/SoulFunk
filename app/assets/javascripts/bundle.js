@@ -995,12 +995,13 @@ var showForm = function showForm() {
 
   var handleSubmit = function handleSubmit(e) {
     e.preventDefault();
-    var show = {
-      location: location,
-      time: time,
-      charge: charge
-    };
-    dispatch(Object(_actions_show_actions__WEBPACK_IMPORTED_MODULE_3__["createShow"])(show));
+    var formData = new FormData();
+    formData.append("show[location]", location);
+    formData.append("show[time]", time);
+    formData.append("show[charge]", charge);
+    dispatch(Object(_actions_show_actions__WEBPACK_IMPORTED_MODULE_3__["addShow"])(formData)).then(function () {
+      history.push('/shows');
+    });
   };
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
@@ -1008,19 +1009,21 @@ var showForm = function showForm() {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Location:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     type: "text",
     value: location,
-    onChange: function onChange() {
+    onChange: function onChange(e) {
       setLocation(e.target.value);
     }
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Time:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "date-time",
+    type: "datetime-local",
     value: time,
-    onChange: function onChange() {
+    onChange: function onChange(e) {
       setTime(e.target.value);
     }
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Charge:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "text",
+    type: "number",
+    min: "0",
+    step: "any",
     value: charge,
-    onChange: function onChange() {
+    onChange: function onChange(e) {
       setCharge(e.target.value);
     }
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Create Show")));
@@ -1171,7 +1174,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return action.members;
 
     case _actions_member_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_MEMBER"]:
-      debugger;
       return action.member;
 
     case _actions_member_actions__WEBPACK_IMPORTED_MODULE_0__["CREATE_MEMBER"]:
@@ -1300,7 +1302,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
   switch (action.type) {
     case _actions_show_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_SHOWS"]:
-      debugger;
       return action.shows;
 
     case _actions_show_actions__WEBPACK_IMPORTED_MODULE_0__["CREATE_SHOW"]:
@@ -1568,7 +1569,9 @@ var postShow = function postShow(show) {
   return $.ajax({
     url: '/api/shows',
     method: 'POST',
-    data: show
+    data: show,
+    contentType: false,
+    processData: false
   });
 };
 var removeShow = function removeShow(showId) {
