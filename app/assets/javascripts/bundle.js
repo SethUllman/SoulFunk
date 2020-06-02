@@ -638,10 +638,73 @@ var memberItem = function memberItem(member) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _actions_member_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/member_actions */ "./frontend/actions/member_actions.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
 
 
 var memberUpdateForm = function memberUpdateForm() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null);
+  var history = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["useHistory"])();
+  var dispatch = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useDispatch"])(); // const member = useSelector(state => state.members);
+  // const [name, setName] = useState(member.name);
+  // const [bio, setBio] = useState(member.bio);
+  // const [photo, setPhoto] = useState(member.photoUrl);
+
+  var handleUpdate = function handleUpdate(e) {
+    e.preventDefault();
+  };
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    var member = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useSelector"])(function (state) {
+      return state.members;
+    });
+
+    var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(member.name),
+        _useState2 = _slicedToArray(_useState, 2),
+        name = _useState2[0],
+        setName = _useState2[1];
+
+    var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(member.bio),
+        _useState4 = _slicedToArray(_useState3, 2),
+        bio = _useState4[0],
+        setBio = _useState4[1];
+
+    var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(member.photoUrl),
+        _useState6 = _slicedToArray(_useState5, 2),
+        photo = _useState6[0],
+        setPhoto = _useState6[1];
+  });
+  console.log(name);
+
+  if (member != null) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Member Name:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      type: "text",
+      value: name,
+      onChange: function onChange(e) {
+        setName(e.target.value);
+      }
+    })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Member Bio:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+      value: bio,
+      onChange: function onChange(e) {
+        setBio(e.target.value);
+      }
+    })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      type: "submit"
+    }, "Create Member")));
+  } else {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Loading...");
+  }
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (memberUpdateForm);
