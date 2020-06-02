@@ -1,5 +1,5 @@
 export const fetchShows = () => {
-  return $CombinedState.ajax({
+  return $.ajax({
     url: '/api/shows',
     method: 'GET'
   })

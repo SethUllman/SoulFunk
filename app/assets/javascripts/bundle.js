@@ -1174,6 +1174,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
   switch (action.type) {
     case _actions_show_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_SHOWS"]:
+      debugger;
       return action.shows;
 
     case _actions_show_actions__WEBPACK_IMPORTED_MODULE_0__["CREATE_SHOW"]:
@@ -1432,7 +1433,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeShow", function() { return removeShow; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateShow", function() { return updateShow; });
 var fetchShows = function fetchShows() {
-  return $CombinedState.ajax({
+  return $.ajax({
     url: '/api/shows',
     method: 'GET'
   });
