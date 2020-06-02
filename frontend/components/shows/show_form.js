@@ -5,8 +5,8 @@ const showForm = () => {
   const [location, setLocation] = useState('');
   const [time, setTime] = useState('');
 
-  const handleUpdate = (type) => {
-    
+  const handleSubmit = (e) => {
+    e.preventDefault();
   }
 
   return (
