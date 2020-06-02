@@ -1040,6 +1040,16 @@ var showItem = function showItem(show) {
     dispatch(Object(_actions_show_actions__WEBPACK_IMPORTED_MODULE_1__["deleteShow"])(show.id));
     history.push('/shows');
   };
+
+  var renderDelete = function renderDelete() {
+    if (currentAdmin != null) {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: handleDelete
+      }, "Delete Show");
+    } else {
+      return null;
+    }
+  };
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (showItem);

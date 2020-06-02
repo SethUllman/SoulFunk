@@ -14,6 +14,16 @@ const showItem = (show) => {
     history.push('/shows');
   }
 
+  const renderDelete = () => {
+    if(currentAdmin != null){
+      return(
+        <button onClick={handleDelete}>Delete Show</button>
+      );
+    } else {
+      return null;
+    }
+  }
+
 }
 
 export default showItem;
