@@ -24,6 +24,19 @@ const showItem = (show) => {
     }
   }
 
+  return (
+    <li key={show.id}>
+      <div>Location:
+        <div>{show.location}</div>
+      </div>
+      <div>Time
+        <div>{show.time}</div>
+      </div>
+      <div>
+        {renderDelete()}
+      </div>
+    </li>
+  );
 }
 
 export default showItem;
