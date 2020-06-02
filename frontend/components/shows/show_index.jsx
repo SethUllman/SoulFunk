@@ -28,11 +28,28 @@ const showIndex = () => {
     }
   }
 
-  return(
-    <div>
-      
-    </div>
-  )
+  findShows();
+  shows = useSelector(state => state.shows);
+
+  if (shows != null){
+    return(
+      <div>
+        <div>
+          Upcoming Shows
+        </div>
+        <ul>
+          {shows.map(show => {
+            return <ShowItem key={show.id} show={show} />;
+          })}
+        </ul>
+        <div>
+          {addShow()}
+        </div>
+      </div>
+    );
+  } else {
+    return (<div>Loading...</div>);
+  }
 }
 
 export default showIndex;
