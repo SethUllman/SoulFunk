@@ -1142,9 +1142,18 @@ var showItem = function showItem(show) {
     }
   };
 
+  var formatTime = function formatTime() {
+    var time = show.show.time;
+    time = time.split('T');
+    var date = time[0];
+    var hourly = time[1].split(':');
+    hourly = hourly[0] + ':' + hourly[1];
+    return "".concat(date, " ").concat(hourly);
+  };
+
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-    key: show.id
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Location:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, show.show.location)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Time:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, show.show.time)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Charge:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, show.show.charge)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, renderDelete()));
+    key: show.show.id
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Location:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, show.show.location)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Time:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, formatTime())), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Charge:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, show.show.charge)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, renderDelete()));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (showItem);

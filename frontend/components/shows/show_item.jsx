@@ -23,13 +23,24 @@ const showItem = (show) => {
       return null;
     }
   }
+
+  const formatTime = () => {
+    let time = show.show.time;
+    time = time.split('T');
+    const date = time[0];
+    let hourly = time[1].split(':');
+    hourly = hourly[0] + ':' + hourly[1];
+
+    return (`${date} ${hourly}`)
+  }
+
   return (
-    <li key={show.id}>
+    <li key={show.show.id}>
       <div>Location:
         <div>{show.show.location}</div>
       </div>
       <div>Time:
-        <div>{show.show.time}</div>
+        <div>{formatTime()}</div>
       </div>
       <div>Charge:
         <div>{show.show.charge}</div>
