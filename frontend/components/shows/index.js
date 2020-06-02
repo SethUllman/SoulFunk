@@ -16,6 +16,18 @@ const showIndex = () => {
     }
   }
 
+  const addShow = () => {
+    if (currentAdmin != null){
+      return(
+        <div>
+          <button 
+            onClick={() => {history.push('/new-show')}}
+          >Add Show</button>
+        </div>
+      );
+    }
+  }
+
   return(
     <div>
       
