@@ -1,6 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 const showForm = () => {
+
+  const [location, setLocation] = useState('');
+  const [time, setTime] = useState('');
+
+  const handleUpdate = (type) => {
+    
+  }
 
   return (
     <div>
@@ -14,9 +21,10 @@ const showForm = () => {
         <label>
           Time:
           <input type='date-time'>
-            
+
           </input>
         </label>
+        <button>Create Show</button>
       </form>
     </div>
   );
