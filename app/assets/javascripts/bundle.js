@@ -1144,7 +1144,7 @@ var showItem = function showItem(show) {
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     key: show.id
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Location:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, show.location)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Time", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, show.time)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, renderDelete()));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Location:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, show.show.location)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Time:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, show.show.time)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Charge:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, show.show.charge)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, renderDelete()));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (showItem);

@@ -23,14 +23,16 @@ const showItem = (show) => {
       return null;
     }
   }
-
   return (
     <li key={show.id}>
       <div>Location:
-        <div>{show.location}</div>
+        <div>{show.show.location}</div>
       </div>
-      <div>Time
-        <div>{show.time}</div>
+      <div>Time:
+        <div>{show.show.time}</div>
+      </div>
+      <div>Charge:
+        <div>{show.show.charge}</div>
       </div>
       <div>
         {renderDelete()}
