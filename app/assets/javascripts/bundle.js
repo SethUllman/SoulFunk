@@ -1159,8 +1159,24 @@ var showItem = function showItem(show) {
   };
 
   var formatTime = function formatTime() {
+    var showTime = show.show.time.split('T');
+    var date = showTime[0];
+    var time = showTime[1];
     debugger;
-    return "".concat(date, " ").concat(hourly);
+    time = time.split(".");
+    time = time[0];
+    time = time.split(":");
+    var meridian = "AM";
+    var hour = parseInt(time[0]);
+    var minutes = time[1];
+
+    if (hour > 12) {
+      hour = hour % 12;
+      meridian = "PM";
+    }
+
+    debugger;
+    return "".concat(date, " ").concat(hour, ":").concat(minutes, " ").concat(meridian);
   };
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {

@@ -25,9 +25,22 @@ const showItem = (show) => {
   }
 
   const formatTime = () => {
+    let showTime = show.show.time.split('T');
+    let date = showTime[0];
+    let time = showTime[1];
     debugger;
-
-    return (`${date} ${hourly}`)
+    time = time.split(".");
+    time = time[0];
+    time = time.split(":");
+    let meridian = "AM";
+    let hour = parseInt(time[0]);
+    let minutes = time[1];
+    if (hour > 12) {
+      hour = hour%12;
+      meridian = "PM";
+    }
+    debugger;
+    return (`${date} ${hour}:${minutes} ${meridian}`);
   }
 
   return (
