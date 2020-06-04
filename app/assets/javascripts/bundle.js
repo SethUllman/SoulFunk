@@ -1162,7 +1162,6 @@ var showItem = function showItem(show) {
     var showTime = show.show.time.split('T');
     var date = showTime[0];
     var time = showTime[1];
-    debugger;
     time = time.split(".");
     time = time[0];
     time = time.split(":");
@@ -1175,7 +1174,6 @@ var showItem = function showItem(show) {
       meridian = "PM";
     }
 
-    debugger;
     return "".concat(date, " ").concat(hour, ":").concat(minutes, " ").concat(meridian);
   };
 

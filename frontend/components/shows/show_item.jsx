@@ -28,7 +28,6 @@ const showItem = (show) => {
     let showTime = show.show.time.split('T');
     let date = showTime[0];
     let time = showTime[1];
-    debugger;
     time = time.split(".");
     time = time[0];
     time = time.split(":");
@@ -39,7 +38,6 @@ const showItem = (show) => {
       hour = hour%12;
       meridian = "PM";
     }
-    debugger;
     return (`${date} ${hour}:${minutes} ${meridian}`);
   }
 
