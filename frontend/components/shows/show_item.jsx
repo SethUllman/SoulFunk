@@ -10,7 +10,7 @@ const showItem = (show) => {
   const currentAdmin = useSelector(state => state.session.currentAdmin);
 
   const handleDelete = () => {
-    dispatch(deleteShow(show.id));
+    dispatch(deleteShow(show.show.id));
     history.push('/shows');
   }
 
@@ -50,7 +50,7 @@ const showItem = (show) => {
         <div>{formatTime()}</div>
       </div>
       <div>Charge:
-        <div>{show.show.charge}</div>
+        <div>{`$${show.show.charge}`}</div>
       </div>
       <div>
         {renderDelete()}

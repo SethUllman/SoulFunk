@@ -6,12 +6,13 @@ class Api::ShowsController < ApplicationController
 
   def index 
     @shows = Show.all
+    render :index
   end
 
   def create 
     @show = Show.new(show_params)
     if @show.save
-      render :index
+      render :show
     else
       render json: @show.errors.full_messages, status: 422
     end

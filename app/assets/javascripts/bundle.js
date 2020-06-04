@@ -1144,7 +1144,7 @@ var showItem = function showItem(show) {
   });
 
   var handleDelete = function handleDelete() {
-    dispatch(Object(_actions_show_actions__WEBPACK_IMPORTED_MODULE_1__["deleteShow"])(show.id));
+    dispatch(Object(_actions_show_actions__WEBPACK_IMPORTED_MODULE_1__["deleteShow"])(show.show.id));
     history.push('/shows');
   };
 
@@ -1179,7 +1179,7 @@ var showItem = function showItem(show) {
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     key: show.show.id
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Location:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, show.show.location)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Time:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, formatTime())), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Charge:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, show.show.charge)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, renderDelete()));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Location:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, show.show.location)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Time:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, formatTime())), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Charge:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "$".concat(show.show.charge))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, renderDelete()));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (showItem);
@@ -1343,7 +1343,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return Object.assign([], state, _defineProperty({}, action.show.id, action.show));
 
     case _actions_show_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_SHOW"]:
-      return state;
+      return action.showId;
 
     case _actions_show_actions__WEBPACK_IMPORTED_MODULE_0__["UPDATE_SHOW"]:
       return state;

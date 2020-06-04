@@ -8,7 +8,7 @@ export default (state = null, action) => {
     case CREATE_SHOW:
       return Object.assign([], state, {[action.show.id]: action.show});
     case REMOVE_SHOW:
-      return state;
+      return action.showId;
     case UPDATE_SHOW:
       return state;
     default:
