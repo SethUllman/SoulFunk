@@ -9,15 +9,18 @@ const showForm = () => {
   const dispatch = useDispatch();
 
   const [location, setLocation] = useState('');
+  const [showDate, setDate] = useState('');
+  console.log(showDate);
   const [time, setTime] = useState('');
+  console.log(time);
   const [charge, setCharge] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     let formData = new FormData();
-
+    let showTime = `${showDate} | ${time}`;
     formData.append("show[location]", location);
-    formData.append("show[time]", time);
+    formData.append("show[time]", showTime);
     formData.append("show[charge]", charge);
 
     dispatch(addShow(formData))
@@ -38,12 +41,19 @@ const showForm = () => {
           </input>
         </label>
         <label>
+          Date:
+          <input 
+            type='date'
+            value={showDate}
+            onChange={(e) => {setDate(e.target.value)}}>
+          </input>
+        </label>
+        <label>
           Time:
           <input 
-            type='datetime-local'
+            type='time'
             value={time}
             onChange={(e) => {setTime(e.target.value)}}>
-
           </input>
         </label>
         <label>

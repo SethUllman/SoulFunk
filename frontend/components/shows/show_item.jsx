@@ -25,11 +25,7 @@ const showItem = (show) => {
   }
 
   const formatTime = () => {
-    let time = show.show.time;
-    time = time.split('T');
-    const date = time[0];
-    let hourly = time[1].split(':');
-    hourly = hourly[0] + ':' + hourly[1];
+    debugger;
 
     return (`${date} ${hourly}`)
   }

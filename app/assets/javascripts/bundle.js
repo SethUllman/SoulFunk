@@ -985,19 +985,29 @@ var showForm = function showForm() {
 
   var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
       _useState4 = _slicedToArray(_useState3, 2),
-      time = _useState4[0],
-      setTime = _useState4[1];
+      showDate = _useState4[0],
+      setDate = _useState4[1];
+
+  console.log(showDate);
 
   var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
       _useState6 = _slicedToArray(_useState5, 2),
-      charge = _useState6[0],
-      setCharge = _useState6[1];
+      time = _useState6[0],
+      setTime = _useState6[1];
+
+  console.log(time);
+
+  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
+      _useState8 = _slicedToArray(_useState7, 2),
+      charge = _useState8[0],
+      setCharge = _useState8[1];
 
   var handleSubmit = function handleSubmit(e) {
     e.preventDefault();
     var formData = new FormData();
+    var showTime = "".concat(showDate, " | ").concat(time);
     formData.append("show[location]", location);
-    formData.append("show[time]", time);
+    formData.append("show[time]", showTime);
     formData.append("show[charge]", charge);
     dispatch(Object(_actions_show_actions__WEBPACK_IMPORTED_MODULE_3__["addShow"])(formData)).then(function () {
       history.push('/shows');
@@ -1012,8 +1022,14 @@ var showForm = function showForm() {
     onChange: function onChange(e) {
       setLocation(e.target.value);
     }
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Date:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "date",
+    value: showDate,
+    onChange: function onChange(e) {
+      setDate(e.target.value);
+    }
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Time:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "datetime-local",
+    type: "time",
     value: time,
     onChange: function onChange(e) {
       setTime(e.target.value);
@@ -1143,11 +1159,7 @@ var showItem = function showItem(show) {
   };
 
   var formatTime = function formatTime() {
-    var time = show.show.time;
-    time = time.split('T');
-    var date = time[0];
-    var hourly = time[1].split(':');
-    hourly = hourly[0] + ':' + hourly[1];
+    debugger;
     return "".concat(date, " ").concat(hourly);
   };
 
