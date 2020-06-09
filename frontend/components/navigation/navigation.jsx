@@ -19,9 +19,9 @@ const Nav = () => {
   }
 
   return(
-    <div>
+    <div className='nav-div'>
       <div>{welcomeMessage()}</div>
-      <ul>
+      <ul className='nav-ul'>
         <li><a href="#/home">Home</a></li>
         <li><a href="#/shows">Shows</a></li>
         <li><a href="#/gallery">Gallery</a></li>

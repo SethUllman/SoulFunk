@@ -1,0 +1,15 @@
+.nav-div {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.nav-ul {
+  display: flex;
+  justify-content: space-evenly;
+  width: 75%;
+}
+
+.nav-ul > li {
+  display: flex;
+}
