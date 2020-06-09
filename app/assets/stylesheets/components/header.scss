@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Bellbottom';
+  src: font-url('..fonts/Bellbottomlaser-GKwg.ttf');
+}
+
 .nav-div {
   display: flex;
   justify-content: center;
@@ -11,8 +16,10 @@
 }
 
 .nav-ul > li {
+  font-family: Bellbottom;
   display: flex;
   justify-content: center;
   border: 2px solid black;
   width: 20%;
+  cursor: pointer;
 }
