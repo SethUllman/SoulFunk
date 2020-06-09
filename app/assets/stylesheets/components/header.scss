@@ -37,4 +37,9 @@
   width: 18%;
   cursor: pointer;
   border-radius: 20px;
+  background-image: linear-gradient(#FFB183, #FF6002);
+}
+
+.nav-ul > li:hover {
+  color: white;
 }
