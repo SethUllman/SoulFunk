@@ -829,7 +829,9 @@ var Nav = function Nav() {
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "nav-div"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, welcomeMessage()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, welcomeMessage()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "nav-logo"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     className: "nav-ul"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     onClick: function onClick() {

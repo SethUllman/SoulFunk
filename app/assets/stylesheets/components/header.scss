@@ -6,20 +6,35 @@
 .nav-div {
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 100%;
+  height: 25vh;
+}
+
+.nav-logo {
+  background-image: url(image_path('logo.png'));
+  background-size: cover;
+  background-position: center;
+  width: 30vh;
+  height: 20vh;
+  z-index: 10;
 }
 
 .nav-ul {
   display: flex;
   justify-content: space-evenly;
-  width: 75%;
+  width: 85%;
+  height: 40%;
 }
 
 .nav-ul > li {
   font-family: Bellbottom;
+  font-size: 5vh;
   display: flex;
   justify-content: center;
+  align-items: center;
   border: 2px solid black;
-  width: 20%;
+  width: 18%;
   cursor: pointer;
+  border-radius: 20px;
 }

@@ -23,6 +23,7 @@ const Nav = () => {
   return(
     <div className='nav-div'>
       <div>{welcomeMessage()}</div>
+      <div className='nav-logo'></div>
       <ul className='nav-ul'>
         <li onClick={() => {history.push("/home")}}>Home</li>
         <li onClick={() => {history.push("/shows")}}>Shows</li>
