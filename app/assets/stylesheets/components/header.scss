@@ -15,6 +15,7 @@
   background-image: url(image_path('logo.png'));
   background-size: cover;
   background-position: center;
+  position: absolute;
   width: 30vh;
   height: 20vh;
   z-index: 10;
@@ -24,20 +25,24 @@
   position: absolute;
   left: 8vw;
   top: 8vh;
+  cursor: pointer;
+}
+
+.nav-ul > li .nav-bars:hover {
+  display: flex;
 }
 
 .nav-ul {
-  display: flex;
+  display: none;
   flex-direction: column;
   width: 85%;
   height: 40%;
 }
 
-.nav-ul > li {
-  display: none;
+.nav-li {
+  display: flex;
   font-family: Bellbottom;
   font-size: 5vh;
-  // display: flex;
   justify-content: center;
   align-items: center;
   border: 2px solid black;
@@ -49,4 +54,8 @@
 
 .nav-ul > li:hover {
   color: white;
+}
+
+.show {
+  display: flex;
 }

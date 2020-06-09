@@ -829,32 +829,64 @@ var Nav = function Nav() {
     }
   };
 
+  window.onclick = function (event) {
+    if (!event.target.matches('.nav-drop')) {
+      var dropdowns = document.getElementsByClassName("nav-ul");
+      var i;
+
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  };
+
+  var dropDown = function dropDown() {
+    var nav = document.getElementById('nav-ul');
+
+    if (nav.className.indexOf('show') == -1) {
+      nav.className += 'show';
+    } else {
+      nav.className = nav.className.replace('show', '');
+    }
+  };
+
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "nav-div"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, welcomeMessage()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "nav-drop"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_4__["FaBars"], {
     className: "nav-bars",
-    size: "112px"
+    size: "112px",
+    onClick: dropDown
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+    id: "nav-ul",
     className: "nav-ul"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    className: "nav-li",
     onClick: function onClick() {
       history.push("/home");
     }
   }, "Home"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    className: "nav-li",
     onClick: function onClick() {
       history.push("/shows");
     }
   }, "Shows"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    className: "nav-li",
     onClick: function onClick() {
       history.push("/gallery");
     }
   }, "Gallery"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    className: "nav-li",
     onClick: function onClick() {
       history.push("/members");
     }
   }, "The Band"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    className: "nav-li",
     onClick: function onClick() {
       history.push("/contact");
     }
