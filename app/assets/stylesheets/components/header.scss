@@ -7,8 +7,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 25vh;
+  width: 100vw;
+  height: 20vh;
 }
 
 .nav-logo {
@@ -20,21 +20,28 @@
   z-index: 10;
 }
 
+.nav-bars {
+  position: absolute;
+  left: 8vw;
+  top: 8vh;
+}
+
 .nav-ul {
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column;
   width: 85%;
   height: 40%;
 }
 
 .nav-ul > li {
+  display: none;
   font-family: Bellbottom;
   font-size: 5vh;
-  display: flex;
+  // display: flex;
   justify-content: center;
   align-items: center;
   border: 2px solid black;
-  width: 18%;
+  width: 20%;
   cursor: pointer;
   border-radius: 20px;
   background-image: linear-gradient(#FFB183, #FF6002);
