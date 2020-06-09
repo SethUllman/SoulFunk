@@ -1,11 +1,13 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
 import { logout } from '../../actions/session_actions';
 
 const Nav = () => {
 
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const welcomeMessage = () => {
     const currentAdmin = useSelector(state => state.session.currentAdmin);
@@ -22,11 +24,11 @@ const Nav = () => {
     <div className='nav-div'>
       <div>{welcomeMessage()}</div>
       <ul className='nav-ul'>
-        <li><a href="#/home">Home</a></li>
-        <li><a href="#/shows">Shows</a></li>
-        <li><a href="#/gallery">Gallery</a></li>
-        <li><a href="#/members">The Band</a></li>
-        <li><a href="#/contact">Contact</a></li>
+        <li onClick={() => {history.push("/home")}}>Home</li>
+        <li onClick={() => {history.push("/shows")}}>Shows</li>
+        <li onClick={() => {history.push("/gallery")}}>Gallery</li>
+        <li onClick={() => {history.push("/members")}}>The Band</li>
+        <li onClick={() => {history.push("/contact")}}>Contact</li>
       </ul>
     </div>
   );
