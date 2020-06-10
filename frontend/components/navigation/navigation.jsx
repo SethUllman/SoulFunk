@@ -47,7 +47,7 @@ const Nav = () => {
     <div className='nav-div'>
       <div>{welcomeMessage()}</div>
       <div className='nav-drop'>
-        <FaBars className='nav-bars' size = '112px' onClick={dropDown}></FaBars>
+        <FaBars className='nav-bars' size='45px' onClick={dropDown}></FaBars>
         <ul id='nav-ul' className='nav-ul'>
           <li className='nav-li' onClick={() => {history.push("/home")}}>Home</li>
           <li className='nav-li' onClick={() => {history.push("/shows")}}>Shows</li>

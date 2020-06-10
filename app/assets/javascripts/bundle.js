@@ -860,7 +860,7 @@ var Nav = function Nav() {
     className: "nav-drop"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_4__["FaBars"], {
     className: "nav-bars",
-    size: "112px",
+    size: "45px",
     onClick: dropDown
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     id: "nav-ul",
