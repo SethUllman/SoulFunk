@@ -1,6 +1,8 @@
 @font-face {
-  font-family: 'Bellbottom';
-  src: font-url('..fonts/Bellbottomlaser-GKwg.ttf');
+  font-family: Bellbottom;
+  src:url('/assets/BellBottom.Laser 5.ttf');
+  font-weight: normal;
+  font-style: normal;
 }
 
 .nav-div {
@@ -47,11 +49,9 @@
   flex-direction: column;
   width: 85%;
   height: 100%;
-  border: 1px solid blue;
 }
 
 .nav-li {
-  border: 1px solid purple;
   z-index: 3;
   display: flex;
   font-family: Bellbottom;

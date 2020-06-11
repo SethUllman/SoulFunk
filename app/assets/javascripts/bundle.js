@@ -832,27 +832,20 @@ var Nav = function Nav() {
   };
 
   window.onclick = function (event) {
-    if (!event.target.matches('.nav-drop')) {
-      var dropdowns = document.getElementsByClassName("nav-modal");
-      var i;
+    var nav = document.getElementById('nav-modal');
 
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
-      }
+    if (!event.target.matches('.nav-modal') && !event.target.matches('.nav-bars') && nav.className == 'nav-modalshow') {
+      closeModal();
     }
   };
 
   var dropDown = function dropDown() {
     var nav = document.getElementById('nav-modal');
 
-    if (nav.className.indexOf('show') == -1) {
+    if (nav.className == 'nav-modal') {
       nav.className += 'show';
     } else {
-      nav.className = nav.className.replace('show', '');
+      nav.className = 'nav-modal';
     }
   };
 
@@ -870,13 +863,13 @@ var Nav = function Nav() {
     className: "nav-drop"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_4__["FaBars"], {
     className: "nav-bars",
-    size: "45px",
+    size: "90px",
     onClick: dropDown
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     id: "nav-modal",
     className: "nav-modal"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_icons_md__WEBPACK_IMPORTED_MODULE_5__["MdClose"], {
-    size: "35px",
+    size: "90px",
     className: "nav-close",
     onClick: closeModal
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {

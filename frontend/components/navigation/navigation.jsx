@@ -23,24 +23,19 @@ const Nav = () => {
   }
 
   window.onclick = function(event) {
-    if (!event.target.matches('.nav-drop')) {
-      let dropdowns = document.getElementsByClassName("nav-modal");
-      let i;
-      for (i = 0; i < dropdowns.length; i++) {
-        let openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
-      }
+    let nav = document.getElementById('nav-modal');
+    if (!event.target.matches('.nav-modal') && !event.target.matches('.nav-bars') && nav.className == 'nav-modalshow') {
+      closeModal();
     }
   }
 
   const dropDown = () => {
     let nav = document.getElementById('nav-modal');
-    if (nav.className.indexOf('show') == -1) {
+
+    if (nav.className == ('nav-modal')) {
       nav.className += 'show';
     } else {
-      nav.className = nav.className.replace('show', '');
+      nav.className = 'nav-modal';
     }
   }
 
@@ -55,9 +50,9 @@ const Nav = () => {
     <div className='nav-div'>
       <div>{welcomeMessage()}</div>
       <div className='nav-drop'>
-        <FaBars className='nav-bars' size='45px' onClick={dropDown}></FaBars>
+        <FaBars className='nav-bars' size='90px' onClick={dropDown}></FaBars>
         <ul id='nav-modal' className='nav-modal'>
-          <MdClose size='35px' className='nav-close' onClick={closeModal}></MdClose>
+          <MdClose size='90px' className='nav-close' onClick={closeModal}></MdClose>
           <li className='nav-li' onClick={() => {
             closeModal();
             history.push("/home")}}>Home
