@@ -834,26 +834,33 @@ var Nav = function Nav() {
   window.onclick = function (event) {
     var nav = document.getElementById('nav-modal');
 
-    if (!event.target.matches('.nav-modal') && !event.target.matches('.nav-bars') && nav.className == 'nav-modalshow') {
+    if (!event.target.matches('.nav-modal') && !event.target.matches('.nav-bars') && nav.className == 'nav-modal-show') {
       closeModal();
     }
   };
 
   var dropDown = function dropDown() {
     var nav = document.getElementById('nav-modal');
+    var background = document.getElementById('drop-background'); // let dropContents = document.getElementById('nav-drop-contents');
 
     if (nav.className == 'nav-modal') {
-      nav.className += 'show';
+      nav.className = 'nav-modal-show';
+      background.className = 'drop-background-show'; // dropContents.className = 'nav-drop-contents-shows';
     } else {
       nav.className = 'nav-modal';
+      background.className = 'drop-background'; // dropContents.className = 'nav-drop-contents';
     }
   };
 
   var closeModal = function closeModal() {
     var nav = document.getElementById('nav-modal');
+    var background = document.getElementById('drop-background');
+    var dropContents = document.getElementById('nav-drop-contents');
 
-    if (nav.className == 'nav-modalshow') {
+    if (nav.className == 'nav-modal-show') {
       nav.className = 'nav-modal';
+      background.className = 'drop-background';
+      dropContents.className = 'nav-drop-contents';
     }
   };
 
@@ -862,47 +869,51 @@ var Nav = function Nav() {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, welcomeMessage()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "nav-drop"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_4__["FaBars"], {
+    id: "bars",
     className: "nav-bars",
     size: "90px",
+    color: "white",
     onClick: dropDown
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "nav-drop-contents",
+    className: "nav-drop-contents"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "nav-modal",
     className: "nav-modal"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_icons_md__WEBPACK_IMPORTED_MODULE_5__["MdClose"], {
-    size: "90px",
-    className: "nav-close",
-    onClick: closeModal
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "nav-li",
     onClick: function onClick() {
       closeModal();
       history.push("/home");
     }
-  }, "Home"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+  }, "Home"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "nav-li",
     onClick: function onClick() {
       closeModal();
       history.push("/shows");
     }
-  }, "Shows"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+  }, "Shows"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "nav-li",
     onClick: function onClick() {
       closeModal();
       history.push("/gallery");
     }
-  }, "Gallery"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+  }, "Gallery"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "nav-li",
     onClick: function onClick() {
       closeModal();
       history.push("/members");
     }
-  }, "The Band"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+  }, "The Band"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "nav-li",
     onClick: function onClick() {
       closeModal();
       history.push("/contact");
     }
-  }, "Contact"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "Contact")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "drop-background",
+    className: "drop-background"
+  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "nav-logo"
   }));
 };
