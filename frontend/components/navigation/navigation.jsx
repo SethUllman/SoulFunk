@@ -32,15 +32,18 @@ const Nav = () => {
   const dropDown = () => {
     let nav = document.getElementById('nav-modal');
     let background = document.getElementById('drop-background');
+    let body = document.getElementById('body');
     // let dropContents = document.getElementById('nav-drop-contents');
 
     if (nav.className == ('nav-modal')) {
       nav.className = 'nav-modal-show';
       background.className = 'drop-background-show';
+      body.className = 'body-disable';
       // dropContents.className = 'nav-drop-contents-shows';
     } else {
       nav.className = 'nav-modal';
       background.className = 'drop-background';
+      body.className = '';
       // dropContents.className = 'nav-drop-contents';
     }
   }
@@ -49,13 +52,14 @@ const Nav = () => {
     let nav = document.getElementById('nav-modal');
     let background = document.getElementById('drop-background');
     let dropContents = document.getElementById('nav-drop-contents');
+    let body = document.getElementById('body');
 
 
     if (nav.className == 'nav-modal-show') {
       nav.className = 'nav-modal';
       background.className = 'drop-background';
       dropContents.className = 'nav-drop-contents';
-
+      body.className = '';
     }
   }
 

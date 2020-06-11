@@ -841,14 +841,17 @@ var Nav = function Nav() {
 
   var dropDown = function dropDown() {
     var nav = document.getElementById('nav-modal');
-    var background = document.getElementById('drop-background'); // let dropContents = document.getElementById('nav-drop-contents');
+    var background = document.getElementById('drop-background');
+    var body = document.getElementById('body'); // let dropContents = document.getElementById('nav-drop-contents');
 
     if (nav.className == 'nav-modal') {
       nav.className = 'nav-modal-show';
-      background.className = 'drop-background-show'; // dropContents.className = 'nav-drop-contents-shows';
+      background.className = 'drop-background-show';
+      body.className = 'body-disable'; // dropContents.className = 'nav-drop-contents-shows';
     } else {
       nav.className = 'nav-modal';
-      background.className = 'drop-background'; // dropContents.className = 'nav-drop-contents';
+      background.className = 'drop-background';
+      body.className = ''; // dropContents.className = 'nav-drop-contents';
     }
   };
 
@@ -856,11 +859,13 @@ var Nav = function Nav() {
     var nav = document.getElementById('nav-modal');
     var background = document.getElementById('drop-background');
     var dropContents = document.getElementById('nav-drop-contents');
+    var body = document.getElementById('body');
 
     if (nav.className == 'nav-modal-show') {
       nav.className = 'nav-modal';
       background.className = 'drop-background';
       dropContents.className = 'nav-drop-contents';
+      body.className = '';
     }
   };
 
