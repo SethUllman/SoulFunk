@@ -18,7 +18,9 @@ const footer = () => {
       )
     } else {
       return (
-        <a href="#/login">Admin Login</a>
+        <div className='footer-container'>
+          <a href="#/login">Admin Login</a>
+        </div>
       )
     }
   }

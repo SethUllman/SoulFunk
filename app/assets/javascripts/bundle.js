@@ -428,9 +428,11 @@ var footer = function footer() {
         }
       }, "Logout"));
     } else {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "footer-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "#/login"
-      }, "Admin Login");
+      }, "Admin Login"));
     }
   };
 
