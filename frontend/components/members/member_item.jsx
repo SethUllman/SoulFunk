@@ -2,6 +2,7 @@ import React from 'react';
 import {deleteMember, fetchMember} from '../../actions/member_actions';
 import {useHistory} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
+import {AiFillDelete, AiFillEdit} from 'react-icons/ai';
 
 
 const memberItem = (member) => {
@@ -23,7 +24,9 @@ const memberItem = (member) => {
   const renderDelete = () => {
     if(currentAdmin != null){
       return(
-        <button onClick={handleDelete}>Delete Member</button>
+        <div className='member-delete' onClick={handleDelete}>
+          <AiFillDelete size='50px'></AiFillDelete>
+        </div>
       );
     } else {
       return null;
@@ -33,7 +36,9 @@ const memberItem = (member) => {
   const renderUpdate = () => {
     if(currentAdmin != null) {
       return(
-        <button onClick={handleUpdate}>Update Member</button>
+        <div className='member-update' onClick={handleUpdate}>
+          <AiFillEdit size='50px'></AiFillEdit>
+        </div>
       );
     } else {
       return null;
