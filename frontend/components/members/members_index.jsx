@@ -42,7 +42,7 @@ const membersIndex = () => {
           <img className='member-full-band' src='assets/full-band.jpg' />
           <div className='full-band-text'>The Band</div>
         </div>
-        <ul>
+        <ul className='members-ul'>
           {members.map(member => {
             return <MemberItem key={member.id} member={member} />;
           })}
