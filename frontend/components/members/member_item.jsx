@@ -41,18 +41,14 @@ const memberItem = (member) => {
   }
 
   return (
-    <li key={member.member.id}>
-      <div>Name:
-        <div>{member.member.name}</div>
-      </div>
-      <div>Bio:
-        <div>{member.member.bio}</div>
-      </div>
+    <li key={member.member.id} className='member-li'>
+      <img className='member-photo' src={member.member.photoUrl}/>
+      <div className='member-name'>{member.member.name}</div>
+      <div className='member-bio'>{member.member.bio}</div>
       <div>
         {renderDelete()}
         {renderUpdate()}
       </div>
-      <img src={member.member.photoUrl}/>
     </li>
   );
 }

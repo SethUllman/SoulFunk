@@ -38,9 +38,6 @@ const membersIndex = () => {
   if (members != null){
     return(
       <div> 
-        <div>
-          Members of our band!
-        </div>
         <ul>
           {members.map(member => {
             return <MemberItem key={member.id} member={member} />;

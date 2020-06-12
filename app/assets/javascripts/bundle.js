@@ -627,10 +627,16 @@ var memberItem = function memberItem(member) {
   };
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-    key: member.member.id
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Name:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, member.member.name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Bio:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, member.member.bio)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, renderDelete(), renderUpdate()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    key: member.member.id,
+    className: "member-li"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "member-photo",
     src: member.member.photoUrl
-  }));
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "member-name"
+  }, member.member.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "member-bio"
+  }, member.member.bio), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, renderDelete(), renderUpdate()));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (memberItem);
@@ -778,7 +784,7 @@ var membersIndex = function membersIndex() {
   });
 
   if (members != null) {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Members of our band!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, members.map(function (member) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, members.map(function (member) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_member_item__WEBPACK_IMPORTED_MODULE_4__["default"], {
         key: member.id,
         member: member
