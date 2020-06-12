@@ -38,6 +38,7 @@ const membersIndex = () => {
   if (members != null){
     return(
       <div> 
+        <img className='member-full-band' src='assets/full-band.jpg' />
         <ul>
           {members.map(member => {
             return <MemberItem key={member.id} member={member} />;
