@@ -784,10 +784,14 @@ var membersIndex = function membersIndex() {
   });
 
   if (members != null) {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "full-band-container"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
       className: "member-full-band",
       src: "assets/full-band.jpg"
-    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, members.map(function (member) {
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "full-band-text"
+    }, "The Band")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, members.map(function (member) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_member_item__WEBPACK_IMPORTED_MODULE_4__["default"], {
         key: member.id,
         member: member
