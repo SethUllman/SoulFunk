@@ -40,11 +40,21 @@ const memberItem = (member) => {
     }
   }
 
+  const findClass = () => {
+    if (member.member.id % 2 == 0) {
+      return 'member-li-true';
+    } else {
+      return 'member-li-false';
+    }
+  }
+
   return (
-    <li key={member.member.id} className='member-li'>
+    <li key={member.member.id} className={findClass()}>
       <img className='member-photo' src={member.member.photoUrl}/>
-      <div className='member-name'>{member.member.name}</div>
-      <div className='member-bio'>{member.member.bio}</div>
+      <div className='member-info'>
+        <div className='member-name'>{member.member.name}</div>
+        <div className='member-bio'>{member.member.bio}</div>
+      </div>
       <div>
         {renderDelete()}
         {renderUpdate()}

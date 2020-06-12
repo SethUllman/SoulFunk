@@ -635,17 +635,27 @@ var memberItem = function memberItem(member) {
     }
   };
 
+  var findClass = function findClass() {
+    if (member.member.id % 2 == 0) {
+      return 'member-li-true';
+    } else {
+      return 'member-li-false';
+    }
+  };
+
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     key: member.member.id,
-    className: "member-li"
+    className: findClass()
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "member-photo",
     src: member.member.photoUrl
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "member-info"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "member-name"
   }, member.member.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "member-bio"
-  }, member.member.bio), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, renderDelete(), renderUpdate()));
+  }, member.member.bio)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, renderDelete(), renderUpdate()));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (memberItem);

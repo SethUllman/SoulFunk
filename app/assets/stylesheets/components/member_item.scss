@@ -29,10 +29,26 @@
   -webkit-text-stroke: 2px black;
 }
 
-.member-li {
+.member-li-true {
   width: 90%;
-  margin: 0 auto;
-  padding-top: 100px;
+  margin: 50px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+.member-li-false {
+  width: 90%;
+  margin: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.member-info {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
 }
 
 .member-name {
@@ -46,8 +62,8 @@
 }
 
 .member-photo {
-  width: 100%;
-  margin: 0 auto;
+  width: 50%;
+  // margin: 0 auto;
   border-radius: 20px;
   border: 2px solid black;
 }
