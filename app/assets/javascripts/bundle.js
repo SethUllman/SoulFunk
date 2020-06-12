@@ -408,13 +408,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
+
 
 
 
 
 var footer = function footer() {
   var dispatch = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useDispatch"])();
+  var history = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["useHistory"])();
 
   var loggedIn = function loggedIn() {
     var currentAdmin = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useSelector"])(function (state) {
@@ -424,15 +427,19 @@ var footer = function footer() {
     if (currentAdmin) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: function onClick() {
-          dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["logout"])());
+          dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_3__["logout"])());
         }
       }, "Logout"));
     } else {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "footer-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#/login"
-      }, "Admin Login"));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        onClick: function onClick() {
+          console.log('click');
+          history.push('/login');
+        },
+        className: "admin-login"
+      }, "Admin Logins"));
     }
   };
 
@@ -851,24 +858,27 @@ var Nav = function Nav() {
   window.onclick = function (event) {
     var nav = document.getElementById('nav-modal');
 
-    if (!event.target.matches('.nav-modal') && !event.target.matches('.nav-bars') && nav.className == 'nav-modal-show') {
+    if (!event.target.matches('.nav-modal') && !event.target.matches('.open-nav') && !event.target.matches('.nav-bars') && nav.className == 'nav-modal-show') {
       closeModal();
     }
   };
 
-  var dropDown = function dropDown() {
+  var dropDown = function dropDown(e) {
     var nav = document.getElementById('nav-modal');
     var background = document.getElementById('drop-background');
-    var body = document.getElementById('body'); // let dropContents = document.getElementById('nav-drop-contents');
+    var body = document.getElementById('body');
+    var dropContents = document.getElementById('nav-drop-contents');
 
     if (nav.className == 'nav-modal') {
+      dropContents.className = 'nav-drop-contents-show';
       nav.className = 'nav-modal-show';
       background.className = 'drop-background-show';
-      body.className = 'body-disable'; // dropContents.className = 'nav-drop-contents-shows';
+      body.className = 'body-disable';
     } else {
+      dropContents.className = 'nav-drop-contents';
       nav.className = 'nav-modal';
       background.className = 'drop-background';
-      body.className = ''; // dropContents.className = 'nav-drop-contents';
+      body.className = '';
     }
   };
 
@@ -890,13 +900,17 @@ var Nav = function Nav() {
     className: "nav-div"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, welcomeMessage()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "nav-drop"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "open-nav",
+    onClick: function onClick(e) {
+      dropDown(e);
+    }
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_4__["FaBars"], {
     id: "bars",
     className: "nav-bars",
     size: "90px",
-    color: "white",
-    onClick: dropDown
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    color: "black"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "nav-drop-contents",
     className: "nav-drop-contents"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -935,7 +949,10 @@ var Nav = function Nav() {
   }, "Contact")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "drop-background",
     className: "drop-background"
-  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_icons_md__WEBPACK_IMPORTED_MODULE_5__["MdClose"], {
+    size: "100px",
+    className: "drop-background-close"
+  })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "nav-logo"
   }));
 };

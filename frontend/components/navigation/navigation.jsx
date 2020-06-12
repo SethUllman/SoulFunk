@@ -24,27 +24,26 @@ const Nav = () => {
 
   window.onclick = function(event) {
     let nav = document.getElementById('nav-modal');
-    if (!event.target.matches('.nav-modal') && !event.target.matches('.nav-bars') && nav.className == 'nav-modal-show') {
+    if (!event.target.matches('.nav-modal') && !event.target.matches('.open-nav') && !event.target.matches('.nav-bars') && nav.className == 'nav-modal-show') {
       closeModal();
     }
   }
 
-  const dropDown = () => {
-    let nav = document.getElementById('nav-modal');
-    let background = document.getElementById('drop-background');
-    let body = document.getElementById('body');
-    // let dropContents = document.getElementById('nav-drop-contents');
-
+  const dropDown = (e) => {
+    const nav = document.getElementById('nav-modal');
+    const background = document.getElementById('drop-background');
+    const body = document.getElementById('body');
+    const dropContents = document.getElementById('nav-drop-contents');
     if (nav.className == ('nav-modal')) {
+      dropContents.className = 'nav-drop-contents-show';
       nav.className = 'nav-modal-show';
       background.className = 'drop-background-show';
       body.className = 'body-disable';
-      // dropContents.className = 'nav-drop-contents-shows';
     } else {
+      dropContents.className = 'nav-drop-contents';
       nav.className = 'nav-modal';
       background.className = 'drop-background';
       body.className = '';
-      // dropContents.className = 'nav-drop-contents';
     }
   }
 
@@ -67,7 +66,9 @@ const Nav = () => {
     <div className='nav-div'>
       <div>{welcomeMessage()}</div>
       <div className='nav-drop'>
-        <FaBars id='bars' className='nav-bars' size='90px' color="white" onClick={dropDown}></FaBars>
+        <div className='open-nav' onClick={(e) => {dropDown(e)}}>
+          <FaBars id='bars' className='nav-bars' size='90px' color="black"></FaBars>
+        </div>
         <div id='nav-drop-contents' className='nav-drop-contents'>
           <div id='nav-modal' className='nav-modal'>
             <div className='nav-li' onClick={() => {
@@ -91,7 +92,9 @@ const Nav = () => {
               history.push("/contact")}}>Contact
             </div>
           </div>
-          <div id='drop-background' className='drop-background'></div>
+          <div id='drop-background' className='drop-background'>
+            <MdClose size='100px' className='drop-background-close'></MdClose>
+          </div>
         </div>
       </div>
       <div className='nav-logo'></div>
