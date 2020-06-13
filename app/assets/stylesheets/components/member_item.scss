@@ -102,3 +102,30 @@
   justify-content: space-evenly;
   margin: 20px 0 20px 0;
 }
+
+.add-member-div {
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background: #FF6001;
+  width: 90%;
+  border-radius: 10px;
+}
+
+.add-member-button {
+  width: 90%;
+  border-radius: 10px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Bellbottom;
+  font-size: 80px;
+  -webkit-text-stroke: 3px black;
+}
+
+.add-member {
+  display: flex;
+  justify-content: center;
+}
