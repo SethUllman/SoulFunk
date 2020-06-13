@@ -25,7 +25,7 @@ const memberItem = (member) => {
     if(currentAdmin != null){
       return(
         <div className='member-delete' onClick={handleDelete}>
-          <AiFillDelete size='50px'></AiFillDelete>
+          <AiFillDelete size='50px' color='white'></AiFillDelete>
         </div>
       );
     } else {
@@ -37,7 +37,7 @@ const memberItem = (member) => {
     if(currentAdmin != null) {
       return(
         <div className='member-update' onClick={handleUpdate}>
-          <AiFillEdit size='50px'></AiFillEdit>
+          <AiFillEdit size='50px' color='white'></AiFillEdit>
         </div>
       );
     } else {
@@ -56,13 +56,15 @@ const memberItem = (member) => {
   return (
     <li key={member.member.id} className={findClass()}>
       <img className='member-photo' src={member.member.photoUrl}/>
-      <div className='member-info'>
-        <div className='member-name'>{member.member.name}</div>
-        <div className='member-bio'>{member.member.bio}</div>
-      </div>
-      <div>
-        {renderDelete()}
-        {renderUpdate()}
+      <div className='member-content'>
+        <div className='member-info'>
+          <div className='member-name'>{member.member.name}</div>
+          <div className='member-bio'>{member.member.bio}</div>
+        </div>
+        <div className='member-admin-buttons'>
+          {renderDelete()}
+          {renderUpdate()}
+        </div>
       </div>
     </li>
   );

@@ -12,7 +12,7 @@ const footer = () => {
     const currentAdmin = useSelector(state => state.session.currentAdmin);
     if (currentAdmin) {
       return (
-        <div>
+        <div className='footer-container'>
           <button onClick={() => {
             dispatch(logout());
           }}>Logout</button>
@@ -22,7 +22,6 @@ const footer = () => {
       return (
         <div className='footer-container'>
           <div onClick={() => {
-            console.log('click');
             history.push('/login');
             }} className='admin-login'>Admin Logins</div>
         </div>
