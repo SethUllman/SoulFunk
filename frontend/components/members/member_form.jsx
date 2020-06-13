@@ -45,36 +45,56 @@ const memberForm = () => {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Member Name:
-          <input 
-            type="text" 
-            value={name}
-            onChange={(e) => {
-              setName(e.target.value);
-            }}/>
-        </label>
-        <label>
-          Member Bio:
-          <textarea 
-            value={bio}  
-            onChange={(e) => {
-              setBio(e.target.value);
-            }}
-          />
-        </label>
-        <label>
-          Member Image:
-          <input 
-            type="file" 
-            accept="image/gif, image/jpeg, image/png"
-            onChange={handleFile} 
-          />
-          {photoUrl ? <img src={photoUrl} /> : null}
-        </label>
-        <button type="submit">Create Member</button>
+    <div className='member-form-div'>
+      <form onSubmit={handleSubmit} className='member-form'>
+        <div className='member-title-div'>
+          <h1 className='member-form-title'>Create New Member</h1>
+        </div>
+        <div className='member-form-name-div'>
+          <label className='member-form-name'>
+            Member Name:
+          </label>
+          <div className='member-name-input-div'>
+            <input 
+              className='member-name-input'
+              type="text" 
+              value={name}
+              onChange={(e) => {
+                setName(e.target.value);
+              }}/>
+          </div>
+        </div>
+        <div className='member-form-bio-div'>
+          <label className='member-form-bio'>
+            Member Bio:
+          </label>
+          <div className='member-bio-textarea-div'>
+            <textarea 
+              className='member-bio-textarea'
+              value={bio}  
+              onChange={(e) => {
+                setBio(e.target.value);
+              }}
+            />
+          </div>
+        </div>
+        <div className='member-form-image-div'>
+          <label className='member-form-image-label'>
+            Member Image:
+          </label>
+          <div className='member-image-input-div'>
+            <input 
+              className='member-form-image-input'
+              type="file" 
+              accept="image/gif, image/jpeg, image/png"
+              onChange={handleFile} 
+            />
+            {photoUrl ? <img className='member-form-image' src={photoUrl} /> : null}
+          </div>
+        </div>
+        <div className='member-create-div'>
+          <button className='member-create-button' type="submit">Create Member</button>
+        </div>
       </form>
     </div>
   )
