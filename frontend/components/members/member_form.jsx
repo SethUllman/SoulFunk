@@ -57,7 +57,7 @@ const memberForm = () => {
                 setName(e.target.value);
               }}/>
           </label>
-          <label>
+          <label style={{height: '25%'}}>
             Bio:
             <textarea 
               value={bio}  
@@ -66,15 +66,15 @@ const memberForm = () => {
               }}
               />
           </label>
-          <label>
-            Member Image:
+          
+          <div>
             <input 
               type="file" 
               accept="image/gif, image/jpeg, image/png"
               onChange={handleFile} 
-              />
-          </label>
+            />
             {photoUrl ? <img  src={photoUrl} /> : null}
+          </div>
           <button type="submit">Create Member</button>
       </form>
     </div>
