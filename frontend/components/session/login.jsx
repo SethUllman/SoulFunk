@@ -21,9 +21,9 @@ const Login = () => {
   return(
     <div className='form-div'>
       <form onSubmit={handleSubmit} className='form'>
-        
+        <h2>Admin Login</h2>
         <label>
-          Admin Username:
+          Username:
           <input 
             type="text" 
             value={username} 
@@ -31,7 +31,7 @@ const Login = () => {
           />
         </label>
         <label>
-          Admin Password:
+          Password:
           <input 
             type="password" 
             value={password} 
