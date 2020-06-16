@@ -10,9 +10,7 @@ const showForm = () => {
 
   const [location, setLocation] = useState('');
   const [showDate, setDate] = useState('');
-  console.log(showDate);
   const [time, setTime] = useState('');
-  console.log(time);
   const [charge, setCharge] = useState('');
 
   const handleSubmit = (e) => {
@@ -30,8 +28,9 @@ const showForm = () => {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className='form-div'>
+      <form onSubmit={handleSubmit} className='form'>
+        <h2>Create New Show</h2>
         <label>
           Location: 
           <input 
