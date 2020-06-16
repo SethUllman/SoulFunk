@@ -19,8 +19,8 @@ const Login = () => {
   }
 
   return(
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className='form-div'>
+      <form onSubmit={handleSubmit} className='form'>
         
         <label>
           Admin Username:

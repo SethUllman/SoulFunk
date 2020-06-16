@@ -1,0 +1,16 @@
+.form-div {
+  border: 1px solid blue;
+  height: 56vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  border: 1px solid yellow;
+  width: 90%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
