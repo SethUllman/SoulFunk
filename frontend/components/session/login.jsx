@@ -38,7 +38,7 @@ const Login = () => {
             onChange={ (e) => setPassword(e.target.value)} 
           />
         </label>
-        <input type='submit' value='login' />
+        <button type='submit'>Login</button>
       </form>
     </div>
   );
