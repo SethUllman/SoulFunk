@@ -32,9 +32,9 @@ const showItem = (show) => {
 
   return (
     <li key={show.show.id}>
+      <div>{show.show.date}</div>
       <div>{`${show.show.venue} @ ${show.show.time}`}</div>
       <div>{cityState()}</div>
-      <div>{show.show.date}</div>
       <div>Charge:
         <div>{`$${show.show.charge}`}</div>
       </div>
