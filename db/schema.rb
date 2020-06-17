@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_30_035413) do
+ActiveRecord::Schema.define(version: 2020_06_17_045525) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,9 +59,11 @@ ActiveRecord::Schema.define(version: 2020_04_30_035413) do
   end
 
   create_table "shows", force: :cascade do |t|
-    t.string "location", null: false
     t.datetime "time", null: false
     t.float "charge", null: false
+    t.string "venue", null: false
+    t.string "city", null: false
+    t.string "state", null: false
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
