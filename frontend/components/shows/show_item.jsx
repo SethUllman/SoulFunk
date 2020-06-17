@@ -8,7 +8,6 @@ const showItem = (show) => {
   const history = useHistory();
   const dispatch = useDispatch();
   const currentAdmin = useSelector(state => state.session.currentAdmin);
-
   const handleDelete = () => {
     dispatch(deleteShow(show.show.id));
     history.push('/shows');
@@ -24,25 +23,18 @@ const showItem = (show) => {
     }
   }
 
-  const formatTime = () => {
-    
-    const newDate = new Intl.DateTimeFormat("en-US", {
-      weekday: 'short',
-      month: "long",
-      day: "numeric",
-      year: "numeric"
-    }).format(show.show.date);
-    return newDate;
+  const cityState = () => {
+    const city = show.show.city;
+    const state = show.show.state;
+
+    return (`${city}, ${state}`);
   }
 
   return (
     <li key={show.show.id}>
-      <div>Location:
-        <div>{show.show.location}</div>
-      </div>
-      <div>Time:
-        <div>{formatTime()}</div>
-      </div>
+      <div>{`${show.show.venue} @ ${show.show.time}`}</div>
+      <div>{cityState()}</div>
+      <div>{show.show.date}</div>
       <div>Charge:
         <div>{`$${show.show.charge}`}</div>
       </div>

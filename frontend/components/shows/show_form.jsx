@@ -11,22 +11,45 @@ const showForm = () => {
   const [venue, setVenue] = useState('');
   const [city, setCity] = useState('');
   const [state, setState] = useState('');
-  const [showDate, setDate] = useState('');
+  const [date, setDate] = useState('');
   const [time, setTime] = useState('');
   const [charge, setCharge] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     let formData = new FormData();
-    let showTime = `${showDate} | ${time}`;
+    let newDate = new Date(date);
+    newDate = (formatDate(newDate));
+    let newTime = new Date(date);
+    newTime = (formatTime(newTime));
     formData.append("show[venue]", venue);
-    formData.append("show[time]", showTime);
+    formData.append("show[city]", city);
+    formData.append("show[state]", state);
+    formData.append("show[date]", newDate);
+    formData.append("show[time]", newTime);
     formData.append("show[charge]", charge);
-
     dispatch(addShow(formData))
       .then(() => {
         history.push('/shows');
       })
+  }
+
+  const formatDate = (date) => {
+    const newDate = new Intl.DateTimeFormat("en-US", {
+      weekday: 'short',
+      month: "long",
+      day: "numeric",
+      year: "numeric"
+    }).format(date);
+    return newDate;
+  }
+
+  const formatTime = (time) => {
+    const newTime = new Intl.DateTimeFormat("en-US", {
+      hour: 'numeric',
+      minute: 'numeric'
+    }).format(time);
+    return newTime;
   }
 
   return (
@@ -35,12 +58,14 @@ const showForm = () => {
         <h2>Create New Show</h2>
         <label>
           <input type="hidden" name="country" id="countryId" value="US" />
-          <select name="state" className="states order-alpha" id="stateId">
+          <select name="state" className="states order-alpha" id="stateId"
+            onChange={(e) => {setState(e.target.value)}}>
             <option value="">Select State</option>
           </select>
         </label>
         <label>
-          <select name="city" className="cities order-alpha" id="cityId">
+          <select name="city" className="cities order-alpha" id="cityId"
+            onChange={(e) => {setCity(e.target.value)}}>
             <option value="">Select City</option>
           </select>
         </label>
@@ -48,24 +73,16 @@ const showForm = () => {
           Venue: 
           <input 
             type='text'
-            value={location}
-            onChange={(e) => {setLocation(e.target.value)}}>
+            value={venue}
+            onChange={(e) => {setVenue(e.target.value)}}>
           </input>
         </label>
         <label>
           Date:
           <input 
-            type='date'
-            value={showDate}
+            type='datetime-local'
+            value={date}
             onChange={(e) => {setDate(e.target.value)}}>
-          </input>
-        </label>
-        <label>
-          Time:
-          <input 
-            type='time'
-            value={time}
-            onChange={(e) => {setTime(e.target.value)}}>
           </input>
         </label>
         <label>
@@ -81,8 +98,6 @@ const showForm = () => {
         </label>
         <button>Create Show</button>
       </form>
-      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-      <script src="//geodata.solutions/includes/statecity.js"></script>
     </div>
   );
 }

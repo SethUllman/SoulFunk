@@ -23,7 +23,6 @@ const memberUpdateForm = () => {
     const [photo, setPhoto] = useState(member.photoUrl);
   })
 
-  console.log(name);
   if (member != null){
     return (
       <div>

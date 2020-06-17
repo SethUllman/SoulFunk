@@ -46,7 +46,7 @@ class Api::ShowsController < ApplicationController
   private
 
   def show_params
-    params.require(:show).permit(:venue, :city, :state, :time, :charge)
+    params.require(:show).permit(:venue, :city, :state, :time, :date, :charge)
   end
 
 end
