@@ -25,20 +25,14 @@ const showItem = (show) => {
   }
 
   const formatTime = () => {
-    let showTime = show.show.time.split('T');
-    let date = showTime[0];
-    let time = showTime[1];
-    time = time.split(".");
-    time = time[0];
-    time = time.split(":");
-    let meridian = "AM";
-    let hour = parseInt(time[0]);
-    let minutes = time[1];
-    if (hour > 12) {
-      hour = hour%12;
-      meridian = "PM";
-    }
-    return (`${date} ${hour}:${minutes} ${meridian}`);
+    
+    const newDate = new Intl.DateTimeFormat("en-US", {
+      weekday: 'short',
+      month: "long",
+      day: "numeric",
+      year: "numeric"
+    }).format(show.show.date);
+    return newDate;
   }
 
   return (

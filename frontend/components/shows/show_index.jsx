@@ -22,6 +22,7 @@ const showIndex = () => {
       return(
         <div>
           <button 
+            className='button'
             onClick={() => {history.push('/new-show')}}
           >Add Show</button>
         </div>
