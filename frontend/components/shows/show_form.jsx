@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {useHistory} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 import {addShow} from '../../actions/show_actions';
@@ -14,6 +14,17 @@ const showForm = () => {
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
   const [charge, setCharge] = useState('');
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    const scriptTwo = document.createElement("script");
+    script.async = true;
+    scriptTwo.async = true;
+    script.src = "//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js";
+    scriptTwo.src = "//geodata.solutions/includes/statecity.js";
+    document.head.appendChild(script);
+    document.head.appendChild(scriptTwo);
+  })
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -58,16 +69,16 @@ const showForm = () => {
         <h2>Create New Show</h2>
         <label>
           <input type="hidden" name="country" id="countryId" value="US" />
-          <select name="state" className="states order-alpha" id="stateId"
-            onChange={(e) => {setState(e.target.value)}}>
+          <select name="state" className="states order-alpha" id="stateId">
             <option value="">Select State</option>
           </select>
         </label>
         <label>
-          <select name="city" className="cities order-alpha" id="cityId"
-            onChange={(e) => {setCity(e.target.value)}}>
+          <select name="city" className="cities order-alpha" id="cityId">
             <option value="">Select City</option>
           </select>
+          <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+          <script src="//geodata.solutions/includes/statecity.js"></script>
         </label>
         <label>
           Venue: 
