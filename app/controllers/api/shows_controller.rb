@@ -12,7 +12,7 @@ class Api::ShowsController < ApplicationController
   def create 
     @show = Show.new(show_params)
     if @show.save
-      render :show
+      render :index
     else
       render json: @show.errors.full_messages, status: 422
     end
@@ -46,7 +46,7 @@ class Api::ShowsController < ApplicationController
   private
 
   def show_params
-    params.require(:show).permit(:location, :time, :charge)
+    params.require(:show).permit(:venue, :city, :state, :time, :charge)
   end
 
 end

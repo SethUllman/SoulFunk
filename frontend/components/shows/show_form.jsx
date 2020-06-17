@@ -8,7 +8,9 @@ const showForm = () => {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const [location, setLocation] = useState('');
+  const [venue, setVenue] = useState('');
+  const [city, setCity] = useState('');
+  const [state, setState] = useState('');
   const [showDate, setDate] = useState('');
   const [time, setTime] = useState('');
   const [charge, setCharge] = useState('');
@@ -17,7 +19,7 @@ const showForm = () => {
     e.preventDefault();
     let formData = new FormData();
     let showTime = `${showDate} | ${time}`;
-    formData.append("show[location]", location);
+    formData.append("show[venue]", venue);
     formData.append("show[time]", showTime);
     formData.append("show[charge]", charge);
 
@@ -32,7 +34,18 @@ const showForm = () => {
       <form onSubmit={handleSubmit} className='form'>
         <h2>Create New Show</h2>
         <label>
-          Location: 
+          <input type="hidden" name="country" id="countryId" value="US" />
+          <select name="state" className="states order-alpha" id="stateId">
+            <option value="">Select State</option>
+          </select>
+        </label>
+        <label>
+          <select name="city" className="cities order-alpha" id="cityId">
+            <option value="">Select City</option>
+          </select>
+        </label>
+        <label>
+          Venue: 
           <input 
             type='text'
             value={location}
@@ -68,6 +81,8 @@ const showForm = () => {
         </label>
         <button>Create Show</button>
       </form>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <script src="//geodata.solutions/includes/statecity.js"></script>
     </div>
   );
 }

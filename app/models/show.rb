@@ -1,3 +1,3 @@
 class Show < ApplicationRecord
-  validates :location, :time, :charge, presence: true
+  validates :venue, :city, :state, :time, :charge, presence: true
 end
