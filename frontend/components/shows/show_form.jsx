@@ -24,7 +24,7 @@ const showForm = () => {
     scriptTwo.src = "//geodata.solutions/includes/statecity.js";
     document.head.appendChild(script);
     document.head.appendChild(scriptTwo);
-  })
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -69,12 +69,12 @@ const showForm = () => {
         <h2>Create New Show</h2>
         <label>
           <input type="hidden" name="country" id="countryId" value="US" />
-          <select name="state" className="states order-alpha" id="stateId">
+          <select name="state" className="states order-alpha" id="stateId" onChange={(e) => {setState(e.target.value)}}>
             <option value="">Select State</option>
           </select>
         </label>
         <label>
-          <select name="city" className="cities order-alpha" id="cityId">
+          <select name="city" className="cities order-alpha" id="cityId" onChange={(e) => {setCity(e.target.value)}}>
             <option value="">Select City</option>
           </select>
           <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

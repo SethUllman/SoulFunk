@@ -35,7 +35,7 @@ const showItem = (show) => {
       <div>{show.show.date}</div>
       <div>{`${show.show.venue} @ ${show.show.time}`}</div>
       <div>{cityState()}</div>
-      <div>Charge:
+      <div>Charge: 
         <div>{`$${show.show.charge}`}</div>
       </div>
       <div>

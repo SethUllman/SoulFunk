@@ -20,12 +20,10 @@ const showIndex = () => {
   const addShow = () => {
     if (currentAdmin != null){
       return(
-        <div>
-          <button 
-            className='button'
-            onClick={() => {history.push('/new-show')}}
-          >Add Show</button>
-        </div>
+        <button 
+          className='button'
+          onClick={() => {history.push('/new-show')}}
+        >Add Show</button>
       );
     }
   }
@@ -42,9 +40,7 @@ const showIndex = () => {
             return <ShowItem key={show.id} show={show} />;
           })}
         </ul>
-        <div>
-          {addShow()}
-        </div>
+        {addShow()}
       </div>
     );
   } else {
