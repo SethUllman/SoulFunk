@@ -23,11 +23,9 @@ const membersIndex = () => {
   const addMember = () => {
     if (admin != null){
       return(
-        <div className='add-member-div'>
-          <button 
-            className='add-member-button' onClick={() => {history.push('/new-member')}}
-          >Create New Member</button>
-        </div>
+        <button 
+          className='button' onClick={() => {history.push('/new-member')}}
+        >Create New Member</button>
       );
     }
   }
@@ -47,9 +45,9 @@ const membersIndex = () => {
             return <MemberItem key={member.id} member={member} />;
           })}
         </ul>
-        <div className='add-member'>
-          {addMember()}
-        </div>
+        
+        {addMember()}
+      
       </div>
     );
   } else {

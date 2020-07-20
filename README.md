@@ -25,3 +25,25 @@ A band website for the "Soul Funk Collective"
 9. Administrators can log in 
 
 10. Logged in administrators can add/delete shows, update/add/delete members, upload/delete photos from gallery
+
+## 07/20 - 07/25 Sprint
+
+### Day 1.
+
+Finish Contact page used for contacting the bands email.
+
+### Day 2.
+
+Start and finish basic home page
+
+### Day 3.
+
+Implement Instagram feed to home page, start on desktop styling
+
+### Day 4.
+
+Finish all Desktop styling, start on bug fixing
+
+### Day 5.
+
+Polish project and deploy
