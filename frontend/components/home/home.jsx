@@ -1,9 +1,56 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { fetchShows } from '../../actions/show_actions';
+import ShowItem from '../shows/show_item';
 
 const Home = () => {
 
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  let shows = useSelector(state => state.shows);
+
+  const findShows = () => {
+    if (shows == null) {
+      dispatch(fetchShows());
+    }
+  }
+
+  findShows();
+  shows = useSelector(state => state.shows);
+
+  const displayShows = () => {
+    if (shows != null) {
+      return (
+        <div className='shows-div'>
+          <h2>Upcoming Shows</h2>
+          <ul className='shows-index'>
+            {shows.map(show => {
+              return <ShowItem key={show.id} show={show} />;
+            })}
+          </ul>
+        </div>
+      );
+    } else {
+      return (<div>Loading...</div>);
+    }
+  }
+
   return(
-    <div>Home Page</div>
+    <div>
+      <div className='page-banner'>
+        <img src='assets/full-band2.png'></img>
+      </div>
+      <div className='band-description'>
+        <p>
+          Billings Local soul band, formerly known as The MSUB Old Soles. 
+          We’re all about playing that sweet, funky soul music, 
+          and we’d love to give you a taste!
+        </p>
+      </div>
+      {displayShows()}
+    </div>
   )
 
 }
