@@ -34,7 +34,9 @@ const showIndex = () => {
   if (shows != null){
     return(
       <div className='shows-div'>
-        <h2>Upcoming Shows</h2>
+        <div>
+          <h2>Upcoming Shows</h2>
+        </div>
         <ul className='shows-index'>
           {shows.map(show => {
             return <ShowItem key={show.id} show={show} />;

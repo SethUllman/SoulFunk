@@ -24,7 +24,9 @@ const Home = () => {
     if (shows != null) {
       return (
         <div className='shows-div'>
-          <h2>Upcoming Shows</h2>
+          <div>
+            <h2>Upcoming Shows</h2>
+          </div>
           <ul className='shows-index'>
             {shows.map(show => {
               return <ShowItem key={show.id} show={show} />;
@@ -49,7 +51,9 @@ const Home = () => {
           and we’d love to give you a taste!
         </p>
       </div>
+      <div className='home-shows'>
       {displayShows()}
+      </div>
     </div>
   )
 
