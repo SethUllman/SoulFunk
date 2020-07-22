@@ -64,7 +64,6 @@ const Nav = () => {
 
   return(
     <div className='nav-div'>
-      <div>{welcomeMessage()}</div>
       <div className='nav-drop'>
         <div className='open-nav' onClick={(e) => {dropDown(e)}}>
           <FaBars id='bars' className='nav-bars' size='90px' color="black"></FaBars>
