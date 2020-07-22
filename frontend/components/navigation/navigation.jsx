@@ -79,10 +79,10 @@ const Nav = () => {
               closeModal();
               history.push("/shows")}}>Shows
             </div>
-            <div className='nav-li' onClick={() => {
+            {/* <div className='nav-li' onClick={() => {
               closeModal();
               history.push("/gallery")}}>Gallery
-            </div>
+            </div> */}
             <div className='nav-li' onClick={() => {
               closeModal();
               history.push("/members")}}>The Band

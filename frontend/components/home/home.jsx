@@ -42,7 +42,7 @@ const Home = () => {
   return(
     <div>
       <div className='page-banner'>
-        <img src='assets/full-band2.png'></img>
+        <img src='assets/full-band3.jpg'></img>
       </div>
       <div className='band-description'>
         <p>
@@ -54,7 +54,9 @@ const Home = () => {
       <div className='home-shows'>
       {displayShows()}
       </div>
-      <div id="curator-feed-default-feed-layout"><a href="https://curator.io" target="_blank" class="crt-logo crt-tag">Powered by Curator.io</a></div>
+      <div className='home-insta'>
+        <div id="curator-feed-default-feed-layout"><a href="https://curator.io" target="_blank" className="crt-logo crt-tag" samesite='None'>Powered by Curator.io</a></div>
+      </div>
     </div>
   )
 

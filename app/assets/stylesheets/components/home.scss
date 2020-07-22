@@ -1,10 +1,20 @@
 .page-banner {
-  padding-top: 100px;
+  width: 100%;
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 25px 0 25px 0;
+}
+
+.page-banner > img {
+  width: 90%;
 }
 
 .band-description {
   display: flex;
-  font-size: 50px;
+  font-size: 18px;
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   color: gray;
@@ -12,7 +22,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin: 100px 0 100px 0;
+  margin: 50px 0 100px 0;
 }
 
 .band-description > p {
@@ -23,3 +33,30 @@
   border-bottom: 5px solid black;
 }
 
+.home-insta {
+  padding: 50px 0 50px 0;
+}
+
+@media (min-width: 400px) {
+  .page-banner {
+    width: 75%;
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 100px 0 0 0;
+  }
+
+  .page-banner > img {
+    height: auto;
+    width: 90%;
+  }
+
+  .band-description {
+    font-size: 30px;
+    width: 75%;
+    margin: 0 auto;
+    padding: 100px 0 100px 0;
+  }
+}
