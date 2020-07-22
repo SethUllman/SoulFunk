@@ -96,7 +96,9 @@ const Nav = () => {
           </div>
         </div>
       </div>
-      <div className='nav-logo'></div>
+      <div className='nav-logo' onClick={() => {
+        history.push("/home");
+      }}></div>
     </div>
     
   );

@@ -138,6 +138,9 @@
 @media (min-width: 400px) {
   .nav-bars {
     display: none;
+    z-index: -1;
+    pointer-events: none;
+    cursor: none;
   }
 
   .nav-div {
@@ -147,6 +150,8 @@
 
   .nav-logo {
     position: static;
+    z-index: 5;
+    cursor: pointer;
   }
 
   .nav-drop {
