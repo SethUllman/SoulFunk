@@ -14,9 +14,9 @@ const footer = () => {
     if (currentAdmin) {
       return (
         <div className='footer-container'>
-          <button onClick={() => {
-            dispatch(logout());
-          }}>Logout</button>
+          <i className='fab fa-facebook' aria-hidden='true' onClick={() => { window.open('https://www.facebook.com/TheSoulFunkCollective', '_blank') }}></i>
+          <i className="fab fa-instagram" aria-hidden='true' onClick={() => { window.open('https://www.instagram.com/thesoulfunkcollective/', '_blank') }}></i>
+          <i class="fa fa-sign-out" aria-hidden="true" onClick={() => { dispatch(logout()) }}></i>
         </div>
       )
     } else {
