@@ -36,7 +36,7 @@ const contact = () => {
             type='text'
             ></input>
         </label>
-        <label id='text-label'>
+        <label>
           Body:
           <textarea 
             name='body'
