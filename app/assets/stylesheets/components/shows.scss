@@ -1,4 +1,4 @@
-.shows-div {
+.shows-div, .home-shows {
   // background: black;
   height: 90vh;
   display: flex;
@@ -10,18 +10,17 @@
 
 }
 
-.shows-div > div {
-  width: 85%;
+.shows-div > div, .home-shows > div {
+  width: 90%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.shows-div > div > h2 {
+.shows-div > div > h2, .home-shows > div > h2 {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 30px;
   width: 80%;
-  border-bottom: 1px solid gray;
   padding: 20px 0 20px 0;
   display: flex;
   justify-content: center;

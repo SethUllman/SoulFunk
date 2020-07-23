@@ -176,7 +176,7 @@
     padding: 2% 3% 2% 3%;
   }
 
-  .form > button:hover {
+  .form > button:hover, .button:hover {
     background: #fc7d33;
     color: white;
   }
@@ -185,5 +185,9 @@
     display: static;
     height: 50px;
     width: auto;
+  }
+
+  .button {
+    width: 40%;
   }
 }
