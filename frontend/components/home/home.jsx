@@ -23,7 +23,7 @@ const Home = () => {
   const displayShows = () => {
     if (shows != null) {
       return (
-        <div className='shows-div'>
+        <div className='home-shows'>
           <div>
             <h2>Upcoming Shows</h2>
           </div>
