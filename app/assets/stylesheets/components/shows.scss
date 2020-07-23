@@ -59,13 +59,13 @@
   .shows-div {
     // background: black;
     height: auto;
-    min-height: 80vh;
+    min-height: 40vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     color: gray;
-    padding: 100px 0 100px 0;
+    padding: 50px 0 100px 0;
   }
 
   .shows-div > div > h2 {
@@ -73,7 +73,7 @@
     font-size: 30px;
     width: 60%;
     border-bottom: 1px solid gray;
-    padding: 20px 0 20px 0;
+    padding: 0 0 20px 0;
     display: flex;
     justify-content: center;
     align-items: center;

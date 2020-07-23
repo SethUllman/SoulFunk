@@ -55,6 +55,14 @@ const Home = () => {
       {displayShows()}
       </div>
       <div className='home-insta'>
+        <script type="text/javascript">{
+          /* curator-feed-default-feed-layout */
+          (function(){
+          var i, e, d = document, s = "script";i = d.createElement("script");i.async = 1;
+          i.src = "https://cdn.curator.io/published/41ba390f-bfb0-41d3-8d1f-60edb5895100.js";
+          e = d.getElementsByTagName(s)[0];e.parentNode.insertBefore(i, e);
+          })()}
+        </script>
         <div id="curator-feed-default-feed-layout"><a href="https://curator.io" target="_blank" className="crt-logo crt-tag" samesite='None'>Powered by Curator.io</a></div>
       </div>
     </div>
