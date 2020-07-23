@@ -1,4 +1,4 @@
-.shows-div, .home-shows {
+.shows-div {
   // background: black;
   height: 90vh;
   display: flex;
@@ -6,8 +6,7 @@
   justify-content: center;
   align-items: center;
   color: gray;
-  padding: 0 0 20px 0;
-
+  padding: 20px 0 20px 0;
 }
 
 .shows-div > div, .home-shows > div {
