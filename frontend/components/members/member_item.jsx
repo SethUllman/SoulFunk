@@ -5,28 +5,28 @@ import {useDispatch, useSelector} from 'react-redux';
 import {AiFillDelete, AiFillEdit} from 'react-icons/ai';
 
 
-const memberItem = (member) => {
+const memberItem = (props) => {
 
   const history = useHistory();
   const dispatch = useDispatch();
   const currentAdmin = useSelector(state => state.session.currentAdmin);
   
   const handleDelete = () => {
-    dispatch(deleteMember(member.member.id));
+    dispatch(deleteMember(props.member.id));
     history.push('/members');
   }
 
   const handleUpdate = () => {
-    dispatch(fetchMember(member.member.id));
-    history.push(`/members/${member.member.id}`);
+    dispatch(fetchMember(props.member.id));
+    history.push(`/members/${props.member.id}`);
   }
 
   const renderDelete = () => {
     if(currentAdmin != null){
       return(
-        <div className='member-delete' onClick={handleDelete}>
+        <li className='member-delete' onClick={handleDelete}>
           <AiFillDelete size='50px' color='white'></AiFillDelete>
-        </div>
+        </li>
       );
     } else {
       return null;
@@ -36,9 +36,9 @@ const memberItem = (member) => {
   const renderUpdate = () => {
     if(currentAdmin != null) {
       return(
-        <div className='member-update' onClick={handleUpdate}>
+        <li className='member-update' onClick={handleUpdate}>
           <AiFillEdit size='50px' color='white'></AiFillEdit>
-        </div>
+        </li>
       );
     } else {
       return null;
@@ -46,7 +46,7 @@ const memberItem = (member) => {
   }
 
   const findClass = () => {
-    if (member.member.id % 2 == 0) {
+    if (props.counter % 2 == 0) {
       return 'member-li-true';
     } else {
       return 'member-li-false';
@@ -54,18 +54,18 @@ const memberItem = (member) => {
   }
 
   return (
-    <li key={member.member.id} className={findClass()}>
-      <img className='member-photo' src={member.member.photoUrl}/>
-      <div className='member-content'>
-        <div className='member-info'>
-          <div className='member-name'>{member.member.name}</div>
-          <div className='member-bio'>{member.member.bio}</div>
-        </div>
-        <div className='member-admin-buttons'>
-          {renderDelete()}
-          {renderUpdate()}
+    <li key={props.member.id} className={findClass()}>
+      <div className='member-info'>
+        <img className='member-photo TextWrap' src={props.member.photoUrl}/>
+        <div>
+          <div className='member-name'>{props.member.name}</div>
+          <div className='member-bio'>{props.member.bio}</div>
         </div>
       </div>
+      <ul className='member-admin-buttons'>
+        {renderDelete()}
+        {renderUpdate()}
+      </ul>
     </li>
   );
 }

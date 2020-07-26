@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useDispatch, useSelector} from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
@@ -12,6 +12,7 @@ const membersIndex = () => {
   const history = useHistory();
   let members = useSelector(state => state.members);
   let admin = useSelector(state => state.session.currentAdmin);
+  let counter = 0;
 
   const findMembers = () => {
     if (members == null){
@@ -31,18 +32,19 @@ const membersIndex = () => {
   }
 
   findMembers();
-  members = useSelector(state => state.members);
-
   if (members != null){
     return(
       <div> 
         <div className='full-band-container'>
-          <img className='member-full-band' src='assets/full-band.jpg' />
+          <div className='page-banner'>
+            <img src='assets/full-band.jpg' />
+          </div>
           <div className='full-band-text'>The Band</div>
         </div>
         <ul className='members-ul'>
-          {members.map(member => {
-            return <MemberItem key={member.id} member={member} />;
+          {members.map((member, counter) => {
+            counter++;
+            return <MemberItem key={member.id} member={member} counter={counter} />;
           })}
         </ul>
         
