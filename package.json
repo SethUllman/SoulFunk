@@ -24,7 +24,7 @@
   },
   "description": "# SoulFunk",
   "version": "1.0.0",
-  "main": "soulfunk.jsx",
+  "main": "index.js",
   "directories": {
     "lib": "lib",
     "test": "test"
