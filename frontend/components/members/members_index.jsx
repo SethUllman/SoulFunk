@@ -37,7 +37,6 @@ const membersIndex = () => {
       <div> 
         <div className='page-banner'>
           <img src='assets/Moss-table.png' />
-          {/* <div className='full-band-text'>The Band</div> */}
         </div>
         <ul className='members-ul'>
           {members.map((member, counter) => {

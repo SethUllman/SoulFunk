@@ -1,22 +1,25 @@
-.shows-div {
-  // background: black;
-  height: 90vh;
+@font-face {
+  font-family: Bellbottom;
+  src:url('/assets/BellBottom.Laser 5.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.show-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: gray;
-  padding: 20px 0 20px 0;
 }
 
-.shows-div > div, .home-shows > div {
+.show-content > div, .home-shows > div {
   width: 90%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.shows-div > div > h2, .home-shows > div > h2 {
+.show-content > div > h2, .home-shows > div > h2 {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 30px;
   width: 80%;
@@ -54,22 +57,11 @@
 }
 
 @media (min-width: 400px){
-  .shows-div {
-    // background: black;
-    height: auto;
-    min-height: 40vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: gray;
-    padding: 50px 0 100px 0;
-  }
 
-  .shows-div > div > h2 {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 30px;
-    width: 60%;
+  .show-content > h2 {
+    font-family: Bellbottom;
+    font-size: 50px;
+    width: 70%;
     border-bottom: 1px solid gray;
     padding: 0 0 20px 0;
     display: flex;
@@ -77,9 +69,13 @@
     align-items: center;
   }
 
+  .show-content > ul {
+    width: 100%;
+  }
+
   .shows-index > li {
     height: 25vh;
-    width: 60%;
+    width: 70%;
     display: flex;
     flex-direction: column;
     align-items: center;

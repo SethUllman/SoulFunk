@@ -33,16 +33,21 @@ const showIndex = () => {
 
   if (shows != null){
     return(
-      <div className='shows-div'>
-        <div>
-          <h2>Upcoming Shows</h2>
+      <div>
+        <div className='page-banner'>
+          <img src='assets/full-band.jpg' />
         </div>
-        <ul className='shows-index'>
-          {shows.map(show => {
-            return <ShowItem key={show.id} show={show} />;
-          })}
-        </ul>
-        {addShow()}
+        <div className='show-content'>
+          
+          <h2>Upcoming Shows</h2>
+          
+          <ul className='shows-index'>
+            {shows.map(show => {
+              return <ShowItem key={show.id} show={show} />;
+            })}
+          </ul>
+          {addShow()}
+        </div>
       </div>
     );
   } else {

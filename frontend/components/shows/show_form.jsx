@@ -107,7 +107,7 @@ const showForm = () => {
 
           </input>
         </label>
-        <button>Create Show</button>
+        <button className='button'>Create Show</button>
       </form>
     </div>
   );

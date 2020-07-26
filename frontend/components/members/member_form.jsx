@@ -75,7 +75,7 @@ const memberForm = () => {
             />
             {photoUrl ? <img  src={photoUrl} /> : null}
           </div>
-          <button type="submit">Create Member</button>
+          <button className='button' type="submit">Create Member</button>
       </form>
     </div>
   )
