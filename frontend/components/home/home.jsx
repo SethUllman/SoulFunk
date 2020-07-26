@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { fetchShows } from '../../actions/show_actions';
@@ -8,6 +8,7 @@ const Home = () => {
 
   const dispatch = useDispatch();
   const history = useHistory();
+  const [loaded, setLoaded] = useState(false);
 
   let shows = useSelector(state => state.shows);
 
@@ -59,7 +60,10 @@ const Home = () => {
           (function(){
           var i, e, d = document, s = "script";i = d.createElement("script");i.async = 1;
           i.src = "https://cdn.curator.io/published/41ba390f-bfb0-41d3-8d1f-60edb5895100.js";
-          e = d.getElementsByTagName(s)[0];e.parentNode.insertBefore(i, e);
+          if(!loaded){
+            e = d.getElementsByTagName(s)[0];e.parentNode.insertBefore(i, e);
+            setLoaded(true);
+          }
           })()}
         </script>
         <div id="curator-feed-default-feed-layout"><a href="https://curator.io" target="_blank" className="crt-logo crt-tag" SameSite='None' SameSite='Secure'>Powered by Curator.io</a></div>
