@@ -64,36 +64,15 @@
 
   .band-description {
     font-size: 30px;
-    width: 75%;
+    width: 100%;
+    height: auto;
     margin: 0 auto;
     padding: 100px 0 100px 0;
   }
 
-  .home-shows {
+  .band-description > p {
+    width: 50%;
     height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: gray;
-    padding: 0 0 20px 0;
   }
 
-  .home-shows > div {
-    width: 85%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .home-shows > div > h2 {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 30px;
-    width: 60%;
-    border-bottom: 1px solid gray;
-    padding: 0 0 20px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
 }

@@ -19,8 +19,8 @@
   align-items: center;
 }
 
-.show-content > div > h2, .home-shows > div > h2 {
-  font-family: Arial, Helvetica, sans-serif;
+.show-content  > h2, .home-shows > h2 {
+  font-family: Bellbottom;
   font-size: 30px;
   width: 80%;
   padding: 20px 0 20px 0;
@@ -59,7 +59,6 @@
 @media (min-width: 400px){
 
   .show-content {
-    border: 1px solid red;
     width: 100%;
   }
 
