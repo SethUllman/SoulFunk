@@ -49,18 +49,17 @@
 
 @media (min-width: 400px) {
   .page-banner {
-    width: 75%;
-    height: 30vh;
+    width: 70%;
+    height: 50vh;
     display: flex;
-    justify-content: center;
+    justify-content: bottom;
     align-items: center;
     margin: 0 auto;
-    padding: 100px 0 0 0;
   }
 
   .page-banner > img {
     height: auto;
-    width: 90%;
+    width: 100%;
   }
 
   .band-description {

@@ -35,11 +35,9 @@ const membersIndex = () => {
   if (members != null){
     return(
       <div> 
-        <div className='full-band-container'>
-          <div className='page-banner'>
-            <img src='assets/full-band.jpg' />
-          </div>
-          <div className='full-band-text'>The Band</div>
+        <div className='page-banner'>
+          <img src='assets/Moss-table.png' />
+          {/* <div className='full-band-text'>The Band</div> */}
         </div>
         <ul className='members-ul'>
           {members.map((member, counter) => {

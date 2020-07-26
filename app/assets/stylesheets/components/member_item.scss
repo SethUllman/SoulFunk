@@ -120,3 +120,24 @@
   display: flex;
   justify-content: center;
 }
+
+@media (min-width: 400px) {
+  .full-band-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px;
+    border: 1px solid red;
+  }
+
+  .full-band-text {
+    font-family: Bellbottom;
+    font-size: 60px;
+    position: absolute;
+    background: -webkit-linear-gradient(#FF6002, white);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 2px black;
+  }
+}
