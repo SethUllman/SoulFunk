@@ -39,7 +39,8 @@
 }
 
 .shows-index > li {
-  height: 25vh;
+  height: auto;
+  min-height: 25vh;
   width: 80%;
   display: flex;
   flex-direction: column;
@@ -78,7 +79,8 @@
   }
 
   .shows-index > li {
-    height: 25vh;
+    height: auto;
+    min-height: 25vh;
     width: 70%;
     display: flex;
     flex-direction: column;

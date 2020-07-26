@@ -24,9 +24,9 @@ const memberItem = (props) => {
   const renderDelete = () => {
     if(currentAdmin != null){
       return(
-        <li className='member-delete button' onClick={handleDelete}>
+        <button className='member-delete' onClick={handleDelete}>
           <AiFillDelete size='50px' color='white'></AiFillDelete>
-        </li>
+        </button>
       );
     } else {
       return null;

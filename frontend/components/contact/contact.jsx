@@ -24,22 +24,22 @@ const contact = () => {
       <form id='contact-form' className='form' onSubmit={handleSubmit}>
         <h2>Contact</h2>
         <label>
-          Email or Phone Number:
           <input
             name='email'
+            placeholder='Email or Phone Number'
           ></input>
         </label>
         <label>
-          Title:
           <input 
             name='title'
             type='text'
+            placeholder='Email Title'
             ></input>
         </label>
         <label>
-          Body:
           <textarea 
             name='body'
+            placeholder='Email Body'
           />
         </label>
         <button type='submit'>Submit</button>

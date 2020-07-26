@@ -81,30 +81,29 @@ const showForm = () => {
           <script src="//geodata.solutions/includes/statecity.js"></script>
         </label>
         <label>
-          Venue: 
           <input 
             type='text'
             value={venue}
-            onChange={(e) => {setVenue(e.target.value)}}>
+            onChange={(e) => {setVenue(e.target.value)}}
+            placeholder='Venue'>
           </input>
         </label>
         <label>
-          Date:
-          <input 
-            type='datetime-local'
-            value={date}
-            onChange={(e) => {setDate(e.target.value)}}>
-          </input>
-        </label>
-        <label>
-          Charge:
           <input 
             type='number'
             min='0'
             step='any'
             value={charge}
-            onChange={(e) => {setCharge(e.target.value)}}>
-
+            onChange={(e) => {setCharge(e.target.value)}}
+            placeholder='Charge'>
+          </input>
+        </label>
+        <label>
+          <input 
+            type='datetime-local'
+            value={date}
+            onChange={(e) => {setDate(e.target.value)}}
+            placeholder='Date and Time'>
           </input>
         </label>
         <button className='button'>Create Show</button>

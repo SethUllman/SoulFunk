@@ -16,7 +16,7 @@ const showItem = (show) => {
   const renderDelete = () => {
     if(currentAdmin != null){
       return(
-        <button onClick={handleDelete}>Delete Show</button>
+        <button className='show-delete' onClick={handleDelete}>Delete Show</button>
       );
     } else {
       return null;

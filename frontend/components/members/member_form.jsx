@@ -49,17 +49,17 @@ const memberForm = () => {
       <form onSubmit={handleSubmit} className='form'>
           <h2>Create New Member</h2>
           <label>
-            Name:
             <input 
               type="text" 
               value={name}
+              placeholder='Name'
               onChange={(e) => {
                 setName(e.target.value);
               }}/>
           </label>
           <label style={{height: '25%'}}>
-            Bio:
             <textarea 
+              placeholder='Biography'
               value={bio}  
               onChange={(e) => {
                 setBio(e.target.value);
