@@ -58,6 +58,11 @@
 
 @media (min-width: 400px){
 
+  .show-content {
+    border: 1px solid red;
+    width: 100%;
+  }
+
   .show-content > h2 {
     font-family: Bellbottom;
     font-size: 50px;

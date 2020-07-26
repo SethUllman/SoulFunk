@@ -23,10 +23,10 @@ const Home = () => {
   const displayShows = () => {
     if (shows != null) {
       return (
-        <div className='home-shows'>
-          <div>
-            <h2>Upcoming Shows</h2>
-          </div>
+        <div className='show-content'>
+          
+          <h2>Upcoming Shows</h2>
+          
           <ul className='shows-index'>
             {shows.map(show => {
               return <ShowItem key={show.id} show={show} />;
@@ -51,12 +51,11 @@ const Home = () => {
           and we’d love to give you a taste!
         </p>
       </div>
-      <div className='home-shows'>
+      
       {displayShows()}
-      </div>
+      
       <div className='home-insta'>
         <script type="text/javascript">{
-          /* curator-feed-default-feed-layout */
           (function(){
           var i, e, d = document, s = "script";i = d.createElement("script");i.async = 1;
           i.src = "https://cdn.curator.io/published/41ba390f-bfb0-41d3-8d1f-60edb5895100.js";
