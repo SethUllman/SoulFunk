@@ -114,6 +114,29 @@
 }
 
 @media (min-width: 400px) {
+
+  .members-h2 {
+    width: 60%;
+  }
+
+  .member-li-true, .member-li-false {
+    width: 60%;
+  }
+
+  .member-name {
+    font-size: 40px;
+  }
+
+  .member-bio {
+    font-size: 18px;
+  }
+
+  .member-photo {
+    height: 275px;
+  }
+}
+
+@media (min-width: 1200px) {
   .member-li-true, .member-li-false {
     width: 70%;
     display: flex;
@@ -126,7 +149,7 @@
 
   .member-photo {
     width: auto;
-    height: 250px;
+    height: 300px;
     border-radius: 20px;
     border: 2px solid black;
   }

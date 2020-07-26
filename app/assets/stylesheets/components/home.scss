@@ -18,7 +18,7 @@
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   color: gray;
-  height: 20vh;
+  height: 25vh;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -49,6 +49,17 @@
 
 @media (min-width: 400px) {
   .page-banner {
+    height: 30vh;
+  }
+
+  .band-description {
+    margin: 0 0 50px 0;
+  }
+
+}
+
+@media (min-width: 1200px) {
+  .page-banner {
     width: 70%;
     height: 50vh;
     display: flex;
@@ -74,5 +85,4 @@
     width: 50%;
     height: auto;
   }
-
 }

@@ -57,7 +57,18 @@
   padding: 5px;
 }
 
-@media (min-width: 400px){
+@media (min-width: 400px) {
+
+  .show-content > h2, .home-shows > h2 {
+    font-size: 45px;
+  }
+
+  .shows-index > li {
+    min-height: 15vh;
+  }
+}
+
+@media (min-width: 1200px){
 
   .show-content {
     width: 100%;

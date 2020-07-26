@@ -103,6 +103,21 @@ button {
 }
 
 @media (min-width: 400px){
+  .form {
+    width: 60%;
+  }
+
+  .form > h2{
+    font-size: 50px;
+  }
+
+  .form > label > input, .form > label > select {
+    height: 60px;
+  }
+
+}
+
+@media (min-width: 1200px){
   .form-div {
     height: auto;
     min-height: 50vh;

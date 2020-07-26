@@ -100,10 +100,6 @@
   justify-content: center;
 }
 
-.drop-background-close {
-  padding-top: 80px;
-}
-
 .nav-drop-contents-show {
   top: 0;
   left: 0;
@@ -135,7 +131,7 @@
   align-items: center;
 }
 
-@media (min-width: 400px) {
+@media (min-width: 1200px) {
   .nav-bars {
     display: none;
     z-index: -1;
