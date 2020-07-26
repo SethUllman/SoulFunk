@@ -29,10 +29,11 @@ const showIndex = () => {
   }
 
   const sortShows = (shows) => {
-    shows.sort(function(a,b){
-      return new Date(a.date) - new Date(b.date);
+    let newShows = shows.slice();
+    newShows.sort(function(a,b){
+      return (new Date(a.date) - new Date(b.date));
     });
-    return shows;
+    return newShows;
   }
 
   findShows();

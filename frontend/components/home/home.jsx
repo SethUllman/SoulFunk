@@ -18,6 +18,14 @@ const Home = () => {
     }
   }
 
+  const sortShows = (shows) => {
+    let newShows = shows.slice();
+    newShows.sort(function (a, b) {
+      return (new Date(a.date) - new Date(b.date));
+    });
+    return newShows;
+  }
+
   findShows();
   shows = useSelector(state => state.shows);
 
@@ -29,7 +37,7 @@ const Home = () => {
           <h2>Upcoming Shows</h2>
           
           <ul className='shows-index'>
-            {shows.map(show => {
+            {sortShows(shows).map(show => {
               return <ShowItem key={show.id} show={show} />;
             })}
           </ul>
