@@ -28,19 +28,27 @@
   width: 95%;
   display: flex;
   flex-direction: column;
+  padding: 30px 0 0 0;
   margin: 0 auto;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
 }
 
-.member-li-false > div {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.member-li-false > div > div {
+  right: 0;
 }
 
-.member-li-true > div {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
+.member-li-false > div > img {
+  float: left;
+}
+
+.member-li-false > div > img {
+  left: 0;
+}
+
+
+.member-li-true > div > div, .member-li-false > div > div {
+  position: relative;
 }
 
 .member-name {
@@ -54,7 +62,6 @@
 }
 
 .member-photo {
-  position: relative;
   width: auto;
   height: 175px;
   border-radius: 20px;
@@ -65,8 +72,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  margin: 50px 0 50px 0;
-  padding-bottom: 15vh;
+  margin: 50px 0 30px 0;
 }
 
 .member-update {
@@ -78,11 +84,7 @@
 }
 
 .member-delete {
-  background: red;
-  width: 40%;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
+  background: red !important;
 }
 
 .member-admin-buttons {

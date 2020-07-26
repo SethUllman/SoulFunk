@@ -24,7 +24,7 @@ const memberItem = (props) => {
   const renderDelete = () => {
     if(currentAdmin != null){
       return(
-        <li className='member-delete' onClick={handleDelete}>
+        <li className='member-delete button' onClick={handleDelete}>
           <AiFillDelete size='50px' color='white'></AiFillDelete>
         </li>
       );
@@ -56,7 +56,7 @@ const memberItem = (props) => {
   return (
     <li key={props.member.id} className={findClass()}>
       <div className='member-info'>
-        <img className='member-photo TextWrap' src={props.member.photoUrl}/>
+        <img className='member-photo TextWrap' src={props.member.photoUrl} />
         <div>
           <div className='member-name'>{props.member.name}</div>
           <div className='member-bio'>{props.member.bio}</div>
@@ -64,7 +64,7 @@ const memberItem = (props) => {
       </div>
       <ul className='member-admin-buttons'>
         {renderDelete()}
-        {renderUpdate()}
+        {/* {renderUpdate()} */}
       </ul>
     </li>
   );
