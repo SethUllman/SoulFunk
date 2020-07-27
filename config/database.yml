@@ -16,6 +16,7 @@
 #
 development:
   adapter: postgresql
+  database: soul_funk_collective_development
   encoding: unicode
   pool: 5
   timeout: 5000
@@ -49,6 +50,7 @@ test:
 
 production:
   adapter: postgresql
+  database: soul_funk_collective_production
   encoding: unicode
   pool: 5
   timeout: 5000
