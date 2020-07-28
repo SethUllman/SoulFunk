@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: redis://redistogo:db0f77facda5c10e8bf48069fea3ae1b@pike.redistogo.com:11595/
+  url: <%= ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" } %>
   channel_prefix: SoulFunk_production
