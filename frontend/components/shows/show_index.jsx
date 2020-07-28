@@ -43,7 +43,7 @@ const showIndex = () => {
     return(
       <div>
         <div className='page-banner'>
-          <img src='assets/full-band.jpg' />
+          <img src={window.fullBand} />
         </div>
         <div className='show-content'>
           

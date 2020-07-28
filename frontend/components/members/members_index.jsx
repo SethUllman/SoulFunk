@@ -36,7 +36,7 @@ const membersIndex = () => {
     return(
       <div> 
         <div className='page-banner'>
-          <img src='assets/Moss-table.png' />
+          <img src={window.mossTable} />
         </div>
         <div className='members-h2'>
           <h2>The Band</h2>

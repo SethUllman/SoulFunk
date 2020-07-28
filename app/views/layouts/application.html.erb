@@ -8,6 +8,14 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag asset_path('logo.png')%>
+    <script type="text/javascript">
+      window.bandShow = "<%= image_url('band-show.jpg') %>";
+      window.fullBand = "<%= image_url('full-band.jpg') %>";
+      window.fullBand2 = "<%= image_url('full-band2.png') %>";
+      window.fullBand3 = "<%= image_url('full-band3.jpg') %>";
+      window.logo = "<%= image_url('logo.png') %>";
+      window.mossTable = "<%= image_url('Moss-table.png') %>";
+    </script>
     <% if current_user %>
       <script>
         window.currentAdmin = {

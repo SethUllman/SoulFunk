@@ -51,7 +51,7 @@ const Home = () => {
   return(
     <div>
       <div className='page-banner'>
-        <img src='assets/full-band3.jpg'></img>
+        <img src={window.fullBand3}></img>
       </div>
       <div className='band-description'>
         <p>
