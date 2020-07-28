@@ -15,7 +15,7 @@ const Login = () => {
     
     const admin = Object.assign({}, {username: username, password: password});
     dispatch(login(admin));
-    history.push('/home')
+    history.push('/')
   }
 
   return(

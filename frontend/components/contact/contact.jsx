@@ -14,7 +14,7 @@ const contact = () => {
     
     emailjs.sendForm('gmail', 'template_ERJ64dUc', '#contact-form', 'user_Zc5AFeBhwbtAjm5JKVfCS')
       .then(() => {
-        history.push('/home');
+        history.push('/');
       });
   }
 

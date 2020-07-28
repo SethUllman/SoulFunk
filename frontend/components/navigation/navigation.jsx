@@ -72,7 +72,7 @@ const Nav = () => {
           <div id='nav-modal' className='nav-modal'>
             <div className='nav-li' onClick={() => {
               closeModal();
-              history.push("/home")}}>Home
+              history.push("/")}}>Home
             </div>
             <div className='nav-li' onClick={() => {
               closeModal();
@@ -93,7 +93,7 @@ const Nav = () => {
         </div>
       </div>
       <div className='nav-logo' onClick={() => {
-        history.push("/home");
+        history.push("/");
       }}></div>
     </div>
     
