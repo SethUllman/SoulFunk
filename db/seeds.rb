@@ -7,4 +7,3 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Administrator.create(username: 'SUllman', password: '$eethala1917')
