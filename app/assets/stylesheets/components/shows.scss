@@ -17,6 +17,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 1px solid red;
 }
 
 .show-content  > h2, .home-shows > h2 {
@@ -27,11 +28,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border-bottom: 1px solid gray;
+}
+
+.no-shows {
+  height: 10vh;
 }
 
 .shows-index {
   width: 85%;
   height: 80%;
+  min-height: 10vh;
   display: flex;
   flex-direction: column;
   justify-content: top;

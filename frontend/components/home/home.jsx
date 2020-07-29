@@ -18,6 +18,14 @@ const Home = () => {
     }
   }
 
+  const anyShows = (shows) => {
+    if (shows.length == 0) {
+      return (
+        <h3 className='no-shows'>No Upcoming Shows</h3>
+      );
+    }
+  }
+
   const sortShows = (shows) => {
     let newShows = shows.slice();
     newShows.sort(function (a, b) {
@@ -35,7 +43,7 @@ const Home = () => {
         <div className='show-content'>
           
           <h2>Upcoming Shows</h2>
-          
+          {anyShows(shows)}
           <ul className='shows-index'>
             {sortShows(shows).map(show => {
               return <ShowItem key={show.id} show={show} />;

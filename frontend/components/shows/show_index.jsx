@@ -36,6 +36,14 @@ const showIndex = () => {
     return newShows;
   }
 
+  const anyShows = (shows) => {
+    if(shows.length == 0){
+      return(
+        <h3 className='no-shows'>No Upcoming Shows</h3>
+      );
+    }
+  }
+
   findShows();
   shows = useSelector(state => state.shows);
   
@@ -48,12 +56,13 @@ const showIndex = () => {
         <div className='show-content'>
           
           <h2>Upcoming Shows</h2>
-          
+          {anyShows(shows)}
           <ul className='shows-index'>
             {sortShows(shows).map(show => {
               return <ShowItem key={show.id} show={show} />;
             })}
           </ul>
+          
           {addShow()}
         </div>
       </div>
