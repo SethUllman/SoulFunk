@@ -1,49 +1,49 @@
 # README
 
-# SoulFunk
+## The Soul Funk Collective Band Website
 
-A band website for the "Soul Funk Collective"
+This is a fullstack website built for The Soul Funk Collective.
+www.soulfunkcollective.com was built with a mobile first mindset and later optimized for desktop.
 
-## MVP
+You can find it here!
 
-1. Shows have a time, location, and cost
+## Technologies Used
 
-2. Upcoming shows page contains all upcoming shows
+* Ruby -v 2.5.1
 
-3. Members have a photo, name, and bio
+* Ruby on Rails -v 5.2.4
 
-4. Members are contained on "The Band" page
+* JavaScript
 
-5. Contact page allows users to email the band email
+* Node.js
 
-6. Store page contains band stickers
+* HTML
 
-7. Users can add items to cart
+* SCSS
 
-8. Users can order items by providing email, shipping info, and payment info
+* PostgreSQL
 
-9. Administrators can log in 
+## Libraries Used
 
-10. Logged in administrators can add/delete shows, update/add/delete members, upload/delete photos from gallery
+* React.js
 
-## 07/20 - 07/25 Sprint
+* Redux
 
-### Day 1.
+* JQuery
 
-Finish Contact page used for contacting the bands email.
+* Amazon Web Services
 
-### Day 2.
+* BCrypt
 
-Start and finish basic home page
+* EmailJS
 
-### Day 3.
+* FontAwesome
 
-Implement Instagram feed to home page, start on desktop styling
+* Curator.io
 
-### Day 4.
+* GeoDataApi
 
-Finish all Desktop styling, start on bug fixing
+## Login
 
-### Day 5.
+The login screen was built in order for band members/admins in order for them to create as well as delete members and shows in the postgreSQL database. It features fully functional frontend and backend user authentication. Admin passwords are salted and hashed using the Ruby gem 'Bcrypt'.
 
-Polish project and deploy
